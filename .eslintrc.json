@@ -1,6 +1,7 @@
 {
   "parserOptions": {
-    "ecmaVersion": 2017
+    "ecmaVersion": 2017,
+    "sourceType": "module"
   },
   "env": {
     "es6": true,
@@ -8,7 +9,10 @@
     "commonjs": true,
     "node": true
   },
-  "extends": "prettier",
+  "extends": [
+    "prettier",
+    "plugin:react/recommended"
+  ],
   "plugins": ["prettier"],
   "rules": {
     "array-callback-return": "error",
@@ -32,7 +36,7 @@
     "prefer-arrow-callback": "error",
     "prefer-const": "error",
     "prettier/prettier": "error",
-    "quotes": ["error", "double"],
+    "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "vars-on-top": "error",
     "yoda": "error"

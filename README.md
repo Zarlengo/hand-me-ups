@@ -10,6 +10,12 @@ npm install
 
 This should install node modules within the server and the client folder.
 
+2. Initialize Eslint.
+
+```
+npm run lint
+```
+
 2. Set up the environmental (.env) file
 
 ```
