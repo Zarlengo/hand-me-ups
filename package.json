@@ -8,8 +8,10 @@
     "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
-    "seed": "node scripts/seedDB.js",
+    "seed": "node seeders/seedDB.js",
     "install": "cd client && npm install",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
@@ -17,12 +19,19 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "nodemon": "^1.18.7",
+    "prettier": "^2.1.2",
+    "sequelize": "^6.3.5"
   },
   "dependencies": {
-    "eslint": "^7.12.1",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
-    "prettier": "^2.1.2"
+    "pg": "^8.4.2",
+    "pg-hstore": "^2.3.3"
   }
 }

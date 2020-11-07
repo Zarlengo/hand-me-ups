@@ -1,7 +1,7 @@
-const router = require("express").Router();
-const htmlRoutes = require("./html");
+const router = require('express').Router();
+const htmlRoutes = require('./html');
 
 // HTML routes
-router.use("/", htmlRoutes);
+router.use('/', htmlRoutes);
 
 module.exports = router;

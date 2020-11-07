@@ -1,6 +1,7 @@
 {
   "parserOptions": {
-    "ecmaVersion": 2017
+    "ecmaVersion": 2017,
+    "sourceType": "module"
   },
   "env": {
     "es6": true,
@@ -8,7 +9,10 @@
     "commonjs": true,
     "node": true
   },
-  "extends": "prettier",
+  "extends": [
+    "prettier",
+    "plugin:react/recommended"
+  ],
   "plugins": ["prettier"],
   "rules": {
     "array-callback-return": "error",
@@ -16,7 +20,7 @@
     "curly": "error",
     "dot-notation": "error",
     "eqeqeq": "error",
-    "implicit-arrow-linebreak": ["error", "beside"],
+    "implicit-arrow-linebreak": "off",
     "indent": ["error", 4, {"SwitchCase": 1}],
     "no-duplicate-case": "error",
     "no-else-return": "error",
@@ -32,9 +36,14 @@
     "prefer-arrow-callback": "error",
     "prefer-const": "error",
     "prettier/prettier": "error",
-    "quotes": ["error", "double"],
+    "quotes": ["error", "single"],
     "semi": ["error", "always"],
     "vars-on-top": "error",
     "yoda": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "17.0.1"
+    }
   }
 }
