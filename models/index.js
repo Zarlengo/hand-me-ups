@@ -6,6 +6,8 @@ const sequelize = new Sequelize(config);
 
 const db = {
     User: require('./user')(sequelize, Sequelize.DataTypes),
+    Parent: require('./parent')(sequelize, Sequelize.DataTypes),
+    Child: require('./child')(sequelize, Sequelize.DataTypes),
 };
 
 Object.keys(db).forEach((key) => {
