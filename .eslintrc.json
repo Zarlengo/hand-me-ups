@@ -20,7 +20,7 @@
     "curly": "error",
     "dot-notation": "error",
     "eqeqeq": "error",
-    "implicit-arrow-linebreak": ["error", "beside"],
+    "implicit-arrow-linebreak": "off",
     "indent": ["error", 4, {"SwitchCase": 1}],
     "no-duplicate-case": "error",
     "no-else-return": "error",
@@ -40,5 +40,10 @@
     "semi": ["error", "always"],
     "vars-on-top": "error",
     "yoda": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "17.0.1"
+    }
   }
 }

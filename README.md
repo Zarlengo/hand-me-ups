@@ -21,7 +21,7 @@ npm install
 This should install node modules within the server and the client folder.
 ***
 
-2. Initialize Eslint.
+2. [Optional] If you will contribute to the repository initialize Eslint.
 
 ```
 npm run lint
@@ -57,13 +57,18 @@ npm run seed
 ```
 ***
 
-6. After both installations complete, run the following command in your terminal:
+6. After configuration and installation is complete, run the following command in your terminal:
 
 ```
 npm start
 ```
 ***
+
 7. Your app should now be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+
+***
+
+## 2 Usage
 
 
 ## 3 License
