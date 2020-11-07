@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch  } from 'react-router-dom';
 // Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Wrapper from './components/Wrapper';
+// import Wrapper from './components/Wrapper';
 
 // Pages
 import Welcome from './pages/Welcome';
