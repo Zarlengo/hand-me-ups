@@ -44,18 +44,19 @@ Add your api keys to the .env file
 cp config\config.json.template config\config.json
 ```
 
-Add database `handmeups` and `handmeups_test` to PostgreSQL
+Adjust the login and server settings as necessary
 
 ***
 5. Seed the database with the initial dataset
 
-```diff
-- NOT SET UP YET
+* On your PostgreSQL server create databases: `handmeups` and `handmeups_test`
+
+Seed your database
 ```
-```
-npm seed
+npm run seed
 ```
 ***
+
 6. After both installations complete, run the following command in your terminal:
 
 ```
