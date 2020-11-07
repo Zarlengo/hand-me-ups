@@ -14,12 +14,11 @@ module.exports = (sequelize, DataTypes) => {
             unique: true,
             allowNull: false,
         },
-
     });
 
-    Parent.associate = function(models) {
+    Parent.associate = function (models) {
         Parent.hasMany(models.Child, {
-            onDelete: 'cascade'
+            onDelete: 'cascade',
         });
     };
 
