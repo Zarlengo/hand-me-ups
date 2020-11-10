@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 // Components
@@ -16,6 +17,7 @@ function App() {
             <div>
                 <Navbar />
                 <Switch>
+
                     {/* <Wrapper> */}
                     <Route exact path="/" component={Welcome} />
                     <Route exact path="/Members" component={Members} />
