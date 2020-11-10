@@ -1,6 +1,7 @@
 const { db, sequelize } = require('../models');
-
-const userSeed = [{ email: 'foo@bar.com' }, { email: 'foo2@bar.com' }];
+const { childSeed } = require('childseed');
+const { parentSeed } = require('parentseed');
+const { userSeed } = require('userseed');
 
 const eraseDatabaseOnSync = true;
 
@@ -9,6 +10,24 @@ sequelize
     .then(() => {
         console.log('Connection has been established successfully');
         db.User.bulkCreate(userSeed)
+            .then((data) => {
+                console.log(data.length + ' records inserted!');
+                process.exit(0);
+            })
+            .catch((err) => {
+                console.error(err);
+                process.exit(1);
+            });
+        db.User.bulkCreate(childSeed)
+            .then((data) => {
+                console.log(data.length + ' records inserted!');
+                process.exit(0);
+            })
+            .catch((err) => {
+                console.error(err);
+                process.exit(1);
+            });
+        db.User.bulkCreate(parentSeed)
             .then((data) => {
                 console.log(data.length + ' records inserted!');
                 process.exit(0);
