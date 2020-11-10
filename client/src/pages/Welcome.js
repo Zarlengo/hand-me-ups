@@ -1,9 +1,10 @@
 import React from 'react';
+import About from '../components/About';
 
 function Welcome() {
     return (
         <div>
-            <h1>Welcome Page</h1>
+            <About></About>
         </div>
     );
 }
