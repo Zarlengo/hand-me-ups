@@ -17,7 +17,6 @@ function App() {
             <div>
                 <Navbar />
                 <Switch>
-
                     {/* <Wrapper> */}
                     <Route exact path="/" component={Welcome} />
                     <Route exact path="/Members" component={Members} />
