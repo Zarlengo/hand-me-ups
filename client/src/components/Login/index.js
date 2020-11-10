@@ -1,9 +1,41 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, Redirect } from 'react-router-dom';
+import { useAuth } from '../../context/auth';
+import axios from 'axios';
 import './style.css';
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-function Login() {
+function Login(props) {
+    const referrer = props.location.state.referer || '/';
+    const [isLoggedIn, setLoggedIn] = useState(false);
+    const [isError, setIsError] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const { setAuthTokens } = useAuth();
+
+    function postLogin() {
+        axios
+            .post('/auth', {
+                email,
+                password,
+            })
+            .then((result) => {
+                if (result.status === 200) {
+                    setAuthTokens(result.data);
+                    setLoggedIn(true);
+                } else {
+                    setIsError(true);
+                }
+            })
+            .catch(() => {
+                setIsError(true);
+            });
+    }
+
+    if (isLoggedIn) {
+        return <Redirect to={referrer} />;
+    }
+
     return (
         <form className="login-form">
             <h2>Welcome back</h2>
@@ -14,10 +46,14 @@ function Login() {
                 <br></br>
                 <input
                     className="input-field"
-                    type="text"
+                    type="email"
                     id="email"
                     name="email"
-                    value="Email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(event) => {
+                        setEmail(event.target.value);
+                    }}
                 />
             </div>
             <br></br>
@@ -31,7 +67,11 @@ function Login() {
                     type="password"
                     id="password"
                     name="password"
-                    value="Password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(event) => {
+                        setPassword(event.target.value);
+                    }}
                 />
             </div>
             <br></br>
@@ -48,7 +88,9 @@ function Login() {
             </div>
             <br></br>
             <div className="login-row">
-                <button className="sign-in-btn">Sign In</button>
+                <button className="sign-in-btn" onClick={postLogin}>
+                    Sign In
+                </button>
             </div>
             <br></br>
             <div className="login-row">
@@ -62,6 +104,11 @@ function Login() {
                     Not a member? Sign up now.&nbsp;
                     <i className="fas fa-angle-right" aria-hidden="true"></i>
                 </Link>
+                {isError && (
+                    <div className="error">
+                        The username or password provided did not match.
+                    </div>
+                )}
             </div>
         </form>
     );

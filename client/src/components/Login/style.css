@@ -24,11 +24,15 @@
     border-color: blue;
 }
 
-.input-field:focus, .input-field:hover {
+.input-field:focus {
     border-color: green;
 }
 
 .sign-in-btn {
     width: 100%;
     padding: 10px;
+}
+
+.error {
+    background-color: red;
 }
