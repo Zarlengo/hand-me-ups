@@ -1,9 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
     const Child = sequelize.define('Child', {
-        parentUserName: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         firstName: {
             type: DataTypes.STRING,
             allowNull: true,
@@ -43,6 +39,18 @@ module.exports = (sequelize, DataTypes) => {
         donateFurniture: {
             type: DataTypes.BOOLEAN,
             allowNull: false,
+        },
+        toysDonated: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
+        clothesDonated: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
+        furnitureDonated: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
         },
     });
 
