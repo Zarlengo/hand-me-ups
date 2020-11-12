@@ -1,4 +1,4 @@
-export default [
+module.exports = [
     {
         email: 'amanda@anderson.com',
     },
@@ -7,7 +7,7 @@ export default [
     },
     {
         email: 'Cynthia@Chadwick.com',
-    }
+    },
     {
         email: 'Douglas@Douglas.com',
     },
@@ -35,4 +35,4 @@ export default [
     {
         email: 'Lenny@Lewis.com',
     },
-]
+];

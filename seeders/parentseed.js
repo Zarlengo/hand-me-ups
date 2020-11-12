@@ -1,10 +1,10 @@
-export default [
+module.exports = [
     {
         userName: 'amanda@anderson.com',
         password: 'password',
         address1: '1234 Anderson Ave',
         city: 'Auburn',
-        State: 'WA',
+        state: 'WA',
         zipcode: '98001',
     },
     {
@@ -12,7 +12,7 @@ export default [
         password: 'password',
         address1: '1234 Benson Ave',
         city: 'Bellevue',
-        State: 'WA',
+        state: 'WA',
         zipcode: '98004',
     },
     {
@@ -20,7 +20,7 @@ export default [
         password: 'password',
         address1: '1234 Chadwick Ave',
         city: 'Carnation',
-        State: 'WA',
+        state: 'WA',
         zipcode: '98014',
     },
     {
@@ -28,7 +28,7 @@ export default [
         password: 'password',
         address1: '1234 Douglas Ave',
         city: 'Duvall',
-        State: 'WA',
+        state: 'WA',
         zipcode: '98019',
     },
     {
@@ -36,7 +36,7 @@ export default [
         password: 'password',
         address1: '1234 Edwards Ave',
         city: 'Enumclaw',
-        State: 'WA',
+        state: 'WA',
         zipcode: '98022',
     },
     {
@@ -44,7 +44,7 @@ export default [
         password: 'password',
         address1: '1234 Franklin Ave',
         city: 'Fall City',
-        State: 'WA',
+        state: 'WA',
         zipcode: '98024',
     },
     {
@@ -52,7 +52,7 @@ export default [
         password: 'password',
         address1: '1234 Granger Ave',
         city: 'Gold Bar',
-        State: 'WA',
+        state: 'WA',
         zipcode: '98251',
     },
     {
@@ -60,7 +60,7 @@ export default [
         password: 'password',
         address1: '1234 Harrison Ave',
         city: 'Hazel Dell',
-        State: 'WA',
+        state: 'WA',
         zipcode: '98665',
     },
     {
@@ -68,7 +68,7 @@ export default [
         password: 'password',
         address1: '1234 inglesias Ave',
         city: 'Index',
-        State: 'WA',
+        state: 'WA',
         zipcode: '98256',
     },
     {
@@ -76,7 +76,7 @@ export default [
         password: 'password',
         address1: '1234 Jackson Ave',
         city: 'Jamestown',
-        State: 'WA',
+        state: 'WA',
         zipcode: '98382',
     },
     {
@@ -84,7 +84,7 @@ export default [
         password: 'password',
         address1: '1234 King Ave',
         city: 'Klickitat',
-        State: 'WA',
+        state: 'WA',
         zipcode: '98628',
     },
     {
@@ -92,7 +92,7 @@ export default [
         password: 'password',
         address1: '1234 Lewis Ave',
         city: 'Lebam',
-        State: 'WA',
+        state: 'WA',
         zipcode: '98554',
     },
 ];

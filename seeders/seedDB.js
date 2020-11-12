@@ -1,7 +1,7 @@
 const { db, sequelize } = require('../models');
-const { childSeed } = require('childseed');
-const { parentSeed } = require('parentseed');
-const { userSeed } = require('userseed');
+const childSeed = require('./childseed');
+const parentSeed = require('./parentseed');
+const userSeed = require('./userseed');
 
 const eraseDatabaseOnSync = true;
 
@@ -11,30 +11,24 @@ sequelize
         console.log('Connection has been established successfully');
         db.User.bulkCreate(userSeed)
             .then((data) => {
-                console.log(data.length + ' records inserted!');
-                process.exit(0);
+                console.log(data.length + ' records inserted in User!');
             })
             .catch((err) => {
                 console.error(err);
-                process.exit(1);
             });
-        db.User.bulkCreate(childSeed)
+        db.Child.bulkCreate(childSeed)
             .then((data) => {
-                console.log(data.length + ' records inserted!');
-                process.exit(0);
+                console.log(data.length + ' records inserted in Child!');
             })
             .catch((err) => {
                 console.error(err);
-                process.exit(1);
             });
-        db.User.bulkCreate(parentSeed)
+        db.Parent.bulkCreate(parentSeed)
             .then((data) => {
-                console.log(data.length + ' records inserted!');
-                process.exit(0);
+                console.log(data.length + ' records inserted in Parent!');
             })
             .catch((err) => {
                 console.error(err);
-                process.exit(1);
             });
     })
     .catch((error) =>

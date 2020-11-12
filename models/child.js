@@ -1,5 +1,3 @@
-const { NUMBER } = require("sequelize/types");
-
 module.exports = (sequelize, DataTypes) => {
     const Child = sequelize.define('Child', {
         firstName: {
@@ -43,17 +41,17 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false,
         },
         toysDonated: {
-            type: Datatypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: true,
         },
         clothesDonated: {
-            type: Datatypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: true,
         },
         furnitureDonated: {
-            type: Datatypes.NUMBER,
+            type: DataTypes.INTEGER,
             allowNull: true,
-        }
+        },
     });
 
     Child.associate = function (models) {
