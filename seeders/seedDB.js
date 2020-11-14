@@ -16,16 +16,18 @@ sequelize
             .catch((err) => {
                 console.error(err);
             });
-        db.Child.bulkCreate(childSeed)
-            .then((data) => {
-                console.log(data.length + ' records inserted in Child!');
-            })
-            .catch((err) => {
-                console.error(err);
-            });
         db.Parent.bulkCreate(parentSeed)
             .then((data) => {
                 console.log(data.length + ' records inserted in Parent!');
+                db.Child.bulkCreate(childSeed)
+                    .then((data) => {
+                        console.log(
+                            data.length + ' records inserted in Child!'
+                        );
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                    });
             })
             .catch((err) => {
                 console.error(err);
