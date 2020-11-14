@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
+=======
+import React from 'react';
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+>>>>>>> e859bb157651d00b2f5c7ebad70d26ec8537f5ff
 
 // Components
 import Navbar from './components/Navbar';
@@ -25,6 +31,7 @@ function App() {
         setAuthTokens(data);
     };
     return (
+<<<<<<< HEAD
         <AuthContext.Provider value={{ authTokens, setAuthTokens: setTokens }}>
             <Router>
                 <div>
@@ -43,6 +50,20 @@ function App() {
                 </div>
             </Router>
         </AuthContext.Provider>
+=======
+        <Router>
+            <div>
+                <Navbar />
+                <Switch>
+                    {/* <Wrapper> */}
+                    <Route exact path="/" component={Welcome} />
+                    <Route exact path="/Members" component={Members} />
+                    {/* </Wrapper> */}
+                </Switch>
+                <Footer />
+            </div>
+        </Router>
+>>>>>>> e859bb157651d00b2f5c7ebad70d26ec8537f5ff
     );
 }
 

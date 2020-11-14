@@ -1,12 +1,14 @@
-// const path = require("path");
-const router = require('express').Router();
-const apiRoutes = require('./api');
-const htmlRoutes = require('./html');
+module.exports = (db, sequelize) => {
+    // const path = require("path");
+    const router = require('express').Router();
+    const apiRoutes = require('./api')(db, sequelize);
+    const htmlRoutes = require('./html');
 
-// API Routes
-router.use('/api', apiRoutes);
+    // API Routes
+    router.use('/api', apiRoutes);
 
-// HTML Routes
-router.use('/', htmlRoutes);
+    // HTML Routes
+    router.use('/', htmlRoutes);
 
-module.exports = router;
+    return router;
+};

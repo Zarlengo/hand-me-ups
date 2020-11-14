@@ -1,7 +1,9 @@
-const router = require('express').Router();
-// const firstRoutes = require("./<PUT FILENAME IN HERE>");
+module.exports = (db, sequelize) => {
+    const router = require('express').Router();
+    const chartRoutes = require('./charts')(db, sequelize);
 
-// API routes: api/
-// router.use("/<FILENAME>", firstRoutes);
+    // API routes: api/
+    router.use('/charts', chartRoutes);
 
-module.exports = router;
+    return router;
+};
