@@ -2,7 +2,6 @@ const router = require('express').Router();
 
 module.exports = (db) => {
     router.get('/:id', (req, res) => {
-        console.log('PARENT');
         db.Parent.findAll({
             attributes: [
                 db.sequelize.col('userName'),
@@ -20,8 +19,16 @@ module.exports = (db) => {
             .catch((err) => {
                 res.status(400).json(err);
             });
-        console.log('api/profile');
     });
 
+    router.put('/:id', (req, res) => {
+        db.Parent.update(req.body, { where: { id: req.params.id } })
+            .then((response) => {
+                res.json(response);
+            })
+            .catch((err) => {
+                res.status(400).json(err);
+            });
+    });
     return router;
 };

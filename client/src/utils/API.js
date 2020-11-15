@@ -37,6 +37,6 @@ export default {
     },
 
     editUser: function (userData) {
-        return axios.put('/api/posts', userData);
+        return axios.put(`/api/profile/${userData.id}`, userData);
     },
 };
