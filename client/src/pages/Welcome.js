@@ -1,10 +1,19 @@
 import React from 'react';
-import About from '../components/About';
+import { Redirect } from 'react-router-dom';
+
+import Login from '../components/Login';
+
+import API from '../utils/API';
 
 function Welcome() {
+    if (API.getCurrentUser()) {
+        return <Redirect to={'/Members'} />;
+    }
+
     return (
         <div>
-            <About></About>
+            <h1>Welcome Page</h1>
+            <Login />
         </div>
     );
 }

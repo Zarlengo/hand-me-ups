@@ -16,4 +16,7 @@ Object.keys(db).forEach((key) => {
     }
 });
 
-module.exports = { db, sequelize };
+db.Sequelize = Sequelize;
+db.sequelize = sequelize;
+
+module.exports = db;
