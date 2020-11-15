@@ -6,6 +6,7 @@ import Forgot from '../../pages/Forgot';
 import Signup from '../../pages/Signup';
 import Members from '../../pages/Members';
 import Welcome from '../../pages/Welcome';
+import Profile from '../../pages/Profile';
 
 import API from '../../utils/API';
 
@@ -24,6 +25,7 @@ PrivateRoute.propTypes = {
 const Router = () => (
     <Switch>
         <PrivateRoute exact path="/Members" component={Members} />
+        <PrivateRoute exact path="/Profile" component={Profile} />
         <Route exact path="/Forgot" component={Forgot} />
         <Route exact path="/Signup" component={Signup} />
         <Route path="/" component={Welcome} />
