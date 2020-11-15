@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import axios from 'axios';
+import API from '../../utils/API';
 import './style.css';
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
@@ -10,12 +10,9 @@ function Login() {
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
 
-    function postLogin() {
-        axios
-            .post('/api/login', {
-                userName,
-                password,
-            })
+    function postLogin(event) {
+        event.preventDefault();
+        API.login(userName, password)
             .then((result) => {
                 if (result.status === 200) {
                     setLoggedIn(true);

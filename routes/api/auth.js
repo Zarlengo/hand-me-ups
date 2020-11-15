@@ -6,6 +6,12 @@ module.exports = (db, passport) => {
         res.json({
             userName: req.user.userName,
             id: req.user.id,
+            address1: req.user.address1,
+            city: req.user.city,
+            state: req.user.state,
+            zipcode: req.user.zipcode,
+            accessToken:
+                '$hMUI"WLM^.QV8cqJh|"5f)|806&|k|+Hgzo^\'9DMSzIW+lE}IcqLwkePp2N;X*',
         });
     });
 

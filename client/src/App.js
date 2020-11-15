@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
 
 // Components
 import Navbar from './components/Navbar';
@@ -8,11 +7,11 @@ import Footer from './components/Footer';
 
 function App() {
     return (
-        <BrowserRouter>
+        <div id="auth">
             <Navbar />
             <Router />
             <Footer />
-        </BrowserRouter>
+        </div>
     );
 }
 

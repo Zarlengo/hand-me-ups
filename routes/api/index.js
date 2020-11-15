@@ -5,7 +5,7 @@ module.exports = (db, passport) => {
 
     // API routes: api/
     router.use('/charts', chartRoutes);
-    router.use('/', authRoutes);
+    router.use('/auth', authRoutes);
 
     return router;
 };
