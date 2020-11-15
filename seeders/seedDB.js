@@ -1,11 +1,11 @@
-const { db, sequelize } = require('../models');
+const db = require('../models');
 const childSeed = require('./childseed');
 const parentSeed = require('./parentseed');
 const userSeed = require('./userseed');
 
 const eraseDatabaseOnSync = true;
 
-sequelize
+db.sequelize
     .sync({ force: eraseDatabaseOnSync })
     .then(() => {
         console.log('Connection has been established successfully');

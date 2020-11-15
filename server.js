@@ -8,13 +8,21 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
 
-const { db, sequelize } = require('./models');
+// Coding to json
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-sequelize.sync().then(() => {
+const db = require('./models');
+
+const passport = require('./config/passport')(db);
+app.use(passport.initialize());
+app.use(passport.session());
+
+db.sequelize.sync().then(() => {
     console.log('database is connected');
 
     // Send every request to the React app
-    const routes = require('./routes')(db, sequelize);
+    const routes = require('./routes')(db, passport);
     app.use(routes);
 
     // Define any API routes before this runs

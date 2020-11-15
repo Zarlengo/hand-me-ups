@@ -2,7 +2,7 @@ module.exports = [
     {
         firstName: 'Albert',
         lastName: 'Anderson',
-        birthday: '2006-1-1',
+        birthday: '2006-01-01',
         gender: 'male',
         receiveToys: true,
         receiveClothes: true,
@@ -18,7 +18,7 @@ module.exports = [
     {
         firstName: 'Alan',
         lastName: 'Anderson',
-        birthday: '2009-1-1',
+        birthday: '2009-01-01',
         gender: 'male',
         receiveToys: true,
         receiveClothes: true,
@@ -34,7 +34,7 @@ module.exports = [
     {
         firstName: 'Bethanie',
         lastName: 'Benson',
-        birthday: '2007-1-1',
+        birthday: '2007-01-01',
         gender: 'female',
         receiveToys: true,
         receiveClothes: true,
@@ -50,7 +50,7 @@ module.exports = [
     {
         firstName: 'Belinda',
         lastName: 'Benson',
-        birthday: '2009-1-1',
+        birthday: '2009-01-01',
         gender: 'female',
         receiveToys: true,
         receiveClothes: true,
@@ -66,7 +66,7 @@ module.exports = [
     {
         firstName: 'Christopher',
         lastName: 'Chadwick',
-        birthday: '2011-1-1',
+        birthday: '2011-01-01',
         gender: 'male',
         receiveToys: true,
         receiveClothes: true,
@@ -82,7 +82,7 @@ module.exports = [
     {
         firstName: 'Chelsea',
         lastName: 'Chadwick',
-        birthday: '2011-1-1',
+        birthday: '2011-01-01',
         gender: 'female',
         receiveToys: true,
         receiveClothes: true,
@@ -98,7 +98,7 @@ module.exports = [
     {
         firstName: 'Darlene',
         lastName: 'Douglas',
-        birthday: '2013-1-1',
+        birthday: '2013-01-01',
         gender: 'female',
         receiveToys: true,
         receiveClothes: true,
@@ -114,7 +114,7 @@ module.exports = [
     {
         firstName: 'David',
         lastName: 'Douglas',
-        birthday: '2010-1-1',
+        birthday: '2010-01-01',
         gender: 'male',
         receiveToys: true,
         receiveClothes: true,
@@ -130,7 +130,7 @@ module.exports = [
     {
         firstName: 'Freddy',
         lastName: 'Franklin',
-        birthday: '2017-1-1',
+        birthday: '2017-01-01',
         gender: 'male',
         receiveToys: true,
         receiveClothes: true,
@@ -146,7 +146,7 @@ module.exports = [
     {
         firstName: 'Francis',
         lastName: 'Franklin',
-        birthday: '2015-1-1',
+        birthday: '2015-01-01',
         gender: 'female',
         receiveToys: true,
         receiveClothes: true,
@@ -162,7 +162,7 @@ module.exports = [
     {
         firstName: 'Erin',
         lastName: 'Edwards',
-        birthday: '2018-1-1',
+        birthday: '2018-01-01',
         gender: 'female',
         receiveToys: true,
         receiveClothes: true,
@@ -178,7 +178,7 @@ module.exports = [
     {
         firstName: 'Eugene',
         lastName: 'Edwards',
-        birthday: '2014-1-1',
+        birthday: '2014-01-01',
         gender: 'male',
         receiveToys: true,
         receiveClothes: true,
@@ -194,7 +194,7 @@ module.exports = [
     {
         firstName: 'Geoff',
         lastName: 'Granger',
-        birthday: '2019-1-1',
+        birthday: '2019-01-01',
         gender: 'male',
         receiveToys: true,
         receiveClothes: true,
@@ -210,7 +210,7 @@ module.exports = [
     {
         firstName: 'Gregg',
         lastName: 'Granger',
-        birthday: '2017-1-1',
+        birthday: '2017-01-01',
         gender: 'male',
         receiveToys: true,
         receiveClothes: true,
@@ -226,7 +226,7 @@ module.exports = [
     {
         firstName: 'Harry',
         lastName: 'Harrison',
-        birthday: '2016-1-1',
+        birthday: '2016-01-01',
         gender: 'male',
         receiveToys: true,
         receiveClothes: true,
@@ -242,7 +242,7 @@ module.exports = [
     {
         firstName: 'Igor',
         lastName: 'Inglasias',
-        birthday: '2019-1-1',
+        birthday: '2019-01-01',
         gender: 'male',
         receiveToys: true,
         receiveClothes: true,
@@ -258,7 +258,7 @@ module.exports = [
     {
         firstName: 'Ivan',
         lastName: 'Inglasias',
-        birthday: '2015-1-1',
+        birthday: '2015-01-01',
         gender: 'male',
         receiveToys: true,
         receiveClothes: true,
@@ -274,7 +274,7 @@ module.exports = [
     {
         firstName: 'Jennifer',
         lastName: 'Jackson',
-        birthday: '2008-1-1',
+        birthday: '2008-01-01',
         gender: 'female',
         receiveToys: true,
         receiveClothes: true,
@@ -290,7 +290,7 @@ module.exports = [
     {
         firstName: 'Kevin',
         lastName: 'King',
-        birthday: '2008-1-1',
+        birthday: '2008-01-01',
         gender: 'male',
         receiveToys: true,
         receiveClothes: true,
@@ -306,7 +306,7 @@ module.exports = [
     {
         firstName: 'Kelsey',
         lastName: 'King',
-        birthday: '2006-1-1',
+        birthday: '2006-01-01',
         gender: 'male',
         receiveToys: true,
         receiveClothes: true,
@@ -322,7 +322,7 @@ module.exports = [
     {
         firstName: 'Lindsay',
         lastName: 'Lewis',
-        birthday: '2016-1-1',
+        birthday: '2016-01-01',
         gender: 'female',
         receiveToys: true,
         receiveClothes: true,
@@ -338,7 +338,7 @@ module.exports = [
     {
         firstName: 'Linda',
         lastName: 'Lewis',
-        birthday: '2009-1-1',
+        birthday: '2009-01-01',
         gender: 'female',
         receiveToys: true,
         receiveClothes: true,

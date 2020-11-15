@@ -1,20 +1,23 @@
 const router = require('express').Router();
 
-module.exports = (db, sequelize) => {
+module.exports = (db) => {
     //  api/charts
     router.get('/', (req, res) => {
         db.Child.findAll({
             attributes: [
                 [
-                    sequelize.fn('sum', sequelize.col('toysDonated')),
+                    db.sequelize.fn('sum', db.sequelize.col('toysDonated')),
                     'toysDonated',
                 ],
                 [
-                    sequelize.fn('sum', sequelize.col('clothesDonated')),
+                    db.sequelize.fn('sum', db.sequelize.col('clothesDonated')),
                     'clothesDonated',
                 ],
                 [
-                    sequelize.fn('sum', sequelize.col('furnitureDonated')),
+                    db.sequelize.fn(
+                        'sum',
+                        db.sequelize.col('furnitureDonated')
+                    ),
                     'furnitureDonated',
                 ],
             ],

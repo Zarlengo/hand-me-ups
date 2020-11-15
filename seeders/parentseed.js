@@ -1,7 +1,8 @@
 module.exports = [
     {
         userName: 'amanda@anderson.com',
-        password: 'password',
+        password:
+            '$2a$10$WrZoUirV/4uolv8p8qi14uMVblv0dhNPd5MaLEXl.u8ICDDILppaC',
         address1: '1234 Anderson Ave',
         city: 'Auburn',
         state: 'WA',
@@ -9,7 +10,8 @@ module.exports = [
     },
     {
         userName: 'Bill@benson.com',
-        password: 'password',
+        password:
+            '$2a$10$WrZoUirV/4uolv8p8qi14uMVblv0dhNPd5MaLEXl.u8ICDDILppaC',
         address1: '1234 Benson Ave',
         city: 'Bellevue',
         state: 'WA',
@@ -17,7 +19,8 @@ module.exports = [
     },
     {
         userName: 'Cynthia@Chadwick.com',
-        password: 'password',
+        password:
+            '$2a$10$WrZoUirV/4uolv8p8qi14uMVblv0dhNPd5MaLEXl.u8ICDDILppaC',
         address1: '1234 Chadwick Ave',
         city: 'Carnation',
         state: 'WA',
@@ -25,7 +28,8 @@ module.exports = [
     },
     {
         userName: 'Douglas@Douglas.com',
-        password: 'password',
+        password:
+            '$2a$10$WrZoUirV/4uolv8p8qi14uMVblv0dhNPd5MaLEXl.u8ICDDILppaC',
         address1: '1234 Douglas Ave',
         city: 'Duvall',
         state: 'WA',
@@ -33,7 +37,8 @@ module.exports = [
     },
     {
         userName: 'Edwin@Edwards.com',
-        password: 'password',
+        password:
+            '$2a$10$WrZoUirV/4uolv8p8qi14uMVblv0dhNPd5MaLEXl.u8ICDDILppaC',
         address1: '1234 Edwards Ave',
         city: 'Enumclaw',
         state: 'WA',
@@ -41,7 +46,8 @@ module.exports = [
     },
     {
         userName: 'Fredrique@Franklin.com',
-        password: 'password',
+        password:
+            '$2a$10$WrZoUirV/4uolv8p8qi14uMVblv0dhNPd5MaLEXl.u8ICDDILppaC',
         address1: '1234 Franklin Ave',
         city: 'Fall City',
         state: 'WA',
@@ -49,7 +55,8 @@ module.exports = [
     },
     {
         userName: 'Gerdie@Granger.com',
-        password: 'password',
+        password:
+            '$2a$10$WrZoUirV/4uolv8p8qi14uMVblv0dhNPd5MaLEXl.u8ICDDILppaC',
         address1: '1234 Granger Ave',
         city: 'Gold Bar',
         state: 'WA',
@@ -57,7 +64,8 @@ module.exports = [
     },
     {
         userName: 'Harriette@Harrison.com',
-        password: 'password',
+        password:
+            '$2a$10$WrZoUirV/4uolv8p8qi14uMVblv0dhNPd5MaLEXl.u8ICDDILppaC',
         address1: '1234 Harrison Ave',
         city: 'Hazel Dell',
         state: 'WA',
@@ -65,7 +73,8 @@ module.exports = [
     },
     {
         userName: 'Ingrid@Inglesias.com',
-        password: 'password',
+        password:
+            '$2a$10$WrZoUirV/4uolv8p8qi14uMVblv0dhNPd5MaLEXl.u8ICDDILppaC',
         address1: '1234 inglesias Ave',
         city: 'Index',
         state: 'WA',
@@ -73,7 +82,8 @@ module.exports = [
     },
     {
         userName: 'Janet@Jackson.com',
-        password: 'password',
+        password:
+            '$2a$10$WrZoUirV/4uolv8p8qi14uMVblv0dhNPd5MaLEXl.u8ICDDILppaC',
         address1: '1234 Jackson Ave',
         city: 'Jamestown',
         state: 'WA',
@@ -81,7 +91,8 @@ module.exports = [
     },
     {
         userName: 'Kelly@King.com',
-        password: 'password',
+        password:
+            '$2a$10$WrZoUirV/4uolv8p8qi14uMVblv0dhNPd5MaLEXl.u8ICDDILppaC',
         address1: '1234 King Ave',
         city: 'Klickitat',
         state: 'WA',
@@ -89,7 +100,8 @@ module.exports = [
     },
     {
         userName: 'Lenny@Lewis.com',
-        password: 'password',
+        password:
+            '$2a$10$WrZoUirV/4uolv8p8qi14uMVblv0dhNPd5MaLEXl.u8ICDDILppaC',
         address1: '1234 Lewis Ave',
         city: 'Lebam',
         state: 'WA',

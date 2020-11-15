@@ -1,27 +1,23 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import { useAuth } from '../../context/auth';
 import axios from 'axios';
 import './style.css';
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-function Login(props) {
-    const referrer = props.location.state.referer || '/';
+function Login() {
     const [isLoggedIn, setLoggedIn] = useState(false);
     const [isError, setIsError] = useState(false);
-    const [email, setEmail] = useState('');
+    const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
-    const { setAuthTokens } = useAuth();
 
     function postLogin() {
         axios
-            .post('/auth', {
-                email,
+            .post('/api/login', {
+                userName,
                 password,
             })
             .then((result) => {
                 if (result.status === 200) {
-                    setAuthTokens(result.data);
                     setLoggedIn(true);
                 } else {
                     setIsError(true);
@@ -33,26 +29,26 @@ function Login(props) {
     }
 
     if (isLoggedIn) {
-        return <Redirect to={referrer} />;
+        return <Redirect to="/Members" />;
     }
 
     return (
         <form className="login-form">
             <h2>Welcome back</h2>
             <div className="login-row">
-                <label type="text" name="email">
-                    Email
+                <label type="text" name="userName">
+                    Username
                 </label>
                 <br></br>
                 <input
                     className="input-field"
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
-                    value={email}
+                    type="userName"
+                    id="userName"
+                    name="userName"
+                    placeholder="Username"
+                    value={userName}
                     onChange={(event) => {
-                        setEmail(event.target.value);
+                        setUserName(event.target.value);
                     }}
                 />
             </div>

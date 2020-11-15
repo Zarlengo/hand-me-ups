@@ -1,7 +1,7 @@
-module.exports = (db, sequelize) => {
+module.exports = (db, passport) => {
     // const path = require("path");
     const router = require('express').Router();
-    const apiRoutes = require('./api')(db, sequelize);
+    const apiRoutes = require('./api')(db, passport);
     const htmlRoutes = require('./html');
 
     // API Routes

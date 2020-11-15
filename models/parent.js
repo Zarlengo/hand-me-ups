@@ -1,4 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
+    const bcrypt = require('bcryptjs');
     const Parent = sequelize.define('Parent', {
         userName: {
             type: DataTypes.STRING,
@@ -32,6 +33,18 @@ module.exports = (sequelize, DataTypes) => {
             onDelete: 'cascade',
         });
     };
+
+    Parent.prototype.validPassword = function (password) {
+        return bcrypt.compareSync(password, this.password);
+    };
+
+    Parent.addHook('beforeCreate', (user) => {
+        user.password = bcrypt.hashSync(
+            user.password,
+            bcrypt.genSaltSync(10),
+            null
+        );
+    });
 
     return Parent;
 };
