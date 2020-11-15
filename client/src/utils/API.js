@@ -35,4 +35,8 @@ export default {
             zipcode,
         });
     },
+
+    editUser: function (userData) {
+        return axios.put('/api/posts', userData);
+    },
 };
