@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 // Pages
 import Welcome from './pages/Welcome';
 import Members from './pages/Members';
+import Profile from './pages/Profile';
 
 function App() {
     return (
@@ -20,6 +21,8 @@ function App() {
                     {/* <Wrapper> */}
                     <Route exact path="/" component={Welcome} />
                     <Route exact path="/Members" component={Members} />
+                    <Route exact path="/Profile" component={Profile} />
+
                     {/* </Wrapper> */}
                 </Switch>
                 <Footer />

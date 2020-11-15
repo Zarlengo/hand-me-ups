@@ -57,7 +57,7 @@ function Charts() {
         >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
-            <YAxis />
+            <YAxis type="number" domain={[0, 500]} />
             <Tooltip />
             <Legend />
             <Bar name="Amount donated" dataKey="amt" fill="#8884d8" />

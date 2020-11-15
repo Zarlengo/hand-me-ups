@@ -23,6 +23,18 @@ function Navbar() {
                             Members
                         </Link>
                     </li>
+                    <li className="nav-item">
+                        <Link
+                            to="/Profile"
+                            className={
+                                window.location.pathname === '/Profile'
+                                    ? 'nav-link active'
+                                    : 'nav-link'
+                            }
+                        >
+                            Profile
+                        </Link>
+                    </li>
                 </ul>
             </div>
         </nav>
