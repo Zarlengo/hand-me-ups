@@ -2,7 +2,8 @@ const { Sequelize } = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
 
 if (env === 'production') {
-    config = {"use_env_variable": "DATABASE_URL"};
+    // eslint-disable-next-line camelcase
+    config = { use_env_variable: 'DATABASE_URL', dialect: 'postgres' };
 } else {
     config = require('../config/config.json')[env];
 }
