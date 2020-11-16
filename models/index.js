@@ -1,8 +1,12 @@
-console.log('SEQUELIZE');
 const { Sequelize } = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
-const config = require('../config/config.json')[env];
-console.log(`config: ${config}`);
+
+if (env === 'production') {
+    config = {"use_env_variable": "DATABASE_URL"};
+} else {
+    config = require('../config/config.json')[env];
+}
+
 const sequelize = new Sequelize(config);
 
 const db = {
