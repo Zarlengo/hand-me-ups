@@ -1,6 +1,12 @@
 const { Sequelize } = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
-const config = require('../config/config.json')[env];
+
+if (env === 'production') {
+    // eslint-disable-next-line camelcase
+    config = process.env.DATABASE_URL;
+} else {
+    config = require('../config/config.json')[env];
+}
 
 const sequelize = new Sequelize(config);
 

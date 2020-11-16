@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node seeders/seedDB.js && node server.js",
+    "start:prod": "node server.js",
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "seed": "node seeders/seedDB.js",
@@ -19,27 +19,27 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "axios": "^0.21.0",
     "babel-eslint": "^10.1.0",
-    "bcrypt": "^5.0.0",
-    "bcryptjs": "^2.4.3",
-    "concurrently": "^4.1.0",
     "eslint": "^7.13.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "prettier": "^2.1.2"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "bcrypt": "^5.0.0",
+    "bcryptjs": "^2.4.3",
+    "concurrently": "^4.1.0",
+    "express": "^4.16.3",
+    "if-env": "^1.0.4",
     "nodemon": "^1.18.7",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "prettier": "^2.1.2",
+    "pg": "^8.4.2",
+    "pg-hstore": "^2.3.3",
     "recharts": "^1.8.5",
     "sequelize": "^6.3.5"
-  },
-  "dependencies": {
-    "express": "^4.16.3",
-    "if-env": "^1.0.4",
-    "pg": "^8.4.2",
-    "pg-hstore": "^2.3.3"
   }
 }
