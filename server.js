@@ -8,6 +8,7 @@ const db = require('./models');
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
+    require('./seeders/seedDB')(db);
 }
 
 // Coding to json
