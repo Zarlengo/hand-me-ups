@@ -3,16 +3,17 @@ const path = require('path');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+const db = require('./models');
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
+
 }
 
 // Coding to json
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-const db = require('./models');
 
 const passport = require('./config/passport')(db);
 app.use(passport.initialize());
