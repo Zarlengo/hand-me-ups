@@ -4,6 +4,7 @@ const env = process.env.NODE_ENV || 'development';
 if (env === 'production') {
     // eslint-disable-next-line camelcase
     config = { use_env_variable: 'DATABASE_URL', dialect: 'postgres' };
+    console.log(config);
 } else {
     config = require('../config/config.json')[env];
 }
