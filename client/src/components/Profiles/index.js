@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Redirect } from 'react-router-dom';
 import API from '../../utils/API';
 
 function Profiles() {
@@ -10,6 +11,7 @@ function Profiles() {
     const [zipcode, setZipcode] = useState();
     const [showForm, setshowForm] = useState(false);
     const currentUser = API.getCurrentUser();
+    const [redirect, setRedirect] = useState(false);
 
     const hideShowForm = () => {
         if (showForm) {
@@ -45,6 +47,9 @@ function Profiles() {
             }
         });
     };
+    const addChild = () => {
+        setRedirect(true);
+    };
 
     useEffect(() => {
         setId(currentUser.id);
@@ -54,6 +59,10 @@ function Profiles() {
         setState(currentUser.state);
         setZipcode(currentUser.zipcode);
     }, []);
+
+    if (redirect) {
+        return <Redirect to="/Addchild" />;
+    }
 
     return (
         <div>
@@ -76,6 +85,7 @@ function Profiles() {
                 </tr>
                 <tr rowSpan="2">
                     <button onClick={hideShowForm}>Edit</button>
+                    <button onClick={addChild}>Add Child</button>
                 </tr>
             </table>
             {showForm ? (
