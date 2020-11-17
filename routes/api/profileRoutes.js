@@ -30,5 +30,16 @@ module.exports = (db) => {
                 res.status(400).json(err);
             });
     });
+
+    router.post('/addChild/:id', (req, res) => {
+        db.Child.create(req.body)
+            .then((response) => {
+                res.json(response);
+            })
+            .catch((err) => {
+                res.status(400).json(err);
+            });
+    });
+
     return router;
 };

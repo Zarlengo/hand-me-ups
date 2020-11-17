@@ -39,4 +39,11 @@ export default {
     editUser: function (userData) {
         return axios.put(`/api/profile/${userData.id}`, userData);
     },
+
+    addChild: function (userData) {
+        return axios.post(
+            `api/profile/addChild/${userData.parentId}`,
+            userData
+        );
+    },
 };

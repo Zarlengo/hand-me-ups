@@ -6,51 +6,43 @@ module.exports = (sequelize, DataTypes) => {
         },
         lastName: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         birthday: {
             type: DataTypes.DATEONLY,
-            allowNull: false,
+            allowNull: true,
         },
         gender: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         receiveToys: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
         },
         receiveClothes: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
         },
         receiveFurniture: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
         },
         donateToys: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
         },
         donateClothes: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
         },
         donateFurniture: {
             type: DataTypes.BOOLEAN,
-            allowNull: false,
         },
         toysDonated: {
             type: DataTypes.INTEGER,
-            allowNull: true,
         },
         clothesDonated: {
             type: DataTypes.INTEGER,
-            allowNull: true,
+
         },
         furnitureDonated: {
             type: DataTypes.INTEGER,
-            allowNull: true,
         },
     });
 
