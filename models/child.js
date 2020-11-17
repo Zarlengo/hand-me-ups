@@ -39,7 +39,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         clothesDonated: {
             type: DataTypes.INTEGER,
-
         },
         furnitureDonated: {
             type: DataTypes.INTEGER,
