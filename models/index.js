@@ -1,5 +1,9 @@
 const { Sequelize } = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
+const fs = require('fs');
+const path = require('path');
+const db = {};
+const basename = path.basename(module.filename);
 
 if (env === 'production') {
     // eslint-disable-next-line camelcase
@@ -9,20 +13,29 @@ if (env === 'production') {
 }
 
 const sequelize = new Sequelize(config);
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
 
-const db = {
-    User: require('./user')(sequelize, Sequelize.DataTypes),
-    Parent: require('./parent')(sequelize, Sequelize.DataTypes),
-    Child: require('./child')(sequelize, Sequelize.DataTypes),
-};
+fs.readdirSync(__dirname)
+    .filter((file) => {
+        return (
+            file.indexOf('.') !== 0 &&
+            file !== basename &&
+            file.slice(-3) === '.js'
+        );
+    })
+    .forEach((file) => {
+        const model = require(path.join(__dirname, file))(
+            sequelize,
+            Sequelize.DataTypes
+        );
+        db[model.name] = model;
+    });
 
 Object.keys(db).forEach((key) => {
     if ('associate' in db[key]) {
         db[key].associate(db);
     }
 });
-
-db.Sequelize = Sequelize;
-db.sequelize = sequelize;
 
 module.exports = db;
