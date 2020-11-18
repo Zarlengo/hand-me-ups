@@ -15,7 +15,7 @@ module.exports = (db, passport) => {
     // Thirdly, as you're likely already doing: encrypt the traffic. Sure, the NSA will see it; but Hacker Hank is less likely to.
 
     const router = require('express').Router();
-    const token = require('../config/tokens');
+    const tokens = require('../config/tokens');
 
     router.post('/login', passport.authenticate('local'), (req, res) => {
         // Sending back a password, even a hashed password, isn't a good idea
@@ -26,7 +26,7 @@ module.exports = (db, passport) => {
             city: req.user.city,
             state: req.user.state,
             zipcode: req.user.zipcode,
-            accessToken: token({
+            accessToken: tokens.create({
                 passLength: 64,
                 upper: true,
                 lower: true,
