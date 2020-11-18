@@ -34,7 +34,7 @@ module.exports = (db, passport) => {
             numbers: true,
         });
 
-        db.Parent.update(
+        db.User.update(
             { accessToken, sessionSalt },
             {
                 where: {
@@ -43,7 +43,7 @@ module.exports = (db, passport) => {
             }
         ).then(() => {
             res.json({
-                userName: req.user.userName,
+                email: req.user.email,
                 id: req.user.id,
                 address1: req.user.address1,
                 city: req.user.city,

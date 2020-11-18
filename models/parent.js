@@ -1,5 +1,13 @@
 module.exports = (sequelize, DataTypes) => {
     const Parent = sequelize.define('Parent', {
+        firstName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        lastName: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
         address1: {
             type: DataTypes.STRING,
             allowNull: true,
