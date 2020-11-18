@@ -11,7 +11,7 @@ module.exports = (db) => {
             },
             (email, password, done) => {
                 // When a user tries to sign in this code runs
-                db.Parent.findOne({
+                db.User.findOne({
                     where: {
                         userName: email,
                     },

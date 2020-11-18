@@ -19,20 +19,39 @@ module.exports = (db, passport) => {
 
     router.post('/login', passport.authenticate('local'), (req, res) => {
         // Sending back a password, even a hashed password, isn't a good idea
-        res.json({
-            userName: req.user.userName,
-            id: req.user.id,
-            address1: req.user.address1,
-            city: req.user.city,
-            state: req.user.state,
-            zipcode: req.user.zipcode,
-            accessToken: tokens.create({
-                passLength: 64,
-                upper: true,
-                lower: true,
-                numbers: true,
-                special: true,
-            }),
+        const accessToken = tokens.create({
+            passLength: 64,
+            upper: true,
+            lower: true,
+            numbers: true,
+            special: true,
+        });
+
+        const sessionSalt = tokens.create({
+            passLength: 32,
+            upper: true,
+            lower: true,
+            numbers: true,
+        });
+
+        db.Parent.update(
+            { accessToken, sessionSalt },
+            {
+                where: {
+                    id: req.user.id,
+                },
+            }
+        ).then(() => {
+            res.json({
+                userName: req.user.userName,
+                id: req.user.id,
+                address1: req.user.address1,
+                city: req.user.city,
+                state: req.user.state,
+                zipcode: req.user.zipcode,
+                accessToken,
+                sessionSalt,
+            });
         });
     });
 
@@ -42,16 +61,25 @@ module.exports = (db, passport) => {
     });
 
     router.post('/signup', (req, res) => {
-        db.Parent.create({
-            userName: req.body.userName,
+        db.User.create({
+            email: req.body.email,
             password: req.body.password,
-            address1: req.body.address1,
-            city: req.body.city,
-            state: req.body.state,
-            zipcode: req.body.zipcode,
         })
-            .then(() => {
-                res.redirect(307, '/login');
+            .then((newUser) => {
+                console.log(req.body);
+                db.Parent.create({
+                    address1: req.body.address1,
+                    city: req.body.city,
+                    state: req.body.state,
+                    zipcode: req.body.zipcode,
+                    UserId: newUser.dataValues.id,
+                })
+                    .then(() => {
+                        res.redirect(307, '/login');
+                    })
+                    .catch((err) => {
+                        res.status(401).json(err);
+                    });
             })
             .catch((err) => {
                 res.status(401).json(err);

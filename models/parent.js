@@ -1,30 +1,20 @@
 module.exports = (sequelize, DataTypes) => {
-    const bcrypt = require('bcryptjs');
     const Parent = sequelize.define('Parent', {
-        userName: {
-            type: DataTypes.STRING,
-            unique: true,
-            allowNull: false,
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
         address1: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         city: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         state: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         zipcode: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
     });
 
@@ -34,17 +24,13 @@ module.exports = (sequelize, DataTypes) => {
         });
     };
 
-    Parent.prototype.validPassword = function (password) {
-        return bcrypt.compareSync(password, this.password);
+    Parent.associate = function (models) {
+        Parent.belongsTo(models.User, {
+            foreignKey: {
+                allowNull: false,
+            },
+        });
     };
-
-    Parent.addHook('beforeCreate', (user) => {
-        user.password = bcrypt.hashSync(
-            user.password,
-            bcrypt.genSaltSync(10),
-            null
-        );
-    });
 
     return Parent;
 };
