@@ -1,14 +1,18 @@
 import axios from 'axios';
+import headers from './auth';
 
 export default {
     getUser: (id) => {
-        return axios.get(`./api/user/${id}`);
+        return axios.get({
+            url: `./api/user/${id}`,
+            headers: headers(),
+        });
     },
 
-    login: (userName, password) => {
+    login: (email, password) => {
         return axios
             .post('./api/auth/login', {
-                userName,
+                email,
                 password,
             })
             .then((response) => {
@@ -25,9 +29,9 @@ export default {
 
     getCurrentUser: () => JSON.parse(localStorage.getItem('user')),
 
-    signup: (userName, password, address1, city, state, zipcode) => {
+    signup: (email, password, address1, city, state, zipcode) => {
         return axios.post('./api/auth/signup', {
-            userName,
+            email,
             password,
             address1,
             city,
@@ -37,13 +41,19 @@ export default {
     },
 
     editUser: function (userData) {
-        return axios.put(`/api/profile/${userData.id}`, userData);
+        return axios.put({
+            url: `/api/profile/${userData.id}`,
+            userData,
+            headers: headers(),
+        });
     },
 
     addChild: function (userData) {
-        return axios.post(
-            `api/profile/addChild/${userData.parentId}`,
-            userData
-        );
+        return axios({
+            url: `api/profile/addChild/${userData.ParentId}`,
+            data: userData,
+            method: 'POST',
+            headers: headers(),
+        });
     },
 };

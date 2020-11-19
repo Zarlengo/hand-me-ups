@@ -16,6 +16,7 @@ module.exports = (db, passport) => {
 
     const router = require('express').Router();
     const tokens = require('../config/tokens');
+    const cryptographic = require('./cryptographic');
 
     router.post('/login', passport.authenticate('local'), (req, res) => {
         // Sending back a password, even a hashed password, isn't a good idea
@@ -87,41 +88,71 @@ module.exports = (db, passport) => {
     });
 
     router.put('/user/:id', (req, res) => {
-        // Need to find if there's a duplicate email in db
-        db.Parent.update(req.body, {
-            where: {
-                id: req.params.id,
-            },
-        }).then((dbPost) => {
-            res.json(dbPost);
+        db.User.findByPk(req.params.id).then((response) => {
+            const answer = cryptographic(
+                req.headers['x-access-token'],
+                response.dataValues.accessToken
+            );
+            if (!answer) {
+                res.status(401).json({ message: 'invalid credentials' });
+            } else {
+                // Need to find if there's a duplicate email in db
+                db.Parent.update(req.body, {
+                    where: {
+                        id: req.params.id,
+                    },
+                }).then((dbPost) => {
+                    res.json(dbPost);
+                });
+            }
         });
     });
 
     router.delete('/user/:id', (req, res) => {
-        db.Parent.destroy({
-            where: {
-                id: req.params.id,
-            },
-        }).then(() => {
-            req.logout();
-            res.redirect('/');
+        db.User.findByPk(req.params.id).then((response) => {
+            const answer = cryptographic(
+                req.headers['x-access-token'],
+                response.dataValues.accessToken
+            );
+            if (!answer) {
+                res.status(401).json({ message: 'invalid credentials' });
+            } else {
+                db.Parent.destroy({
+                    where: {
+                        id: req.params.id,
+                    },
+                }).then(() => {
+                    req.logout();
+                    res.redirect('/');
+                });
+            }
         });
     });
 
     router.get('/user_data', (req, res) => {
-        if (!req.user) {
-            // The user is not logged in, send back an empty object
-            res.json({});
-        } else {
-            // Otherwise send back the user's email and id
-            // Sending back a password, even a hashed password, isn't a good idea
-            res.json({
-                id: req.user.id,
-                firstName: req.user.firstName,
-                email: req.user.email,
-                emailOptIn: req.user.emailOptIn,
-            });
-        }
+        db.User.findByPk(req.params.id).then((response) => {
+            const answer = cryptographic(
+                req.headers['x-access-token'],
+                response.dataValues.accessToken
+            );
+            if (!answer) {
+                res.status(401).json({ message: 'invalid credentials' });
+            } else {
+                if (!req.user) {
+                    // The user is not logged in, send back an empty object
+                    res.json({});
+                } else {
+                    // Otherwise send back the user's email and id
+                    // Sending back a password, even a hashed password, isn't a good idea
+                    res.json({
+                        id: req.user.id,
+                        firstName: req.user.firstName,
+                        email: req.user.email,
+                        emailOptIn: req.user.emailOptIn,
+                    });
+                }
+            }
+        });
     });
 
     return router;

@@ -27,16 +27,14 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Parent.associate = function (models) {
-        Parent.hasMany(models.Child, {
-            onDelete: 'cascade',
-        });
-    };
-
-    Parent.associate = function (models) {
         Parent.belongsTo(models.User, {
             foreignKey: {
                 allowNull: false,
             },
+        });
+
+        Parent.hasMany(models.Child, {
+            onDelete: 'cascade',
         });
     };
 

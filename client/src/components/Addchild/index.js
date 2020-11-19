@@ -8,13 +8,14 @@ function AddChild() {
     const [gender, setGender] = useState();
     const currentUser = API.getCurrentUser();
 
-    const handleClick = () => {
+    const handleClick = (event) => {
+        event.preventDefault();
         API.addChild({
             firstName,
             lastName,
             birthday,
             gender,
-            parentId: currentUser.id,
+            ParentId: currentUser.id,
         });
     };
 
