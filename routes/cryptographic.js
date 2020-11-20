@@ -2,7 +2,7 @@ module.exports = (hash, accessToken) => {
     const crypto = require('crypto');
 
     const localHost = 'localhost:3000';
-    const herokuHost = 'https://hand-me-ups.herokuapp.com/';
+    const herokuHost = 'hand-me-ups.herokuapp.com';
     const localToken = crypto
         .createHmac('sha256', accessToken)
         .update(localHost)
