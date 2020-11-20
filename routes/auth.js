@@ -43,15 +43,28 @@ module.exports = (db, passport) => {
                 },
             }
         ).then(() => {
+            const childArray = [];
+            req.user.Parent.Children.forEach((child) => {
+                childArray.push({
+                    childId: child.id,
+                    firstName: child.firstName,
+                    lastName: child.lastName,
+                    birthday: child.birthday,
+                    gender: child.gender,
+                });
+            });
             res.json({
                 email: req.user.email,
                 id: req.user.id,
-                address1: req.user.address1,
-                city: req.user.city,
-                state: req.user.state,
-                zipcode: req.user.zipcode,
                 accessToken,
                 sessionSalt,
+                firstName: req.user.Parent.firstName,
+                lastName: req.user.Parent.lastName,
+                address1: req.user.Parent.address1,
+                city: req.user.Parent.city,
+                state: req.user.Parent.state,
+                zipCode: req.user.Parent.zipCode,
+                children: childArray,
             });
         });
     });
@@ -72,7 +85,7 @@ module.exports = (db, passport) => {
                     address1: req.body.address1,
                     city: req.body.city,
                     state: req.body.state,
-                    zipcode: req.body.zipcode,
+                    zipCode: req.body.zipCode,
                     UserId: newUser.dataValues.id,
                 })
                     .then(() => {
@@ -91,7 +104,7 @@ module.exports = (db, passport) => {
         db.User.findByPk(req.params.id).then((response) => {
             const answer = cryptographic(
                 req.headers['x-access-token'],
-                response.dataValues.accessToken
+                response.accessToken
             );
             if (!answer) {
                 res.status(401).json({ message: 'invalid credentials' });
@@ -112,7 +125,7 @@ module.exports = (db, passport) => {
         db.User.findByPk(req.params.id).then((response) => {
             const answer = cryptographic(
                 req.headers['x-access-token'],
-                response.dataValues.accessToken
+                response.accessToken
             );
             if (!answer) {
                 res.status(401).json({ message: 'invalid credentials' });
@@ -133,7 +146,7 @@ module.exports = (db, passport) => {
         db.User.findByPk(req.params.id).then((response) => {
             const answer = cryptographic(
                 req.headers['x-access-token'],
-                response.dataValues.accessToken
+                response.accessToken
             );
             if (!answer) {
                 res.status(401).json({ message: 'invalid credentials' });

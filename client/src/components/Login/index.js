@@ -33,7 +33,7 @@ function Login() {
         <form className="login-form">
             <h2>Welcome back</h2>
             <div className="login-row">
-                <label type="text" name="userName">
+                <label type="text" htmlFor="userName">
                     Username
                 </label>
                 <br></br>
@@ -51,7 +51,7 @@ function Login() {
             </div>
             <br></br>
             <div className="login-row">
-                <label type="text" name="password">
+                <label type="text" htmlFor="password">
                     Password
                 </label>
                 <br></br>
@@ -75,7 +75,7 @@ function Login() {
                     name="remember-me"
                     value="false"
                 />
-                <label type="text" name="remember-me">
+                <label type="text" htmlFor="remember-me">
                     &nbsp;Remember Me
                 </label>
             </div>

@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true,
         },
-        zipcode: {
+        zipCode: {
             type: DataTypes.STRING,
             allowNull: true,
         },

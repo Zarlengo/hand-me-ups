@@ -3,12 +3,11 @@ module.exports = (db) => {
     const cryptographic = require('./cryptographic');
 
     router.get('/:id', (req, res) => {
-        console.log(req.headers);
         db.User.findByPk(req.params.id)
             .then((response) => {
                 const answer = cryptographic(
                     req.headers['x-access-token'],
-                    response.dataValues.accessToken
+                    response.accessToken
                 );
                 if (!answer) {
                     res.status(401).json({ message: 'invalid credentials' });
@@ -27,7 +26,7 @@ module.exports = (db) => {
                                     'address1',
                                     'city',
                                     'state',
-                                    'zipcode',
+                                    'zipCode',
                                 ],
                                 include: [
                                     {
@@ -68,7 +67,7 @@ module.exports = (db) => {
         db.User.findByPk(req.params.id).then((response) => {
             const answer = cryptographic(
                 req.headers['x-access-token'],
-                response.dataValues.accessToken
+                response.accessToken
             );
             if (!answer) {
                 res.status(401).json({ message: 'invalid credentials' });
@@ -88,7 +87,7 @@ module.exports = (db) => {
         db.User.findByPk(req.params.id).then((response) => {
             const answer = cryptographic(
                 req.headers['x-access-token'],
-                response.dataValues.accessToken
+                response.accessToken
             );
             if (!answer) {
                 res.status(401).json({ message: 'invalid credentials' });

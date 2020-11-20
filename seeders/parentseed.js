@@ -6,7 +6,7 @@ module.exports = [
         address1: '1234 Anderson Ave',
         city: 'Auburn',
         state: 'WA',
-        zipcode: '98001',
+        zipCode: '98001',
     },
     {
         firstName: 'Bill',
@@ -15,7 +15,7 @@ module.exports = [
         address1: '1234 Benson Ave',
         city: 'Bellevue',
         state: 'WA',
-        zipcode: '98004',
+        zipCode: '98004',
     },
     {
         firstName: 'Cynthia',
@@ -24,7 +24,7 @@ module.exports = [
         address1: '1234 Chadwick Ave',
         city: 'Carnation',
         state: 'WA',
-        zipcode: '98014',
+        zipCode: '98014',
     },
     {
         firstName: 'Douglas',
@@ -33,7 +33,7 @@ module.exports = [
         address1: '1234 Douglas Ave',
         city: 'Duvall',
         state: 'WA',
-        zipcode: '98019',
+        zipCode: '98019',
     },
     {
         firstName: 'Edwin',
@@ -42,7 +42,7 @@ module.exports = [
         address1: '1234 Edwards Ave',
         city: 'Enumclaw',
         state: 'WA',
-        zipcode: '98022',
+        zipCode: '98022',
     },
     {
         firstName: 'Fredrique',
@@ -51,7 +51,7 @@ module.exports = [
         address1: '1234 Franklin Ave',
         city: 'Fall City',
         state: 'WA',
-        zipcode: '98024',
+        zipCode: '98024',
     },
     {
         firstName: 'Gerdie',
@@ -60,7 +60,7 @@ module.exports = [
         address1: '1234 Granger Ave',
         city: 'Gold Bar',
         state: 'WA',
-        zipcode: '98251',
+        zipCode: '98251',
     },
     {
         firstName: 'Harriette',
@@ -69,7 +69,7 @@ module.exports = [
         address1: '1234 Harrison Ave',
         city: 'Hazel Dell',
         state: 'WA',
-        zipcode: '98665',
+        zipCode: '98665',
     },
     {
         firstName: 'Ingrid',
@@ -78,7 +78,7 @@ module.exports = [
         address1: '1234 Inglesias Ave',
         city: 'Index',
         state: 'WA',
-        zipcode: '98256',
+        zipCode: '98256',
     },
     {
         firstName: 'Janet',
@@ -87,7 +87,7 @@ module.exports = [
         address1: '1234 Jackson Ave',
         city: 'Jamestown',
         state: 'WA',
-        zipcode: '98382',
+        zipCode: '98382',
     },
     {
         firstName: 'Kelly',
@@ -96,7 +96,7 @@ module.exports = [
         address1: '1234 King Ave',
         city: 'Klickitat',
         state: 'WA',
-        zipcode: '98628',
+        zipCode: '98628',
     },
     {
         firstName: 'Lenny',
@@ -105,6 +105,6 @@ module.exports = [
         address1: '1234 Lewis Ave',
         city: 'Lebam',
         state: 'WA',
-        zipcode: '98554',
+        zipCode: '98554',
     },
 ];

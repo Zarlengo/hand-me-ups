@@ -15,6 +15,7 @@ module.exports = (db) => {
                     where: {
                         email,
                     },
+                    include: [{ model: db.Parent, include: [db.Child] }],
                 }).then((dbUser) => {
                     // If there's no user with the given email
                     if (!dbUser) {

@@ -3,47 +3,48 @@ import { Redirect } from 'react-router-dom';
 import API from '../../utils/API';
 
 function Profiles() {
-    const [id, setId] = useState();
-    const [userName, setUsername] = useState();
-    const [address1, setAddress] = useState();
-    const [city, setCity] = useState();
-    const [state, setState] = useState();
-    const [zipcode, setZipcode] = useState();
-    const [showForm, setshowForm] = useState(false);
-    const currentUser = API.getCurrentUser();
+    const [id, setId] = useState('');
+    const [email, setEmail] = useState('');
+    const [address1, setAddress] = useState('');
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
+    const [zipCode, setZipCode] = useState('');
+    const [showForm, setShowForm] = useState(false);
+    const currentUser = API.getCurrentUser('');
     const [redirect, setRedirect] = useState(false);
+    const [children, setChildren] = useState([]);
 
     const hideShowForm = () => {
         if (showForm) {
-            setshowForm(false);
+            setShowForm(false);
         } else {
-            setshowForm(true);
+            setShowForm(true);
         }
     };
     const updateInfo = (event) => {
         event.preventDefault();
         console.log(address1);
         API.editUser({
-            userName,
+            email,
             id,
             address1,
             city,
             state,
-            zipcode,
+            zipCode,
         }).then((response) => {
             if (response.status === 200) {
                 localStorage.setItem(
                     'user',
                     JSON.stringify({
                         id: id,
-                        userName: userName,
+                        email: email,
                         address1: address1,
                         city: city,
                         state: state,
-                        zipcode: zipcode,
+                        zipCode: zipCode,
                     })
                 );
-                setshowForm(false);
+                setShowForm(false);
             }
         });
     };
@@ -53,54 +54,71 @@ function Profiles() {
 
     useEffect(() => {
         setId(currentUser.id);
-        setUsername(currentUser.userName);
+        setEmail(currentUser.email);
         setAddress(currentUser.address1);
         setCity(currentUser.city);
         setState(currentUser.state);
-        setZipcode(currentUser.zipcode);
+        setZipCode(currentUser.zipCode);
+        setChildren(currentUser.children);
     }, []);
 
     if (redirect) {
-        return <Redirect to="/Addchild" />;
+        return <Redirect to="/AddChild" />;
     }
 
     return (
         <div>
             <h2>Edit your profile</h2>
             <table>
-                <tr>
-                    <td>Username:</td> <td>{currentUser.userName}</td>
-                </tr>
-                <tr>
-                    <td>Address:</td> <td>{currentUser.address1}</td>
-                </tr>
-                <tr>
-                    <td>City:</td> <td>{currentUser.city} </td>
-                </tr>
-                <tr>
-                    <td>State:</td> <td>{currentUser.state} </td>
-                </tr>
-                <tr>
-                    <td>Zipcode:</td> <td>{currentUser.zipcode} </td>
-                </tr>
-                <tr rowSpan="2">
-                    <button onClick={hideShowForm}>Edit</button>
-                    <button onClick={addChild}>Add Child</button>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td>Email:</td>
+                        <td>{currentUser.email}</td>
+                    </tr>
+                    <tr>
+                        <td>Address:</td>
+                        <td>{currentUser.address1}</td>
+                    </tr>
+                    <tr>
+                        <td>City:</td>
+                        <td>{currentUser.city}</td>
+                    </tr>
+                    <tr>
+                        <td>State:</td>
+                        <td>{currentUser.state}</td>
+                    </tr>
+                    <tr>
+                        <td>Zip Code:</td>
+                        <td>{currentUser.zipCode}</td>
+                    </tr>
+                    <tr rowSpan="2">
+                        <td>
+                            <button onClick={hideShowForm}>Edit</button>
+                            <button onClick={addChild}>Add Child</button>
+                        </td>
+                    </tr>
+                </tbody>
             </table>
+            {children.map((child) => (
+                <div key={'childId-' + child.childId}>
+                    {child.firstName} {child.lastName}
+                </div>
+            ))}
             {showForm ? (
                 <form>
-                    <th>Username:</th>
+                    <label htmlFor="email">Email:</label>
                     <input
+                        name="email"
                         type="text"
-                        placeholder={userName}
-                        value={userName}
+                        placeholder={email}
+                        value={email}
                         onChange={(event) => {
                             setUsername(event.target.value);
                         }}
                     />
-                    <th>Address:</th>
+                    <label htmlFor="address">Address:</label>
                     <input
+                        name="address"
                         type="text"
                         placeholder={address1}
                         value={address1}
@@ -108,8 +126,9 @@ function Profiles() {
                             setAddress(event.target.value);
                         }}
                     />
-                    <th>City:</th>
+                    <label htmlFor="city">City:</label>
                     <input
+                        name="city"
                         type="text"
                         placeholder={city}
                         value={city}
@@ -117,8 +136,9 @@ function Profiles() {
                             setCity(event.target.value);
                         }}
                     />
-                    <th>State:</th>
+                    <label htmlFor="state">State:</label>
                     <input
+                        name="state"
                         type="text"
                         placeholder={state}
                         value={state}
@@ -126,13 +146,14 @@ function Profiles() {
                             setState(event.target.value);
                         }}
                     />
-                    <th>Zipcode:</th>
+                    <label htmlFor="zipCode">Zip Code:</label>
                     <input
+                        name="zipCode"
                         type="text"
-                        placeholder={zipcode}
-                        value={zipcode}
+                        placeholder={zipCode}
+                        value={zipCode}
                         onChange={(event) => {
-                            setZipcode(event.target.value);
+                            setZipCode(event.target.value);
                         }}
                     />
                     <button onClick={updateInfo}>Update</button>
