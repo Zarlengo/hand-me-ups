@@ -75,27 +75,32 @@ module.exports = (db, passport) => {
     });
 
     router.post('/signup', (req, res) => {
+        console.log(req.body);
         db.User.create({
             email: req.body.email,
             password: req.body.password,
         })
             .then((newUser) => {
-                console.log(req.body);
                 db.Parent.create({
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName,
                     address1: req.body.address1,
+                    address2: req.body.address2,
                     city: req.body.city,
                     state: req.body.state,
                     zipCode: req.body.zipCode,
                     UserId: newUser.dataValues.id,
                 })
                     .then(() => {
-                        res.redirect(307, '/login');
+                        res.redirect(307, '/Login');
                     })
                     .catch((err) => {
+                        console.log(err);
                         res.status(401).json(err);
                     });
             })
             .catch((err) => {
+                console.log(err);
                 res.status(401).json(err);
             });
     });
