@@ -1,14 +1,13 @@
 module.exports = (db, passport) => {
-    // const path = require("path");
     const router = require('express').Router();
-    const apiRoutes = require('./api')(db, passport);
-    const htmlRoutes = require('./html');
+    const chartRoutes = require('./charts')(db);
+    const authRoutes = require('./auth')(db, passport);
+    const profileRoutes = require('./profileRoutes')(db);
 
-    // API Routes
-    router.use('/api', apiRoutes);
-
-    // HTML Routes
-    router.use('/', htmlRoutes);
+    // API routes: api/
+    router.use('/api/charts', chartRoutes);
+    router.use('/api/auth', authRoutes);
+    router.use('/api/profile', profileRoutes);
 
     return router;
 };

@@ -8,6 +8,8 @@ const db = require('./models');
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
+
+    // Config variable in Heroku to force seeding the database
     if (process.env.seedHeroku) {
         require('./seeders/seedDB')(db);
     }
@@ -25,8 +27,7 @@ db.sequelize.sync().then(() => {
     console.log('database is connected');
 
     // Send every request to the React app
-    const routes = require('./routes')(db, passport);
-    app.use(routes);
+    app.use(require('./routes')(db, passport));
 
     // Define any API routes before this runs
     app.get('*', (req, res) => {

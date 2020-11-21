@@ -2,19 +2,19 @@ module.exports = (sequelize, DataTypes) => {
     const Child = sequelize.define('Child', {
         firstName: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
         },
         lastName: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
         },
         birthday: {
             type: DataTypes.DATEONLY,
-            allowNull: true,
+            allowNull: false,
         },
         gender: {
             type: DataTypes.STRING,
-            allowNull: true,
+            allowNull: false,
         },
         receiveToys: {
             type: DataTypes.BOOLEAN,

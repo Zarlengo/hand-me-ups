@@ -1,11 +1,11 @@
 import React from 'react';
-import AddChild from '../components/Addchild';
+import AddChild from '../components/AddChild';
 
-function Addchild() {
+function addChild() {
     return (
         <>
             <AddChild />
         </>
     );
 }
-export default Addchild;
+export default addChild;

@@ -7,14 +7,15 @@ module.exports = (db) => {
         new LocalStrategy(
             // Our user will sign in using an email, rather than a "username"
             {
-                usernameField: 'userName',
+                usernameField: 'email',
             },
             (email, password, done) => {
                 // When a user tries to sign in this code runs
-                db.Parent.findOne({
+                db.User.findOne({
                     where: {
-                        userName: email,
+                        email,
                     },
+                    include: [{ model: db.Parent, include: [db.Child] }],
                 }).then((dbUser) => {
                     // If there's no user with the given email
                     if (!dbUser) {
