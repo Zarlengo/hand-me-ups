@@ -1,7 +1,7 @@
 const router = require('express').Router();
-// const firstRoutes = require("./<PUT FILENAME IN HERE>");
+const childRoutes = require('./child');
 
 // API routes: api/
-// router.use("/<FILENAME>", firstRoutes);
+router.use('/child', childRoutes);
 
 module.exports = router;

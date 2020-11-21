@@ -1,12 +1,7 @@
 import React from 'react';
-import About from '../components/About';
 
 function Welcome() {
-    return (
-        <div>
-            <About></About>
-        </div>
-    );
+    return <div></div>;
 }
 
 export default Welcome;
