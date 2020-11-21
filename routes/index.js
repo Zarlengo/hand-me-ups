@@ -1,12 +1,13 @@
-// const path = require("path");
-const router = require('express').Router();
-const apiRoutes = require('./api');
-const htmlRoutes = require('./html');
+module.exports = (db, passport) => {
+    const router = require('express').Router();
+    const chartRoutes = require('./charts')(db);
+    const authRoutes = require('./auth')(db, passport);
+    const profileRoutes = require('./profileRoutes')(db);
 
-// API Routes
-router.use('/api', apiRoutes);
+    // API routes: api/
+    router.use('/api/charts', chartRoutes);
+    router.use('/api/auth', authRoutes);
+    router.use('/api/profile', profileRoutes);
 
-// HTML Routes
-router.use('/', htmlRoutes);
-
-module.exports = router;
+    return router;
+};

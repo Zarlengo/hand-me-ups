@@ -1,5 +1,7 @@
 # Hand Me Ups
 
+Live site: [https://hand-me-ups.herokuapp.com/](https://hand-me-ups.herokuapp.com/)
+
 ## Description
 
 ## Table of Contents
@@ -15,7 +17,7 @@
 1. Start by installing front and backend dependencies. While in the root directory, run the following command:
 
 ```
-npm install
+npm run install
 ```
 
 This should install node modules within the server and the client folder.
@@ -41,7 +43,7 @@ Add your api keys to the .env file
 4. Set up the config (config.json) file
 
 ```
-cp config\config.json.template config\config.json
+cp config/config.json.template config/config.json
 ```
 
 Adjust the login and server settings as necessary

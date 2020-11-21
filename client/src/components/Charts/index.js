@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     BarChart,
     Bar,
@@ -9,30 +9,45 @@ import {
     Legend,
 } from 'recharts';
 
-const data = [
-    {
-        name: 'Clothes',
-        amt: 2100,
-        fam: 2000,
-    },
-    {
-        name: 'Toys',
-        amt: 2210,
-        fam: 2700,
-    },
-    {
-        name: 'Furniture',
-        amt: 2000,
-        fam: 1000,
-    },
-];
-
 function Charts() {
+    const [toysTotal, setToys] = useState();
+    const [clothesTotal, setClothes] = useState();
+    const [furnitureTotal, setFurniture] = useState();
+
+    const getDonations = () => {
+        fetch('api/charts')
+            .then((response) => response.json())
+            .then((result) => {
+                console.log(result[0]);
+                setToys(result[0].toysDonated);
+                setClothes(result[0].clothesDonated);
+                setFurniture(result[0].furnitureDonated);
+            })
+            .catch((error) => console.log(error));
+    };
+
+    useEffect(() => {
+        getDonations();
+    }, []);
+
     return (
         <BarChart
             width={300}
             height={300}
-            data={data}
+            data={[
+                {
+                    name: 'Clothes',
+                    amt: clothesTotal,
+                },
+                {
+                    name: 'Toys',
+                    amt: toysTotal,
+                },
+                {
+                    name: 'Furniture',
+                    amt: furnitureTotal,
+                },
+            ]}
             margin={{
                 top: 5,
                 right: 30,
@@ -42,11 +57,11 @@ function Charts() {
         >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="name" />
-            <YAxis />
+            <YAxis type="number" domain={[0, 500]} />
             <Tooltip />
             <Legend />
             <Bar name="Amount donated" dataKey="amt" fill="#8884d8" />
-            <Bar name="Families Connected" dataKey="fam" fill="#82ca9d" />
+            {/* <Bar name="Families Connected" dataKey="fam" fill="#82ca9d" /> */}
         </BarChart>
     );
 }

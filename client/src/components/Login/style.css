@@ -1,0 +1,38 @@
+.login-form {
+    max-width: 384px!important;
+    border: 1px solid #000;
+    padding: 10px;
+    border-radius: 10px;
+    right: 5px;
+    top: 5px;
+    margin-left: auto;
+    margin-right: 50px;
+    margin-bottom: auto;
+    margin-top: 50px;
+}
+
+.login-row {
+    width: 100%;
+}
+
+.input-field {
+    width: 100%;
+    padding: 0;
+    margin: 10px 0;
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: blue;
+}
+
+.input-field:focus {
+    border-color: green;
+}
+
+.sign-in-btn {
+    width: 100%;
+    padding: 10px;
+}
+
+.error {
+    background-color: red;
+}

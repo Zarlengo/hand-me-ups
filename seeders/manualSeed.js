@@ -1,0 +1,1 @@
+require('./seedDB')(require('../models'));
