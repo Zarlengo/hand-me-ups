@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import API from '../../utils/API';
+import ChildProfile from '../ChildProfile';
 
 function Profiles() {
+    console.log('PAGE LOAD');
     const [id, setId] = useState('');
     const [email, setEmail] = useState('');
     const [address1, setAddress] = useState('');
@@ -13,7 +15,7 @@ function Profiles() {
     const currentUser = API.getCurrentUser('');
     const [redirect, setRedirect] = useState(false);
     const [children, setChildren] = useState([]);
-
+    console.log({ user: currentUser.children });
     const hideShowForm = () => {
         if (showForm) {
             setShowForm(false);
@@ -36,7 +38,7 @@ function Profiles() {
                 localStorage.setItem(
                     'user',
                     JSON.stringify({
-                        id: id,
+                        ...currentUser,
                         email: email,
                         address1: address1,
                         city: city,
@@ -65,7 +67,7 @@ function Profiles() {
     if (redirect) {
         return <Redirect to="/AddChild" />;
     }
-
+    console.log({ children: children });
     return (
         <div>
             <h2>Edit your profile</h2>
@@ -88,8 +90,25 @@ function Profiles() {
                         <td>{currentUser.state}</td>
                     </tr>
                     <tr>
-                        <td>Zip Code:</td>
+                        <td>
+                            <label htmlFor="zipCode">Zip Code:</label>
+                        </td>
                         <td>{currentUser.zipCode}</td>
+                        {showForm ? (
+                            <td>
+                                <input
+                                    name="zipCode"
+                                    type="text"
+                                    placeholder={zipCode}
+                                    value={zipCode}
+                                    onChange={(event) => {
+                                        setZipCode(event.target.value);
+                                    }}
+                                />
+                            </td>
+                        ) : (
+                            <td></td>
+                        )}
                     </tr>
                     <tr rowSpan="2">
                         <td>
@@ -100,9 +119,11 @@ function Profiles() {
                 </tbody>
             </table>
             {children.map((child) => (
-                <div key={'childId-' + child.childId}>
-                    {child.firstName} {child.lastName}
-                </div>
+                <ChildProfile
+                    key={'childId-' + child.childId}
+                    {...child}
+                    ParentId={currentUser.id}
+                />
             ))}
             {showForm ? (
                 <form>

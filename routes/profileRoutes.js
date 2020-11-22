@@ -83,26 +83,5 @@ module.exports = (db) => {
         });
     });
 
-    router.post('/addChild/:id', (req, res) => {
-        db.User.findByPk(req.params.id).then((response) => {
-            const answer = cryptographic(
-                req.headers['x-access-token'],
-                response.accessToken
-            );
-            if (!answer) {
-                res.status(401).json({ message: 'invalid credentials' });
-            } else {
-                console.log(req.body);
-                db.Child.create(req.body)
-                    .then((response) => {
-                        res.json(response);
-                    })
-                    .catch((err) => {
-                        res.status(400).json(err);
-                    });
-            }
-        });
-    });
-
     return router;
 };
