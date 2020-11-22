@@ -8,6 +8,7 @@ import Members from '../../pages/Members';
 import Welcome from '../../pages/Welcome';
 import Profile from '../../pages/Profile';
 import AddChild from '../../pages/AddChild';
+import Login from '../../pages/Login';
 
 import API from '../../utils/API';
 
@@ -28,6 +29,7 @@ const Router = () => (
         <PrivateRoute exact path="/Members" component={Members} />
         <PrivateRoute exact path="/Profile" component={Profile} />
         <PrivateRoute exact path="/AddChild" component={AddChild} />
+        <Route exact path="/Login" component={Login} />
         <Route exact path="/Forgot" component={Forgot} />
         <Route exact path="/Signup" component={Signup} />
 

@@ -29,15 +29,8 @@ export default {
 
     getCurrentUser: () => JSON.parse(localStorage.getItem('user')),
 
-    signup: (email, password, address1, city, state, zipcode) => {
-        return axios.post('./api/auth/signup', {
-            email,
-            password,
-            address1,
-            city,
-            state,
-            zipcode,
-        });
+    signup: (userData) => {
+        return axios.post('./api/auth/signup', userData);
     },
 
     editUser: function (userData) {
