@@ -74,20 +74,88 @@ function Profiles() {
             <table>
                 <tbody>
                     <tr>
-                        <td>Email:</td>
+                        <td>
+                            <label htmlFor="email">Email:</label>
+                        </td>
                         <td>{currentUser.email}</td>
+                        {showForm ? (
+                            <td>
+                                <input
+                                    name="email"
+                                    type="text"
+                                    placeholder={email}
+                                    value={email}
+                                    onChange={(event) => {
+                                        setEmail(event.target.value);
+                                    }}
+                                />
+                            </td>
+                        ) : (
+                            <td></td>
+                        )}
                     </tr>
                     <tr>
-                        <td>Address:</td>
+                        <td>
+                            <label htmlFor="address1">Address:</label>
+                        </td>
                         <td>{currentUser.address1}</td>
+                        {showForm ? (
+                            <td>
+                                <input
+                                    name="address1"
+                                    type="text"
+                                    placeholder={address1}
+                                    value={address1}
+                                    onChange={(event) => {
+                                        setAddress1(event.target.value);
+                                    }}
+                                />
+                            </td>
+                        ) : (
+                            <td></td>
+                        )}
                     </tr>
                     <tr>
-                        <td>City:</td>
+                        <td>
+                            <label htmlFor="city">City:</label>
+                        </td>
                         <td>{currentUser.city}</td>
+                        {showForm ? (
+                            <td>
+                                <input
+                                    name="city"
+                                    type="text"
+                                    placeholder={city}
+                                    value={city}
+                                    onChange={(event) => {
+                                        setCity(event.target.value);
+                                    }}
+                                />
+                            </td>
+                        ) : (
+                            <td></td>
+                        )}
                     </tr>
                     <tr>
-                        <td>State:</td>
+                        <td>
+                            <label htmlFor="state">State:</label>
+                        </td>
                         <td>{currentUser.state}</td>
+                        {showForm ? (
+                            <td>
+                                <input
+                                    name="state"
+                                    type="text"
+                                    placeholder={state}
+                                    value={state}
+                                    onChange={(event) => {
+                                        setState(event.target.value);
+                                    }}
+                                />
+                            </td>
+                        ) : (
+                            <td></td>
+                        )}
                     </tr>
                     <tr>
                         <td>
@@ -110,14 +178,21 @@ function Profiles() {
                             <td></td>
                         )}
                     </tr>
-                    <tr rowSpan="2">
-                        <td>
-                            <button onClick={hideShowForm}>Edit</button>
-                            <button onClick={addChild}>Add Child</button>
-                        </td>
+                    <tr rowSpan="3">
+                        {showForm ? (
+                            <div>
+                                <button onClick={updateInfo}>Update</button>
+                            </div>
+                        ) : (
+                            <div>
+                                <button onClick={hideShowForm}>Edit</button>
+                                <button onClick={addChild}>Add Child</button>
+                            </div>
+                        )}
                     </tr>
                 </tbody>
             </table>
+
             {children.map((child) => (
                 <ChildProfile
                     key={'childId-' + child.childId}
@@ -125,63 +200,6 @@ function Profiles() {
                     ParentId={currentUser.id}
                 />
             ))}
-            {showForm ? (
-                <form>
-                    <label htmlFor="email">Email:</label>
-                    <input
-                        name="email"
-                        type="text"
-                        placeholder={email}
-                        value={email}
-                        onChange={(event) => {
-                            setUsername(event.target.value);
-                        }}
-                    />
-                    <label htmlFor="address">Address:</label>
-                    <input
-                        name="address"
-                        type="text"
-                        placeholder={address1}
-                        value={address1}
-                        onChange={(event) => {
-                            setAddress(event.target.value);
-                        }}
-                    />
-                    <label htmlFor="city">City:</label>
-                    <input
-                        name="city"
-                        type="text"
-                        placeholder={city}
-                        value={city}
-                        onChange={(event) => {
-                            setCity(event.target.value);
-                        }}
-                    />
-                    <label htmlFor="state">State:</label>
-                    <input
-                        name="state"
-                        type="text"
-                        placeholder={state}
-                        value={state}
-                        onChange={(event) => {
-                            setState(event.target.value);
-                        }}
-                    />
-                    <label htmlFor="zipCode">Zip Code:</label>
-                    <input
-                        name="zipCode"
-                        type="text"
-                        placeholder={zipCode}
-                        value={zipCode}
-                        onChange={(event) => {
-                            setZipCode(event.target.value);
-                        }}
-                    />
-                    <button onClick={updateInfo}>Update</button>
-                </form>
-            ) : (
-                <div />
-            )}
         </div>
     );
 }
