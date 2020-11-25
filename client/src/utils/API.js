@@ -69,8 +69,6 @@ export default {
     },
 
     editChild: function (userData, parentId) {
-        console.log({ parentId: parentId });
-        console.log(userData);
         return axios({
             url: `api/child/editChild/${parentId}`,
             data: userData,
