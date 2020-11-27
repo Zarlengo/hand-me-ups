@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import API from '../../utils/API';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    // faCheckSquare,
+    faTshirt,
+    faChair,
+    faChess,
+} from '@fortawesome/free-solid-svg-icons';
 function ChildProfile(child) {
     const [redirect, setRedirect] = useState(false);
     const currentUser = API.getCurrentUser('');
@@ -9,7 +15,14 @@ function ChildProfile(child) {
     const [lastName, setLastName] = useState('');
     const [birthday, setBirthday] = useState('');
     const [gender, setGender] = useState('');
+    const [receiveToys, setreceiveToys] = useState();
+    const [receiveClothes, setreceiveClothes] = useState();
+    const [receiveFurniture, setreceiveFurniture] = useState();
+    const [donateToys, setdonateToys] = useState();
+    const [donateClothes, setdonateClothes] = useState();
+    const [donateFurniture, setdonateFurniture] = useState();
     const [showForm, setShowForm] = useState(false);
+    console.log(receiveToys);
 
     const hideShowForm = () => {
         if (showForm) {
@@ -41,6 +54,12 @@ function ChildProfile(child) {
                 lastName,
                 birthday,
                 gender,
+                receiveToys,
+                receiveClothes,
+                receiveFurniture,
+                donateToys,
+                donateClothes,
+                donateFurniture,
                 id: child.childId,
             },
             currentUser.id
@@ -55,6 +74,12 @@ function ChildProfile(child) {
                     childObject.lastName = lastName;
                     childObject.birthday = birthday;
                     childObject.gender = gender;
+                    childObject.receiveToys = receiveToys;
+                    childObject.receiveClothes = receiveClothes;
+                    childObject.receiveFurniture = receiveFurniture;
+                    childObject.donateToys = donateToys;
+                    childObject.donateClothes = donateClothes;
+                    childObject.donateFurniture = donateFurniture;
                     return childObject;
                 });
                 localStorage.setItem('user', JSON.stringify(currentUser));
@@ -68,6 +93,12 @@ function ChildProfile(child) {
         setLastName(child.lastName);
         setBirthday(child.birthday);
         setGender(child.gender);
+        setreceiveToys(child.receiveToys);
+        setreceiveClothes(child.receiveClothes);
+        setreceiveFurniture(child.receiveFurniture);
+        setdonateToys(child.donateToys);
+        setdonateClothes(child.donateClothes);
+        setdonateFurniture(child.donateFurniture);
     }, []);
 
     if (redirect) {
@@ -146,8 +177,8 @@ function ChildProfile(child) {
                             <label htmlFor="gender">Gender:</label>
                         </td>
                         <td>{child.gender}</td>
-                        {showForm ? (
-                            <td>
+                        <td>
+                            {showForm ? (
                                 <select
                                     onChange={(event) => {
                                         setGender(event.target.value);
@@ -156,11 +187,180 @@ function ChildProfile(child) {
                                     <option value="male">male</option>
                                     <option value="female">female</option>
                                 </select>
-                            </td>
-                        ) : (
-                            <td></td>
-                        )}
+                            ) : (
+                                ''
+                            )}
+                        </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <label htmlFor="receiveToys">Receive Toys:</label>
+                        </td>
+                        <td>
+                            {child.receiveToys ? (
+                                <FontAwesomeIcon icon={faChess} />
+                            ) : (
+                                ''
+                            )}
+                        </td>
+                        <td>
+                            {showForm ? (
+                                <input
+                                    name="receiveToys"
+                                    type="checkbox"
+                                    checked={receiveToys}
+                                    onChange={(event) => {
+                                        setreceiveToys(event.target.checked);
+                                    }}
+                                />
+                            ) : (
+                                ''
+                            )}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label htmlFor="receiveClothes">
+                                Receive Clothes:
+                            </label>
+                        </td>
+                        <td>
+                            {child.receiveClothes ? (
+                                <FontAwesomeIcon icon={faTshirt} />
+                            ) : (
+                                ''
+                            )}
+                        </td>
+                        <td>
+                            {showForm ? (
+                                <input
+                                    name="receiveClothes"
+                                    type="checkbox"
+                                    checked={receiveClothes}
+                                    onChange={(event) => {
+                                        setreceiveClothes(event.target.checked);
+                                    }}
+                                />
+                            ) : (
+                                ''
+                            )}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label htmlFor="receiveFurniture">
+                                Receive Furniture:
+                            </label>
+                        </td>
+                        <td>
+                            {child.receiveFurniture ? (
+                                <FontAwesomeIcon icon={faChair} />
+                            ) : (
+                                ''
+                            )}
+                        </td>
+                        <td>
+                            {showForm ? (
+                                <input
+                                    name="receiveFurniture"
+                                    type="checkbox"
+                                    checked={receiveFurniture}
+                                    onChange={(event) => {
+                                        setreceiveFurniture(
+                                            event.target.checked
+                                        );
+                                    }}
+                                />
+                            ) : (
+                                ''
+                            )}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label htmlFor="donateToys">Donate Toys:</label>
+                        </td>
+                        <td>
+                            {child.donateToys ? (
+                                <FontAwesomeIcon icon={faChess} />
+                            ) : (
+                                ''
+                            )}
+                        </td>
+                        <td>
+                            {showForm ? (
+                                <input
+                                    name="donateToys"
+                                    type="checkbox"
+                                    checked={donateToys}
+                                    onChange={(event) => {
+                                        setdonateToys(event.target.checked);
+                                    }}
+                                />
+                            ) : (
+                                ''
+                            )}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label htmlFor="donateClothes">
+                                Donate Clothes:
+                            </label>
+                        </td>
+                        <td>
+                            {child.donateClothes ? (
+                                <FontAwesomeIcon icon={faTshirt} />
+                            ) : (
+                                ''
+                            )}
+                        </td>
+                        <td>
+                            {showForm ? (
+                                <input
+                                    name="donateClothes"
+                                    type="checkbox"
+                                    checked={donateClothes}
+                                    onChange={(event) => {
+                                        setdonateClothes(event.target.checked);
+                                    }}
+                                />
+                            ) : (
+                                ''
+                            )}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label htmlFor="donateFurniture">
+                                Donate Furniture:
+                            </label>
+                        </td>
+                        <td>
+                            {child.donateFurniture ? (
+                                <FontAwesomeIcon icon={faChair} />
+                            ) : (
+                                ''
+                            )}
+                        </td>
+                        <td>
+                            {showForm ? (
+                                <input
+                                    name="donateFurniture"
+                                    type="checkbox"
+                                    checked={donateFurniture}
+                                    onChange={(event) => {
+                                        setdonateFurniture(
+                                            event.target.checked
+                                        );
+                                    }}
+                                />
+                            ) : (
+                                ''
+                            )}
+                        </td>
+                    </tr>
+                    <tr></tr>
                     <tr rowSpan="3">
                         <td>
                             {showForm ? (
