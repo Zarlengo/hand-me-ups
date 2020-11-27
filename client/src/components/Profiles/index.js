@@ -81,8 +81,8 @@ function Profiles() {
                             <label htmlFor="email">Email:</label>
                         </td>
                         <td>{currentUser.email}</td>
-                        {showForm ? (
-                            <td>
+                        <td>
+                            {showForm ? (
                                 <input
                                     name="email"
                                     type="text"
@@ -92,18 +92,18 @@ function Profiles() {
                                         setEmail(event.target.value);
                                     }}
                                 />
-                            </td>
-                        ) : (
-                            <td></td>
-                        )}
+                            ) : (
+                                ''
+                            )}
+                        </td>
                     </tr>
                     <tr>
                         <td>
                             <label htmlFor="address1">Address:</label>
                         </td>
                         <td>{currentUser.address1}</td>
-                        {showForm ? (
-                            <td>
+                        <td>
+                            {showForm ? (
                                 <input
                                     name="address1"
                                     type="text"
@@ -113,18 +113,18 @@ function Profiles() {
                                         setAddress1(event.target.value);
                                     }}
                                 />
-                            </td>
-                        ) : (
-                            <td></td>
-                        )}
+                            ) : (
+                                ''
+                            )}
+                        </td>
                     </tr>
                     <tr>
                         <td>
                             <label htmlFor="city">City:</label>
                         </td>
                         <td>{currentUser.city}</td>
-                        {showForm ? (
-                            <td>
+                        <td>
+                            {showForm ? (
                                 <input
                                     name="city"
                                     type="text"
@@ -134,18 +134,18 @@ function Profiles() {
                                         setCity(event.target.value);
                                     }}
                                 />
-                            </td>
-                        ) : (
-                            <td></td>
-                        )}
+                            ) : (
+                                ''
+                            )}
+                        </td>
                     </tr>
                     <tr>
                         <td>
                             <label htmlFor="state">State:</label>
                         </td>
                         <td>{currentUser.state}</td>
-                        {showForm ? (
-                            <td>
+                        <td>
+                            {showForm ? (
                                 <input
                                     name="state"
                                     type="text"
@@ -155,18 +155,18 @@ function Profiles() {
                                         setState(event.target.value);
                                     }}
                                 />
-                            </td>
-                        ) : (
-                            <td></td>
-                        )}
+                            ) : (
+                                ''
+                            )}
+                        </td>
                     </tr>
                     <tr>
                         <td>
                             <label htmlFor="zipCode">Zip Code:</label>
                         </td>
                         <td>{currentUser.zipCode}</td>
-                        {showForm ? (
-                            <td>
+                        <td>
+                            {showForm ? (
                                 <input
                                     name="zipCode"
                                     type="text"
@@ -176,22 +176,26 @@ function Profiles() {
                                         setZipCode(event.target.value);
                                     }}
                                 />
-                            </td>
-                        ) : (
-                            <td></td>
-                        )}
+                            ) : (
+                                ''
+                            )}
+                        </td>
                     </tr>
                     <tr rowSpan="3">
-                        {showForm ? (
-                            <div>
-                                <button onClick={updateInfo}>Update</button>
-                            </div>
-                        ) : (
-                            <div>
-                                <button onClick={hideShowForm}>Edit</button>
-                                <button onClick={addChild}>Add Child</button>
-                            </div>
-                        )}
+                        <td>
+                            {showForm ? (
+                                <div>
+                                    <button onClick={updateInfo}>Update</button>
+                                </div>
+                            ) : (
+                                <div>
+                                    <button onClick={hideShowForm}>Edit</button>
+                                    <button onClick={addChild}>
+                                        Add Child
+                                    </button>
+                                </div>
+                            )}
+                        </td>
                     </tr>
                 </tbody>
             </table>
