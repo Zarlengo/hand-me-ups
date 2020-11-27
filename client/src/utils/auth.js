@@ -1,7 +1,6 @@
 export default () => {
     const crypto = require('crypto');
     const user = JSON.parse(localStorage.getItem('user'));
-    console.log(document.location.host);
 
     const localToken = crypto
         .createHmac('sha256', user.accessToken)

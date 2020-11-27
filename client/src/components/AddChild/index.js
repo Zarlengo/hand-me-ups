@@ -31,9 +31,7 @@ function AddChild() {
             donateFurniture,
             ParentId: currentUser.id,
         }).then((response) => {
-            console.log(response);
             if (response.status === 200) {
-                console.log(currentUser);
                 currentUser.children.push({
                     childId: response.data.id,
                     firstName: firstName,

@@ -3,9 +3,7 @@ import { Redirect } from 'react-router-dom';
 import API from '../../utils/API';
 
 function ChildProfile(child) {
-    console.log({ 'Child Load': child });
     const [redirect, setRedirect] = useState(false);
-    console.log({ 'first r': redirect });
     const currentUser = API.getCurrentUser('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -23,7 +21,6 @@ function ChildProfile(child) {
 
     const deleteChild = (event) => {
         event.preventDefault();
-        console.log(child);
         API.deleteChild(child.ParentId, child.childId).then((response) => {
             if (response.status === 200) {
                 const childArray = currentUser.children;
@@ -61,7 +58,7 @@ function ChildProfile(child) {
                     return childObject;
                 });
                 localStorage.setItem('user', JSON.stringify(currentUser));
-                setRedirect(true);
+                window.location.reload();
             }
         });
     };
@@ -72,7 +69,7 @@ function ChildProfile(child) {
         setBirthday(child.birthday);
         setGender(child.gender);
     }, []);
-    console.log({ redirect: redirect });
+
     if (redirect) {
         return <Redirect to="/Profile" />;
     }

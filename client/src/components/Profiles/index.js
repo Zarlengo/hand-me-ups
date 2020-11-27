@@ -4,7 +4,6 @@ import API from '../../utils/API';
 import ChildProfile from '../ChildProfile';
 
 function Profiles() {
-    console.log('PAGE LOAD');
     const [id, setId] = useState('');
     const [email, setEmail] = useState('');
     const [address1, setAddress] = useState('');
@@ -14,8 +13,8 @@ function Profiles() {
     const [showForm, setShowForm] = useState(false);
     const currentUser = API.getCurrentUser('');
     const [redirect, setRedirect] = useState(false);
+    const [refresh, setRefresh] = useState(false);
     const [children, setChildren] = useState([]);
-    console.log({ user: currentUser.children });
     const hideShowForm = () => {
         if (showForm) {
             setShowForm(false);
@@ -25,7 +24,6 @@ function Profiles() {
     };
     const updateInfo = (event) => {
         event.preventDefault();
-        console.log(address1);
         API.editUser({
             email,
             id,
@@ -67,7 +65,12 @@ function Profiles() {
     if (redirect) {
         return <Redirect to="/AddChild" />;
     }
-    console.log({ children: children });
+
+    if (refresh) {
+        setRefresh(false);
+        return <Redirect to="/Profile" />;
+    }
+
     return (
         <div>
             <h2>Edit your profile</h2>
@@ -197,6 +200,7 @@ function Profiles() {
                 <ChildProfile
                     key={'childId-' + child.childId}
                     {...child}
+                    refresh={setRefresh}
                     ParentId={currentUser.id}
                 />
             ))}
