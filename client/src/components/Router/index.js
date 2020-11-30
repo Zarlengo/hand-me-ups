@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
 import Forgot from '../../pages/Forgot';
 import Signup from '../../pages/Signup';
 import Members from '../../pages/Members';
