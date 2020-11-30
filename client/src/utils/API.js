@@ -53,6 +53,21 @@ export default {
         });
     },
 
+    getChildren: function (id) {
+        return axios({
+            url: `api/child/children/${id}`,
+            method: 'GET',
+            headers: headers(),
+        });
+    },
+    addDonation: function (userData) {
+        return axios({
+            url: `api/donation/create/${userData.sendingParentID}`,
+            data: userData,
+            method: 'POST',
+        });
+    },
+
     deleteChild: function (parentId, childId) {
         return axios({
             url: `api/child/deleteChild/${parentId}`,
@@ -67,6 +82,7 @@ export default {
             url: `api/child/editChild/${parentId}`,
             data: userData,
             method: 'PUT',
+
             headers: headers(),
         });
     },

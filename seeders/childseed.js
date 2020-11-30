@@ -14,6 +14,7 @@ module.exports = [
         clothesDonated: 10,
         furnitureDonated: 1,
         ParentId: 1,
+        tags: [1, 2, 3, 4],
     },
     {
         firstName: 'Alan',

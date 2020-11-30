@@ -1,13 +1,15 @@
 import React from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
 import Forgot from '../../pages/Forgot';
 import Signup from '../../pages/Signup';
 import Members from '../../pages/Members';
 import Welcome from '../../pages/Welcome';
 import Profile from '../../pages/Profile';
 import AddChild from '../../pages/AddChild';
+
+import Outgoing from '../../pages/Donation';
+
 import Login from '../../pages/Login';
 
 import API from '../../utils/API';
@@ -32,6 +34,7 @@ const Router = () => (
         <Route exact path="/Login" component={Login} />
         <Route exact path="/Forgot" component={Forgot} />
         <Route exact path="/Signup" component={Signup} />
+        <PrivateRoute exact path="/Donations" component={Outgoing} />
 
         <Route path="/" component={Welcome} />
     </Switch>
