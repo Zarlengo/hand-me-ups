@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import API from '../../utils/API';
 import ChildProfile from '../ChildProfile';
+import './style.css';
 
 function Profiles() {
     const [id, setId] = useState('');
@@ -62,6 +63,10 @@ function Profiles() {
         setChildren(currentUser.children);
     }, []);
 
+    const reload = () => {
+        window.location.reload();
+    };
+
     if (redirect) {
         return <Redirect to="/AddChild" />;
     }
@@ -72,19 +77,22 @@ function Profiles() {
     }
 
     return (
-        <div>
-            <h2>Edit your profile</h2>
-            <table>
-                <tbody>
+        <div className="parentProfile">
+            <h2 className="editTitle">Edit your profile</h2>
+            <table className="table">
+                <tbody id="tableBody">
                     <tr>
-                        <td>
-                            <label htmlFor="email">Email:</label>
+                        <td className="right-Align">
+                            <label htmlFor="email" className="parentLabel">
+                                Email:
+                            </label>
                         </td>
                         <td>{currentUser.email}</td>
                         <td>
                             {showForm ? (
                                 <input
                                     name="email"
+                                    className="parentInput"
                                     type="text"
                                     placeholder={email}
                                     value={email}
@@ -98,14 +106,17 @@ function Profiles() {
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <label htmlFor="address1">Address:</label>
+                        <td className="right-Align">
+                            <label htmlFor="address1" className="parentLabel">
+                                Address:
+                            </label>
                         </td>
                         <td>{currentUser.address1}</td>
                         <td>
                             {showForm ? (
                                 <input
                                     name="address1"
+                                    className="parentInput"
                                     type="text"
                                     placeholder={address1}
                                     value={address1}
@@ -119,14 +130,17 @@ function Profiles() {
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <label htmlFor="city">City:</label>
+                        <td className="right-Align">
+                            <label htmlFor="city" className="parentLabel">
+                                City:
+                            </label>
                         </td>
                         <td>{currentUser.city}</td>
                         <td>
                             {showForm ? (
                                 <input
                                     name="city"
+                                    className="parentInput"
                                     type="text"
                                     placeholder={city}
                                     value={city}
@@ -140,14 +154,17 @@ function Profiles() {
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <label htmlFor="state">State:</label>
+                        <td className="right-Align">
+                            <label htmlFor="state" className="parentLabel ">
+                                State:
+                            </label>
                         </td>
                         <td>{currentUser.state}</td>
                         <td>
                             {showForm ? (
                                 <input
                                     name="state"
+                                    className="parentInput"
                                     type="text"
                                     placeholder={state}
                                     value={state}
@@ -161,14 +178,17 @@ function Profiles() {
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <label htmlFor="zipCode">Zip Code:</label>
+                        <td className="right-Align">
+                            <label htmlFor="zipCode" className="parentLabel ">
+                                Zip Code:
+                            </label>
                         </td>
                         <td>{currentUser.zipCode}</td>
                         <td>
                             {showForm ? (
                                 <input
                                     name="zipCode"
+                                    className="parentInput"
                                     type="text"
                                     placeholder={zipCode}
                                     value={zipCode}
@@ -181,33 +201,37 @@ function Profiles() {
                             )}
                         </td>
                     </tr>
-                    <tr rowSpan="3">
-                        <td>
-                            {showForm ? (
-                                <div>
-                                    <button onClick={updateInfo}>Update</button>
-                                </div>
-                            ) : (
-                                <div>
-                                    <button onClick={hideShowForm}>Edit</button>
-                                    <button onClick={addChild}>
-                                        Add Child
-                                    </button>
-                                </div>
-                            )}
-                        </td>
-                    </tr>
                 </tbody>
             </table>
-
-            {children.map((child) => (
-                <ChildProfile
-                    key={'childId-' + child.childId}
-                    {...child}
-                    refresh={setRefresh}
-                    ParentId={currentUser.id}
-                />
-            ))}
+            {showForm ? (
+                <div>
+                    <button onClick={updateInfo} className="btn btn-default">
+                        Update
+                    </button>
+                    <button onClick={reload} className="btn btn-default">
+                        Cancel
+                    </button>
+                </div>
+            ) : (
+                <div>
+                    <button onClick={hideShowForm} className="btn btn-default">
+                        Edit
+                    </button>
+                    <button onClick={addChild} className="btn btn-default">
+                        Add Child
+                    </button>
+                </div>
+            )}
+            <div className="childDiv">
+                {children.map((child) => (
+                    <ChildProfile
+                        key={'childId-' + child.childId}
+                        {...child}
+                        refresh={setRefresh}
+                        ParentId={currentUser.id}
+                    />
+                ))}
+            </div>
         </div>
     );
 }

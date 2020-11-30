@@ -46,7 +46,7 @@ export default {
 
     addChild: function (userData) {
         return axios({
-            url: `api/child/addChild/${userData.ParentId}`,
+            url: `/api/child/addChild/${userData.ParentId}`,
             data: userData,
             method: 'POST',
             headers: headers(),
@@ -60,11 +60,13 @@ export default {
             headers: headers(),
         });
     },
+
     addDonation: function (userData) {
         return axios({
             url: `api/donation/create/${userData.sendingParentID}`,
             data: userData,
             method: 'POST',
+            headers: headers(),
         });
     },
 
@@ -82,8 +84,29 @@ export default {
             url: `api/child/editChild/${parentId}`,
             data: userData,
             method: 'PUT',
-
             headers: headers(),
+        });
+    },
+
+    getTags: function (parentId) {
+        return axios({
+            url: `api/tags/${parentId}`,
+            method: 'GET',
+            headers: headers(),
+        }).then((response) => {
+            if (response.status === 200) {
+                const toyTags = response.data.filter(
+                    (element) => element.type === 'toy'
+                );
+                const clothesTags = response.data.filter(
+                    (element) => element.type === 'clothes'
+                );
+                const furnitureTags = response.data.filter(
+                    (element) => element.type === 'furniture'
+                );
+                return { toyTags, clothesTags, furnitureTags };
+            }
+            return 'Error getting tags';
         });
     },
 };

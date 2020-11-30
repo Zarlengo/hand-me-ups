@@ -2,7 +2,6 @@ import React from 'react';
 import './chooseBtn.css';
 import PropTypes from 'prop-types';
 function ChooseBtn({ changeChosen, childID }) {
-    console.log(childID, 'childID');
     return (
         <button onClick={() => changeChosen(childID)} className={'card-btn'}>
             Choose this Donation
