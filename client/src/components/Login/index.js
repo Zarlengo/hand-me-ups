@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import API from '../../utils/API';
 import './style.css';
-
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Login() {
     const [isLoggedIn, setLoggedIn] = useState(false);
@@ -30,8 +29,9 @@ function Login() {
     }
 
     return (
-        <form className="login-form">
-            <h2>Welcome back</h2>
+        <form className="login-form" id="login">
+            <h2>Welcome Back</h2>
+            <br></br>
             <div className="login-row">
                 <label type="text" htmlFor="userName">
                     Username
@@ -42,7 +42,7 @@ function Login() {
                     type="userName"
                     id="userName"
                     name="userName"
-                    placeholder="Username"
+                    placeholder=""
                     value={userName}
                     onChange={(event) => {
                         setUserName(event.target.value);
@@ -60,7 +60,7 @@ function Login() {
                     type="password"
                     id="password"
                     name="password"
-                    placeholder="Password"
+                    placeholder=""
                     value={password}
                     onChange={(event) => {
                         setPassword(event.target.value);

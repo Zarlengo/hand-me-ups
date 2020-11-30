@@ -1,7 +1,15 @@
 .footer {
-  min-height: 50px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
   background: #E5E5E5;
-  position: relative;
+  flex-shrink: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: x-small;
+  position: fixed;
+  bottom: 0;
+  height: 15px;
+  width: 100%;
 }
 
 .footer span {

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
+import './styles.css';
 
 import Login from '../components/Login';
 
@@ -11,8 +12,11 @@ function Welcome() {
     }
 
     return (
-        <div>
-            <h1>Welcome Page</h1>
+        <div className="wrapper">
+            <div className="header"> Hand Me Ups </div>
+            <div id="picture"></div>
+            <div id="background"></div>
+
             <Login />
         </div>
     );

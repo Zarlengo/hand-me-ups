@@ -1,6 +1,6 @@
 .login-form {
     max-width: 384px!important;
-    border: 1px solid #000;
+    border: 5px solid red;
     padding: 10px;
     border-radius: 10px;
     right: 5px;
@@ -8,7 +8,19 @@
     margin-left: auto;
     margin-right: 50px;
     margin-bottom: auto;
-    margin-top: 50px;
+    margin-top: 200px;
+    color: rgb(255, 165, 0);
+    background-color:rgba(245, 58, 58, 0.8);
+}
+
+#userName {
+
+    background-color:rgba(245, 79, 79, 0.7);
+}
+
+#password {
+
+    background-color:rgba(245, 79, 79, 0.7);
 }
 
 .login-row {
@@ -21,16 +33,18 @@
     margin: 10px 0;
     outline: 0;
     border-width: 0 0 2px;
-    border-color: blue;
+    border-color: purple;
 }
 
 .input-field:focus {
-    border-color: green;
+    border-color: blue;
 }
 
 .sign-in-btn {
     width: 100%;
     padding: 10px;
+    color: black;
+    background-color: orange;
 }
 
 .error {
