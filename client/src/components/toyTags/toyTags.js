@@ -1,7 +1,12 @@
-import React, { useContext } from 'react';
-import DonationContext from '../../utils/donationContext';
+import React from 'react';
 
-export const toyTags = () => {
-    const { toyTags } = useContext(DonationContext);
-    return <ul className="toyTags">{toyTags.map(m + <li>{m.tag}</li>)}</ul>;
+const toyTags = ({ tag }) => {
+    return (
+        <ul className="toyTags">
+            {tag.map((m) => (
+                <li key={m.tag}>{m.tag}</li>
+            ))}
+        </ul>
+    );
 };
+export default toyTags;

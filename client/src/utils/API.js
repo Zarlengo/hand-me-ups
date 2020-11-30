@@ -56,4 +56,19 @@ export default {
             headers: headers(),
         });
     },
+    getChildren: function (id) {
+        return axios({
+            url: `api/child/children/${id}`,
+            method: 'GET',
+            headers: headers(),
+        });
+    },
+    addDonation: function (userData) {
+        return axios({
+            url: `api/donation/create/${userData.sendingParentID}`,
+            data: userData,
+            method: 'POST',
+            headers: headers(),
+        });
+    },
 };

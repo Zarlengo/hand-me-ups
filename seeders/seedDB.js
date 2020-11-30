@@ -2,6 +2,7 @@ module.exports = (db) => {
     const childSeed = require('./childseed');
     const parentSeed = require('./parentseed');
     const userSeed = require('./userseed');
+    const tagSeed = require('./tagSeed');
 
     // const eraseDatabaseOnSync = true;
 
@@ -31,6 +32,13 @@ module.exports = (db) => {
                         .catch((err) => {
                             console.error(err);
                         });
+                })
+                .catch((err) => {
+                    console.error(err);
+                });
+            db.Tag.bulkCreate(tagSeed)
+                .then((data) => {
+                    console.log(data.length + ' records inserted in Tag!');
                 })
                 .catch((err) => {
                     console.error(err);

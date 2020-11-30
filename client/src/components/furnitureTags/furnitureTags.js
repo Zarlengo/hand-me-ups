@@ -1,11 +1,12 @@
 import React from 'react';
-import DonationContext from '../../utils/donationContext';
 
-export const furnitureTags = () => {
-    const { furnitureTags } = useContext(DonationContext);
+const furnitureTags = ({ tag }) => {
     return (
         <ul className="furnitureTags">
-            {furnitureTags.map(m + <li>{m.tag}</li>)}
+            {tag.map((m) => (
+                <li key={m.tag}>{m.tag}</li>
+            ))}
         </ul>
     );
 };
+export default furnitureTags;
