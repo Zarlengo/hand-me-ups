@@ -11,7 +11,6 @@ function DonationDemographics() {
     const furnituretags = tags.filter(
         (element) => element.type === 'furniture'
     );
-    console.log(tags, 'toytags');
     return (
         <div className="DonationDemographics">
             <h3>{gender}</h3>

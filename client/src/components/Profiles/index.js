@@ -63,6 +63,10 @@ function Profiles() {
         setChildren(currentUser.children);
     }, []);
 
+    const reload = () => {
+        window.location.reload();
+    };
+
     if (redirect) {
         return <Redirect to="/AddChild" />;
     }
@@ -78,7 +82,7 @@ function Profiles() {
             <table className="table">
                 <tbody id="tableBody">
                     <tr>
-                        <td>
+                        <td className="right-Align">
                             <label htmlFor="email" className="parentLabel">
                                 Email:
                             </label>
@@ -102,7 +106,7 @@ function Profiles() {
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td className="right-Align">
                             <label htmlFor="address1" className="parentLabel">
                                 Address:
                             </label>
@@ -126,7 +130,7 @@ function Profiles() {
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td className="right-Align">
                             <label htmlFor="city" className="parentLabel">
                                 City:
                             </label>
@@ -150,8 +154,8 @@ function Profiles() {
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <label htmlFor="state" className="parentLabel">
+                        <td className="right-Align">
+                            <label htmlFor="state" className="parentLabel ">
                                 State:
                             </label>
                         </td>
@@ -174,8 +178,8 @@ function Profiles() {
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <label htmlFor="zipCode" className="parentLabel">
+                        <td className="right-Align">
+                            <label htmlFor="zipCode" className="parentLabel ">
                                 Zip Code:
                             </label>
                         </td>
@@ -197,37 +201,27 @@ function Profiles() {
                             )}
                         </td>
                     </tr>
-                    <tr rowSpan="3">
-                        <td>
-                            {showForm ? (
-                                <div>
-                                    <button
-                                        onClick={updateInfo}
-                                        className="btn btn-default"
-                                    >
-                                        Update
-                                    </button>
-                                </div>
-                            ) : (
-                                <div>
-                                    <button
-                                        onClick={hideShowForm}
-                                        className="btn btn-default"
-                                    >
-                                        Edit
-                                    </button>
-                                    <button
-                                        onClick={addChild}
-                                        className="btn btn-default"
-                                    >
-                                        Add Child
-                                    </button>
-                                </div>
-                            )}
-                        </td>
-                    </tr>
                 </tbody>
             </table>
+            {showForm ? (
+                <div>
+                    <button onClick={updateInfo} className="btn btn-default">
+                        Update
+                    </button>
+                    <button onClick={reload} className="btn btn-default">
+                        Cancel
+                    </button>
+                </div>
+            ) : (
+                <div>
+                    <button onClick={hideShowForm} className="btn btn-default">
+                        Edit
+                    </button>
+                    <button onClick={addChild} className="btn btn-default">
+                        Add Child
+                    </button>
+                </div>
+            )}
             <div className="childDiv">
                 {children.map((child) => (
                     <ChildProfile

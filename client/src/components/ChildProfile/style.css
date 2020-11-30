@@ -3,10 +3,9 @@
 } 
 
 #childTableBody {
-    display: flex;
-    flex-direction: column;
     line-height: 2em;
     margin-bottom: 1em;
+    text-align: left;
 }
 
 .editChildTitle {
@@ -31,6 +30,11 @@
 .editChildLabel {
     font-weight: bold;
     margin-right: 1em;
+}
+
+.btnDiv {
+    display: flex;
+    justify-content: flex-start;
 }
 
 @media screen and (min-width: 600px){

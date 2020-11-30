@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import API from '../../utils/API';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTshirt, faChair, faChess } from '@fortawesome/free-solid-svg-icons';
+import {
+    faTshirt,
+    faChair,
+    faChess,
+    faCheckSquare,
+} from '@fortawesome/free-solid-svg-icons';
+import EditTagCheckbox from '../EditTagCheckbox';
 import './style.css';
 
 function ChildProfile(child) {
@@ -19,6 +25,10 @@ function ChildProfile(child) {
     const [donateClothes, setdonateClothes] = useState();
     const [donateFurniture, setdonateFurniture] = useState();
     const [showForm, setShowForm] = useState(false);
+    const [toyTags, settoyTags] = useState([]);
+    const [clothesTags, setclothesTags] = useState([]);
+    const [furnitureTags, setfurnitureTags] = useState([]);
+    const [tags, setTags] = useState([]);
 
     const hideShowForm = () => {
         if (showForm) {
@@ -56,6 +66,7 @@ function ChildProfile(child) {
                 donateToys,
                 donateClothes,
                 donateFurniture,
+                tags,
                 id: child.childId,
             },
             currentUser.id
@@ -76,12 +87,26 @@ function ChildProfile(child) {
                     childObject.donateToys = donateToys;
                     childObject.donateClothes = donateClothes;
                     childObject.donateFurniture = donateFurniture;
+                    childObject.tags = tags;
                     return childObject;
                 });
                 localStorage.setItem('user', JSON.stringify(currentUser));
                 window.location.reload();
             }
         });
+    };
+
+    const handlecheckboxClick = (event, id) => {
+        event.preventDefault();
+        if (tags.includes(id)) {
+            setTags(tags.filter((tag) => tag !== id));
+        } else {
+            setTags([...tags, id]);
+        }
+    };
+
+    const reload = () => {
+        window.location.reload();
     };
 
     useEffect(() => {
@@ -95,6 +120,17 @@ function ChildProfile(child) {
         setdonateToys(child.donateToys);
         setdonateClothes(child.donateClothes);
         setdonateFurniture(child.donateFurniture);
+        if (child.tags) {
+            setTags(child.tags);
+        }
+        API.getTags(currentUser.id).then((response) => {
+            console.log(response);
+            if (response !== 'Error getting tags') {
+                settoyTags(response.toyTags);
+                setclothesTags(response.clothesTags);
+                setfurnitureTags(response.furnitureTags);
+            }
+        });
     }, []);
 
     if (redirect) {
@@ -407,36 +443,64 @@ function ChildProfile(child) {
                             )}
                         </td>
                     </tr>
+                    {toyTags.map((tag) => (
+                        <EditTagCheckbox
+                            tag={tag.tag}
+                            tags={tags}
+                            id={tag.id}
+                            key={tag.id}
+                            icon={faCheckSquare}
+                            Icon={FontAwesomeIcon}
+                            edit={showForm}
+                            onClick={handlecheckboxClick}
+                        />
+                    ))}
+                    {clothesTags.map((tag) => (
+                        <EditTagCheckbox
+                            tag={tag.tag}
+                            tags={tags}
+                            id={tag.id}
+                            key={tag.id}
+                            icon={faCheckSquare}
+                            Icon={FontAwesomeIcon}
+                            edit={showForm}
+                            onClick={handlecheckboxClick}
+                        />
+                    ))}
+                    {furnitureTags.map((tag) => (
+                        <EditTagCheckbox
+                            tag={tag.tag}
+                            tags={tags}
+                            id={tag.id}
+                            key={tag.id}
+                            icon={faCheckSquare}
+                            Icon={FontAwesomeIcon}
+                            edit={showForm}
+                            onClick={handlecheckboxClick}
+                        />
+                    ))}
                     <tr></tr>
-                    <tr rowSpan="3">
-                        <td>
-                            {showForm ? (
-                                <div>
-                                    <button
-                                        className="btn btn-default"
-                                        onClick={deleteChild}
-                                    >
-                                        Delete Child
-                                    </button>
-                                    <button
-                                        className="btn btn-default"
-                                        onClick={saveChanges}
-                                    >
-                                        Save Changes
-                                    </button>
-                                </div>
-                            ) : (
-                                <button
-                                    className="btn btn-default"
-                                    onClick={hideShowForm}
-                                >
-                                    Edit Child
-                                </button>
-                            )}
-                        </td>
-                    </tr>
                 </tbody>
             </table>
+            {showForm ? (
+                <div className="btnDiv">
+                    <button className="btn btn-default" onClick={deleteChild}>
+                        Delete Child
+                    </button>
+                    <button className="btn btn-default" onClick={saveChanges}>
+                        Save Changes
+                    </button>
+                    <button className="btn btn-default" onClick={reload}>
+                        Cancel
+                    </button>
+                </div>
+            ) : (
+                <div className="btnDiv">
+                    <button className="btn btn-default" onClick={hideShowForm}>
+                        Edit Child
+                    </button>
+                </div>
+            )}
         </div>
     );
 }

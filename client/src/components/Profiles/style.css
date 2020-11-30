@@ -30,8 +30,6 @@
 }
 
 #tableBody {
-    display: flex;
-    flex-direction: column;
     line-height: 2em;
     margin-bottom: 1em;
 }

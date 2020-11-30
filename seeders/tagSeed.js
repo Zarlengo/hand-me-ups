@@ -1,7 +1,7 @@
 module.exports = [
     {
         type: 'toy',
-        tag: 'doll',
+        tag: 'Doll',
     },
     {
         type: 'toy',
@@ -9,130 +9,126 @@ module.exports = [
     },
     {
         type: 'toy',
-        tag: 'sports',
+        tag: 'Sports',
     },
     {
         type: 'toy',
-        tag: 'building/engineering',
+        tag: 'Building/engineering',
     },
     {
         type: 'toy',
-        tag: 'games/puzzles',
+        tag: 'Games/puzzles',
     },
     {
         type: 'toy',
-        tag: 'art supplies',
+        tag: 'Art supplies',
     },
     {
         type: 'toy',
-        tag: 'bike/trike/scooter',
+        tag: 'Bike/trike/scooter',
     },
     {
         type: 'toy',
-        tag: 'bouncer/walker',
+        tag: 'Bouncer/walker',
     },
     {
         type: 'toy',
-        tag: 'educational/STEM',
+        tag: 'Educational/STEM',
     },
     {
         type: 'toy',
-        tag: 'toys 0-2 yrs old',
+        tag: 'Toys 0-2 yrs old',
     },
     {
         type: 'toy',
-        tag: 'dress-up/costume',
+        tag: 'Dress-up/costume',
     },
     {
         type: 'toy',
-        tag: 'books 0-1 years old',
+        tag: 'Books 0-1 years old',
     },
     {
         type: 'toy',
-        tag: 'books 2-3 years old',
+        tag: 'Books 2-3 years old',
     },
     {
         type: 'toy',
-        tag: 'books 3-5 years old',
+        tag: 'Books 3-5 years old',
     },
     {
         type: 'toy',
-        tag: 'books 6-8 years old',
+        tag: 'Books 6-8 years old',
     },
     {
         type: 'toy',
-        tag: 'books 9+ years old',
+        tag: 'Books 9+ years old',
     },
     {
         type: 'clothes',
-        tag: 'pants',
+        tag: 'Pants',
     },
     {
         type: 'clothes',
-        tag: 'pants',
+        tag: 'Shirts',
     },
     {
         type: 'clothes',
-        tag: 'shirts',
+        tag: 'Sweater/sweatshirt',
     },
     {
         type: 'clothes',
-        tag: 'sweater/sweatshirt',
+        tag: 'Winter jacket/snow pants',
     },
     {
         type: 'clothes',
-        tag: 'winter jacket/snow pants',
+        tag: 'Hats/gloves/scarves',
     },
     {
         type: 'clothes',
-        tag: 'hats/gloves scarves',
+        tag: 'Snow boots',
     },
     {
         type: 'clothes',
-        tag: 'snow boots',
-    },
-    {
-        type: 'clothes',
-        tag: 'dress-up/holiday',
+        tag: 'Dress-up/holiday',
     },
     {
         type: 'furniture',
-        tag: 'crib/convertable crib',
+        tag: 'Crib/convertable crib',
     },
     {
         type: 'furniture',
-        tag: 'changing table',
+        tag: 'Changing table',
     },
     {
         type: 'furniture',
-        tag: 'dresser',
+        tag: 'Dresser',
     },
     {
         type: 'furniture',
-        tag: 'toddler bed',
+        tag: 'Toddler bed',
     },
     {
         type: 'furniture',
-        tag: 'twin bed',
+        tag: 'Twin bed',
     },
     {
         type: 'furniture',
-        tag: 'organizing/shelving',
+        tag: 'Organizing/shelving',
     },
     {
         type: 'furniture',
-        tag: 'desk',
+        tag: 'Desk',
     },
     {
         type: 'furniture',
-        tag: 'chairs/highchairs',
+        tag: 'Chairs/highchairs',
     },
     {
         type: 'furniture',
-        tag: 'story-time chair/rocker',
+        tag: 'Story-time chair/rocker',
     },
     {
         type: 'furniture',
-        tag: 'step stools',
+        tag: 'Step stools',
     },
 ];
