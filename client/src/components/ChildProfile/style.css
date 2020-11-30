@@ -1,0 +1,40 @@
+.childSelect {
+    margin: .5em;
+} 
+
+#childTableBody {
+    display: flex;
+    flex-direction: column;
+    line-height: 2em;
+    margin-bottom: 1em;
+}
+
+.editChildTitle {
+    font-weight: bold;
+    margin: .5em .5em 0em .5em;
+    text-align: center;
+}
+
+.editChildInput {
+    box-sizing: border-box;
+    border: none;
+    border-bottom: .3em solid lightblue;
+    margin: 1em;
+    width: 100%;
+    text-align: center;
+}
+
+.editChildCheckbox {
+    margin: .5em;
+}
+
+.editChildLabel {
+    font-weight: bold;
+    margin-right: 1em;
+}
+
+@media screen and (min-width: 600px){
+    .childProfile {
+        margin-right: 2em;
+    }
+}

@@ -2,12 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 import API from '../../utils/API';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-    // faCheckSquare,
-    faTshirt,
-    faChair,
-    faChess,
-} from '@fortawesome/free-solid-svg-icons';
+import { faTshirt, faChair, faChess } from '@fortawesome/free-solid-svg-icons';
+import './style.css';
+
 function ChildProfile(child) {
     const [redirect, setRedirect] = useState(false);
     const currentUser = API.getCurrentUser('');
@@ -22,7 +19,6 @@ function ChildProfile(child) {
     const [donateClothes, setdonateClothes] = useState();
     const [donateFurniture, setdonateFurniture] = useState();
     const [showForm, setShowForm] = useState(false);
-    console.log(receiveToys);
 
     const hideShowForm = () => {
         if (showForm) {
@@ -105,19 +101,27 @@ function ChildProfile(child) {
         return <Redirect to="/Profile" />;
     }
     return (
-        <div>
-            <h2>Edit child profile</h2>
-            <table>
-                <tbody>
+        <div className="childProfile">
+            <h2 className="editChildTitle">
+                Edit {child.firstName}&#8217;s profile
+            </h2>
+            <table className="table">
+                <tbody id="childTableBody">
                     <tr>
                         <td>
-                            <label htmlFor="firstName">Firstname:</label>
+                            <label
+                                htmlFor="firstName"
+                                className="editChildLabel"
+                            >
+                                Firstname:
+                            </label>
                         </td>
                         <td>{child.firstName}</td>
                         <td>
                             {showForm ? (
                                 <input
                                     name="firstName"
+                                    className="editChildInput"
                                     type="text"
                                     placeholder={child.firstName}
                                     value={firstName}
@@ -132,13 +136,19 @@ function ChildProfile(child) {
                     </tr>
                     <tr>
                         <td>
-                            <label htmlFor="lastName">Last Name:</label>
+                            <label
+                                htmlFor="lastName"
+                                className="editChildLabel"
+                            >
+                                Last Name:
+                            </label>
                         </td>
                         <td>{child.lastName}</td>
                         <td>
                             {showForm ? (
                                 <input
                                     name="lastName"
+                                    className="editChildInput"
                                     type="text"
                                     placeholder={child.lastName}
                                     value={lastName}
@@ -153,13 +163,19 @@ function ChildProfile(child) {
                     </tr>
                     <tr>
                         <td>
-                            <label htmlFor="birthday">Birthday:</label>
+                            <label
+                                htmlFor="birthday"
+                                className="editChildLabel"
+                            >
+                                Birthday:
+                            </label>
                         </td>
                         <td>{child.birthday}</td>
                         <td>
                             {showForm ? (
                                 <input
                                     name="birthday"
+                                    className="editChildInput"
                                     type="text"
                                     placeholder={child.birthday}
                                     value={birthday}
@@ -174,12 +190,15 @@ function ChildProfile(child) {
                     </tr>
                     <tr>
                         <td>
-                            <label htmlFor="gender">Gender:</label>
+                            <label htmlFor="gender" className="editChildLabel">
+                                Gender:
+                            </label>
                         </td>
                         <td>{child.gender}</td>
                         <td>
                             {showForm ? (
                                 <select
+                                    className="childSelect"
                                     onChange={(event) => {
                                         setGender(event.target.value);
                                     }}
@@ -194,7 +213,12 @@ function ChildProfile(child) {
                     </tr>
                     <tr>
                         <td>
-                            <label htmlFor="receiveToys">Receive Toys:</label>
+                            <label
+                                htmlFor="receiveToys"
+                                className="editChildLabel"
+                            >
+                                Receive Toys:
+                            </label>
                         </td>
                         <td>
                             {child.receiveToys ? (
@@ -207,6 +231,7 @@ function ChildProfile(child) {
                             {showForm ? (
                                 <input
                                     name="receiveToys"
+                                    className="editChildCheckbox"
                                     type="checkbox"
                                     checked={receiveToys}
                                     onChange={(event) => {
@@ -220,7 +245,10 @@ function ChildProfile(child) {
                     </tr>
                     <tr>
                         <td>
-                            <label htmlFor="receiveClothes">
+                            <label
+                                htmlFor="receiveClothes"
+                                className="editChildLabel"
+                            >
                                 Receive Clothes:
                             </label>
                         </td>
@@ -235,6 +263,7 @@ function ChildProfile(child) {
                             {showForm ? (
                                 <input
                                     name="receiveClothes"
+                                    className="editChildCheckbox"
                                     type="checkbox"
                                     checked={receiveClothes}
                                     onChange={(event) => {
@@ -248,7 +277,10 @@ function ChildProfile(child) {
                     </tr>
                     <tr>
                         <td>
-                            <label htmlFor="receiveFurniture">
+                            <label
+                                htmlFor="receiveFurniture"
+                                className="editChildLabel"
+                            >
                                 Receive Furniture:
                             </label>
                         </td>
@@ -263,6 +295,7 @@ function ChildProfile(child) {
                             {showForm ? (
                                 <input
                                     name="receiveFurniture"
+                                    className="editChildCheckbox"
                                     type="checkbox"
                                     checked={receiveFurniture}
                                     onChange={(event) => {
@@ -278,7 +311,12 @@ function ChildProfile(child) {
                     </tr>
                     <tr>
                         <td>
-                            <label htmlFor="donateToys">Donate Toys:</label>
+                            <label
+                                htmlFor="donateToys"
+                                className="editChildLabel"
+                            >
+                                Donate Toys:
+                            </label>
                         </td>
                         <td>
                             {child.donateToys ? (
@@ -291,6 +329,7 @@ function ChildProfile(child) {
                             {showForm ? (
                                 <input
                                     name="donateToys"
+                                    className="editChildCheckbox"
                                     type="checkbox"
                                     checked={donateToys}
                                     onChange={(event) => {
@@ -304,7 +343,10 @@ function ChildProfile(child) {
                     </tr>
                     <tr>
                         <td>
-                            <label htmlFor="donateClothes">
+                            <label
+                                htmlFor="donateClothes"
+                                className="editChildLabel"
+                            >
                                 Donate Clothes:
                             </label>
                         </td>
@@ -319,6 +361,7 @@ function ChildProfile(child) {
                             {showForm ? (
                                 <input
                                     name="donateClothes"
+                                    className="editChildCheckbox"
                                     type="checkbox"
                                     checked={donateClothes}
                                     onChange={(event) => {
@@ -332,7 +375,10 @@ function ChildProfile(child) {
                     </tr>
                     <tr>
                         <td>
-                            <label htmlFor="donateFurniture">
+                            <label
+                                htmlFor="donateFurniture"
+                                className="editChildLabel"
+                            >
                                 Donate Furniture:
                             </label>
                         </td>
@@ -347,6 +393,7 @@ function ChildProfile(child) {
                             {showForm ? (
                                 <input
                                     name="donateFurniture"
+                                    className="editChildCheckbox"
                                     type="checkbox"
                                     checked={donateFurniture}
                                     onChange={(event) => {
@@ -365,15 +412,24 @@ function ChildProfile(child) {
                         <td>
                             {showForm ? (
                                 <div>
-                                    <button onClick={deleteChild}>
+                                    <button
+                                        className="btn btn-default"
+                                        onClick={deleteChild}
+                                    >
                                         Delete Child
                                     </button>
-                                    <button onClick={saveChanges}>
+                                    <button
+                                        className="btn btn-default"
+                                        onClick={saveChanges}
+                                    >
                                         Save Changes
                                     </button>
                                 </div>
                             ) : (
-                                <button onClick={hideShowForm}>
+                                <button
+                                    className="btn btn-default"
+                                    onClick={hideShowForm}
+                                >
                                     Edit Child
                                 </button>
                             )}

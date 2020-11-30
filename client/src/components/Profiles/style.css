@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+* {
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+    justify-content: space-evenly;
+    margin: 0;
+    overflow-wrap: break-word;
+    padding: 0;
+    text-size-adjust: auto;
+}
+
+.editTitle {
+    font-weight: bold;
+    margin: .5em .5em 0em .5em;
+    text-align: center;
+}
+
+.parentInput {
+    box-sizing: border-box;
+    border: none;
+    border-bottom: .3em solid lightblue;
+    margin: 1em;
+    width: 100%;
+    text-align: center;
+}
+
+.table {
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+#tableBody {
+    display: flex;
+    flex-direction: column;
+    line-height: 2em;
+    margin-bottom: 1em;
+}
+
+.parentLabel {
+    font-weight: bold;
+    margin-right: 1em;
+}
+
+.btn {
+    background-color: rgb(137, 106, 209);
+    border: .2em solid rgb(231 240 254);
+    color: rgb(231 240 254);
+    font-size: 1rem;
+    margin-top: 1em;
+    padding: .5em;
+    width: 7em;
+}
+
+.btn-default:hover {
+    background-color: transparent;
+    color: rgb(168 186 227);
+}
+
+.parentProfile {
+    margin: 1em;
+    justify-content: center;
+}
+
+@media screen and (min-width: 600px){
+    .table {
+        margin: 0em;
+   }
+
+   .editTitle {
+        justify-content: left;
+        font-size: 2em;
+        text-align: left
+   }
+
+   .childDiv {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        text-align: center;
+    }
+
+    .parentProfile {
+        margin: 2em;
+    }
+}

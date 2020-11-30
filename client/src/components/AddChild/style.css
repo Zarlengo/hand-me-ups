@@ -1,0 +1,39 @@
+.addChild {
+    margin: auto;
+    padding: 1em;
+    text-align: center;
+    width: 50%;
+}
+
+.addChildForm {
+    padding: .4em;
+}
+
+.addChildInput {
+    box-sizing: border-box;
+    border: none;
+    border-bottom: .3em solid lightblue;
+    margin-bottom: 1em;
+    width: 80%;
+    text-align: center;
+}
+
+.addChildLabel {
+    line-height: 2em;
+    text-align: center;
+}
+
+.addChildCheckbox {
+    margin: .5em;
+}
+
+@media screen and (min-width: 600px){
+    .addChildTitle {
+     font-size: 3rem;
+     text-align: center;
+    }
+
+    .addChildInput {
+        width: 100%;
+    }
+ }
