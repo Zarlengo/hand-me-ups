@@ -3,8 +3,9 @@ import headers from './auth';
 
 export default {
     getUser: (id) => {
-        return axios.get({
-            url: `./api/user/${id}`,
+        return axios({
+            url: `./api/profile/${id}`,
+            method: 'GET',
             headers: headers(),
         });
     },
@@ -16,6 +17,7 @@ export default {
                 password,
             })
             .then((response) => {
+                console.log(response.data);
                 if (response.data.accessToken) {
                     localStorage.setItem('user', JSON.stringify(response.data));
                 }
@@ -29,33 +31,28 @@ export default {
 
     getCurrentUser: () => JSON.parse(localStorage.getItem('user')),
 
-    signup: (email, password, address1, city, state, zipcode) => {
-        return axios.post('./api/auth/signup', {
-            email,
-            password,
-            address1,
-            city,
-            state,
-            zipcode,
-        });
+    signup: (userData) => {
+        return axios.post('./api/auth/signup', userData);
     },
 
     editUser: function (userData) {
-        return axios.put({
+        return axios({
             url: `/api/profile/${userData.id}`,
             userData,
+            medthod: 'PUT',
             headers: headers(),
         });
     },
 
     addChild: function (userData) {
         return axios({
-            url: `api/profile/addChild/${userData.ParentId}`,
+            url: `api/child/addChild/${userData.ParentId}`,
             data: userData,
             method: 'POST',
             headers: headers(),
         });
     },
+
     getChildren: function (id) {
         return axios({
             url: `api/child/children/${id}`,
@@ -68,6 +65,23 @@ export default {
             url: `api/donation/create/${userData.sendingParentID}`,
             data: userData,
             method: 'POST',
+
+
+    deleteChild: function (parentId, childId) {
+        return axios({
+            url: `api/child/deleteChild/${parentId}`,
+            data: { childId },
+            method: 'DELETE',
+            headers: headers(),
+        });
+    },
+
+    editChild: function (userData, parentId) {
+        return axios({
+            url: `api/child/editChild/${parentId}`,
+            data: userData,
+            method: 'PUT',
+
             headers: headers(),
         });
     },

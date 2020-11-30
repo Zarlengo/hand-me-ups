@@ -18,7 +18,6 @@ function Charts() {
         fetch('api/charts')
             .then((response) => response.json())
             .then((result) => {
-                console.log(result[0]);
                 setToys(result[0].toysDonated);
                 setClothes(result[0].clothesDonated);
                 setFurniture(result[0].furnitureDonated);

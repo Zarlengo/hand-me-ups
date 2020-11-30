@@ -17,7 +17,7 @@ const members = () => {
     return (
         <div>
             <h1>Members Page</h1>
-            <p>Welcome {currentUser.userName}</p>
+            <p>Welcome {currentUser.firstName}</p>
             <button onClick={logout}>Log out</button>
 
             <Charts />
