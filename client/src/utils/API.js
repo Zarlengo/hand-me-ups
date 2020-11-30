@@ -65,7 +65,8 @@ export default {
             url: `api/donation/create/${userData.sendingParentID}`,
             data: userData,
             method: 'POST',
-
+        });
+    },
 
     deleteChild: function (parentId, childId) {
         return axios({

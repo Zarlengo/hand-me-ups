@@ -12,7 +12,6 @@ import Outgoing from '../../pages/Donation';
 
 import Login from '../../pages/Login';
 
-
 import API from '../../utils/API';
 
 const PrivateRoute = ({ component, ...options }) => {
