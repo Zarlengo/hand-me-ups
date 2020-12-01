@@ -17,6 +17,7 @@ export default {
                 password,
             })
             .then((response) => {
+                console.log(response.data);
                 if (response.data.accessToken) {
                     localStorage.setItem('user', JSON.stringify(response.data));
                 }
@@ -45,7 +46,24 @@ export default {
 
     addChild: function (userData) {
         return axios({
-            url: `api/child/addChild/${userData.ParentId}`,
+            url: `/api/child/addChild/${userData.ParentId}`,
+            data: userData,
+            method: 'POST',
+            headers: headers(),
+        });
+    },
+
+    getChildren: function (id) {
+        return axios({
+            url: `api/child/children/${id}`,
+            method: 'GET',
+            headers: headers(),
+        });
+    },
+
+    addDonation: function (userData) {
+        return axios({
+            url: `api/donation/create/${userData.sendingParentID}`,
             data: userData,
             method: 'POST',
             headers: headers(),
@@ -67,6 +85,28 @@ export default {
             data: userData,
             method: 'PUT',
             headers: headers(),
+        });
+    },
+
+    getTags: function (parentId) {
+        return axios({
+            url: `api/tags/${parentId}`,
+            method: 'GET',
+            headers: headers(),
+        }).then((response) => {
+            if (response.status === 200) {
+                const toyTags = response.data.filter(
+                    (element) => element.type === 'toy'
+                );
+                const clothesTags = response.data.filter(
+                    (element) => element.type === 'clothes'
+                );
+                const furnitureTags = response.data.filter(
+                    (element) => element.type === 'furniture'
+                );
+                return { toyTags, clothesTags, furnitureTags };
+            }
+            return 'Error getting tags';
         });
     },
 };

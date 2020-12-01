@@ -12,10 +12,16 @@ function Welcome() {
     }
 
     return (
-        <div className="wrapper">
-            <div className="header"> Hand Me Ups </div>
-            <div id="picture"></div>
-            <div id="background"></div>
+        <div className="container">
+            <div className="header">
+                <h1>Hand-Me-Ups</h1>
+            </div>
+            <div id="lego"></div>
+            <div id="grid-one"></div>
+            <div id="grid-two"></div>
+            <div id="grid-three"></div>
+            <div id="grid-four"></div>
+            <div id="grid-four"></div>
 
             <Login />
         </div>

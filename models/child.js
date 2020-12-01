@@ -43,6 +43,9 @@ module.exports = (sequelize, DataTypes) => {
         furnitureDonated: {
             type: DataTypes.INTEGER,
         },
+        tags: {
+            type: DataTypes.ARRAY(DataTypes.JSON),
+        },
     });
 
     Child.associate = function (models) {

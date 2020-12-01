@@ -1,6 +1,16 @@
+/* .container {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 300px 250px 400px 150px ;
+} */
+
 .login-form {
+    grid-column-start: 3;
+    grid-row-start: 3;
+    grid-row-end: 4;
     max-width: 384px!important;
-    border: 5px solid red;
+    border: 5px solid rgb(238, 255, 0);
     padding: 10px;
     border-radius: 10px;
     right: 5px;
@@ -9,18 +19,20 @@
     margin-right: 50px;
     margin-bottom: auto;
     margin-top: 200px;
-    color: rgb(255, 165, 0);
-    background-color:rgba(245, 58, 58, 0.8);
+    color: rgb(245, 112, 59);
+    background-color:rgba(233, 245, 58, 0.8);
+    font-family: 'Gamja Flower', cursive;
+    font-size: 18px;
 }
 
 #userName {
 
-    background-color:rgba(245, 79, 79, 0.7);
+    background-color:rgba(228, 245, 79, 0.7);
 }
 
 #password {
 
-    background-color:rgba(245, 79, 79, 0.7);
+    background-color:rgba(242, 245, 79, 0.7);
 }
 
 .login-row {
@@ -44,7 +56,8 @@
     width: 100%;
     padding: 10px;
     color: black;
-    background-color: orange;
+    background-color: rgb(255, 72, 0);
+    font-family: 'Gamja Flower', cursive;
 }
 
 .error {

@@ -51,6 +51,12 @@ module.exports = (db, passport) => {
                     lastName: child.lastName,
                     birthday: child.birthday,
                     gender: child.gender,
+                    receiveToys: child.receiveToys,
+                    receiveClothes: child.receiveClothes,
+                    receiveFurniture: child.receiveFurniture,
+                    donateToys: child.donateToys,
+                    donateClothes: child.donateClothes,
+                    donateFurniture: child.donateFurniture,
                 });
             });
             res.json({
