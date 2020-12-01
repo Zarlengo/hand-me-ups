@@ -8,6 +8,7 @@ import Members from './pages/Members';
 import Welcome from './pages/Welcome';
 import Profile from './pages/Profile';
 import AddChild from './pages/AddChild';
+import Donations from './pages/Donations';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -35,6 +36,7 @@ const App = () => (
             <PrivateRoute exact path="/Members" component={Members} />
             <PrivateRoute exact path="/Profile" component={Profile} />
             <PrivateRoute exact path="/AddChild" component={AddChild} />
+            <PrivateRoute exact path="/Donations" component={Donations} />
             <Route exact path="/Forgot" component={Forgot} />
             <Route exact path="/Signup" component={Signup} />
             <Route path="/" component={Welcome} />

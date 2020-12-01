@@ -1,0 +1,123 @@
+.container {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 300px 25px 250px 400px 150px ;
+}
+
+/* #background {
+
+    grid-column: 1/4;
+    grid-row: 2/3;
+    background-color: rgb(111, 50, 155);
+    
+} */
+
+.header {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    text-align: left;
+    font-family: 'Gamja Flower', cursive;
+    font-size: 35px; 
+    color: rgb(131, 4, 204);
+    /* -webkit-text-stroke: 1px rgb(202, 136, 12); */
+    /* height: 125px; */
+    background-image: url('../images/toys.jpeg');
+}
+
+#lego {
+
+  grid-column: 1/4;
+  grid-row: 2/3;
+  height: 25px;
+  background-color: rgb(243, 227, 86);
+}
+
+#grid-one {
+
+  padding: 200px;
+  grid-column: 1/2;
+  grid-row: 3/4;
+  /* background: url('./donate.jpeg');  */
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  /* background-color: purple; */
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* #picture{
+
+    grid-column: 1/4;
+    grid-row: 3;
+    height: 25px;
+    background-color: rgb(7, 7, 182);
+    
+}   */
+
+/* #picture2 {
+
+  grid-column: 1/4;
+  grid-row: 4;
+  background-image: url('./toys.jpeg');
+  background-repeat: no-repeat;
+  /* height: 200px;
+  width: 100%; */
+  
+  /* background-size: 100% 100%;
+} */ 
+/* 
+.login-form {
+
+    grid-column: 3/4;
+    grid-row: 2;
+    position: relative;
+    padding: 25px;
+    border: 50px;
+   
+} */
+
+/* * {
+
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+} */
+
+/* #one {
+
+    grid-column: 1;
+    grid-row: 4;
+    background-image: url('./children.png');
+    background-repeat: no-repeat;
+    background-size: 200px 200px;
+    background-position: top;
+    height: 250px;
+} */
+
+/* body {
+
+    height: 50vh;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.2;
+} */
+
+
+
+
