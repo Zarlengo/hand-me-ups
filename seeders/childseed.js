@@ -31,6 +31,7 @@ module.exports = [
         clothesDonated: 9,
         furnitureDonated: 2,
         ParentId: 1,
+        tags: [1, 5, 12, 17],
     },
     {
         firstName: 'Bethanie',
@@ -47,6 +48,7 @@ module.exports = [
         clothesDonated: 1,
         furnitureDonated: 0,
         ParentId: 2,
+        tags: [32, 16, 3, 10],
     },
     {
         firstName: 'Belinda',
@@ -63,6 +65,7 @@ module.exports = [
         clothesDonated: 6,
         furnitureDonated: 3,
         ParentId: 2,
+        tags: [24, 5, 17, 26],
     },
     {
         firstName: 'Christopher',
@@ -79,6 +82,7 @@ module.exports = [
         clothesDonated: 4,
         furnitureDonated: 1,
         ParentId: 3,
+        tags: [8, 21, 31, 24],
     },
     {
         firstName: 'Chelsea',
@@ -95,6 +99,7 @@ module.exports = [
         clothesDonated: 4,
         furnitureDonated: 1,
         ParentId: 3,
+        tags: [6, 12, 18, 30],
     },
     {
         firstName: 'Darlene',
@@ -111,6 +116,7 @@ module.exports = [
         clothesDonated: 1,
         furnitureDonated: 1,
         ParentId: 4,
+        tags: [19, 23, 13, 4],
     },
     {
         firstName: 'David',
@@ -127,6 +133,7 @@ module.exports = [
         clothesDonated: 23,
         furnitureDonated: 3,
         ParentId: 4,
+        tags: [7, 20, 11, 14],
     },
     {
         firstName: 'Freddy',
@@ -143,6 +150,7 @@ module.exports = [
         clothesDonated: 25,
         furnitureDonated: 1,
         ParentId: 6,
+        tags: [15, 22, 25, 27],
     },
     {
         firstName: 'Francis',
@@ -159,6 +167,7 @@ module.exports = [
         clothesDonated: 4,
         furnitureDonated: 1,
         ParentId: 6,
+        tags: [29, 26, 33, 2],
     },
     {
         firstName: 'Erin',
@@ -175,6 +184,7 @@ module.exports = [
         clothesDonated: 20,
         furnitureDonated: 3,
         ParentId: 5,
+        tags: [5, 20, 13, 28],
     },
     {
         firstName: 'Eugene',
@@ -191,6 +201,7 @@ module.exports = [
         clothesDonated: 10,
         furnitureDonated: 3,
         ParentId: 5,
+        tags: [6, 7, 18, 28],
     },
     {
         firstName: 'Geoff',
@@ -207,6 +218,7 @@ module.exports = [
         clothesDonated: 0,
         furnitureDonated: 0,
         ParentId: 7,
+        tags: [8, 9, 16, 29],
     },
     {
         firstName: 'Gregg',
@@ -223,6 +235,7 @@ module.exports = [
         clothesDonated: 10,
         furnitureDonated: 3,
         ParentId: 7,
+        tags: [9, 10, 30, 33],
     },
     {
         firstName: 'Harry',
@@ -239,6 +252,7 @@ module.exports = [
         clothesDonated: 5,
         furnitureDonated: 1,
         ParentId: 8,
+        tags: [11, 21, 32, 14],
     },
     {
         firstName: 'Igor',
@@ -255,6 +269,7 @@ module.exports = [
         clothesDonated: 0,
         furnitureDonated: 0,
         ParentId: 9,
+        tags: [15, 19, 22, 31],
     },
     {
         firstName: 'Ivan',
@@ -271,6 +286,7 @@ module.exports = [
         clothesDonated: 5,
         furnitureDonated: 2,
         ParentId: 9,
+        tags: [1, 2, 23, 29],
     },
     {
         firstName: 'Jennifer',
@@ -287,6 +303,7 @@ module.exports = [
         clothesDonated: 20,
         furnitureDonated: 3,
         ParentId: 10,
+        tags: [26, 25, 3, 4],
     },
     {
         firstName: 'Kevin',
@@ -303,6 +320,7 @@ module.exports = [
         clothesDonated: 40,
         furnitureDonated: 6,
         ParentId: 11,
+        tags: [5, 27, 19, 14],
     },
     {
         firstName: 'Kelsey',
@@ -319,6 +337,7 @@ module.exports = [
         clothesDonated: 18,
         furnitureDonated: 4,
         ParentId: 11,
+        tags: [6, 7, 30, 24],
     },
     {
         firstName: 'Lindsay',
@@ -335,6 +354,7 @@ module.exports = [
         clothesDonated: 19,
         furnitureDonated: 1,
         ParentId: 12,
+        tags: [10, 17, 23, 27],
     },
     {
         firstName: 'Linda',
@@ -351,5 +371,6 @@ module.exports = [
         clothesDonated: 10,
         furnitureDonated: 3,
         ParentId: 12,
+        tags: [21, 22, 13, 12],
     },
 ];
