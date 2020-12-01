@@ -22,7 +22,7 @@
     color: rgb(131, 4, 204);
     /* -webkit-text-stroke: 1px rgb(202, 136, 12); */
     /* height: 125px; */
-    background-image: url('./toys.jpeg');
+    background-image: url('../images/toys.jpeg');
 }
 
 #lego {
