@@ -18,16 +18,11 @@ export const Outgoing = () => {
             setChosenState(true);
         }
         API.addDonation({
-            sendingParentID: currentUser.id,
-            recievingChildID: id,
-        })
-            .then((response) => {
-                return response.data;
-            })
-            .then((data) => {
-                console.log(data, 'data');
-                setShippingLabel(true);
-            });
+            receivingChildID: id,
+        }).then((data) => {
+            console.log(data, 'data');
+            setShippingLabel(true);
+        });
     }
     const toggleModal = (event) => {
         event.preventDefault();
@@ -37,19 +32,14 @@ export const Outgoing = () => {
 
     const currentUser = API.getCurrentUser();
     useEffect(() => {
-        API.getChildren(currentUser.id)
-            .then((response) => {
-                return response.data;
-            })
-            .then((data) => {
-                setLoading(false);
-                setResults(data);
-            });
+        API.getChildren().then((data) => {
+            setLoading(false);
+            setResults(data);
+        });
     }, []);
     if (loading) {
         return <h1>Loading...</h1>;
     }
-    console.log(shippingLabel, 'shippinglabel');
     return (
         <div className="Outgoing">
             {results.map((childObject) => (

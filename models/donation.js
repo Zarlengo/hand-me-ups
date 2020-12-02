@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: false,
         },
-        recievingChildID: {
+        receivingChildID: {
             type: DataTypes.INTEGER,
             allowNull: true,
         },

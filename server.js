@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -13,6 +14,8 @@ if (process.env.NODE_ENV === 'production') {
     if (process.env.seedHeroku) {
         require('./seeders/seedDB')(db);
     }
+} else {
+    require('dotenv').config();
 }
 
 // Coding to json
@@ -20,6 +23,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 const passport = require('./config/passport')(db);
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: true,
+        saveUninitialized: true,
+    })
+);
+
+// Initializes passport
 app.use(passport.initialize());
 app.use(passport.session());
 
