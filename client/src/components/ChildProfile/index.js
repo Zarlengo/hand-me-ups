@@ -96,8 +96,7 @@ function ChildProfile(child) {
         });
     };
 
-    const handlecheckboxClick = (event, id) => {
-        event.preventDefault();
+    const handlecheckboxClick = (id) => {
         if (tags.includes(id)) {
             setTags(tags.filter((tag) => tag !== id));
         } else {
