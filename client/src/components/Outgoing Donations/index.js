@@ -53,19 +53,20 @@ export const Outgoing = () => {
     return (
         <div className="Outgoing">
             {results.map((childObject) => (
-                <DonationContext.Provider
-                    key={childObject.id}
-                    value={{
-                        ...childObject,
-                        ...currentUser,
-                    }}
-                >
-                    <DonationDemographics />
-                    <ChooseBtn
-                        childID={childObject.id}
-                        changeChosen={changeChosen}
-                    />
-                </DonationContext.Provider>
+                <div className="outgoingCard" key={childObject.id}>
+                    <DonationContext.Provider
+                        value={{
+                            ...childObject,
+                            ...currentUser,
+                        }}
+                    >
+                        <DonationDemographics />
+                        <ChooseBtn
+                            childID={childObject.id}
+                            changeChosen={changeChosen}
+                        />
+                    </DonationContext.Provider>
+                </div>
             ))}
             {shippingLabel ? (
                 <ShippingLabel

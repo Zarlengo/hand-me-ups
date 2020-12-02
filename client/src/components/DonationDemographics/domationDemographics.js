@@ -3,6 +3,7 @@ import DonationContext from '../../utils/donationContext';
 import ToyTags from '../toyTags/toyTags';
 import ClothesTags from '../clothesTags/clothesTags';
 import FurnitureTags from '../furnitureTags/furnitureTags';
+import './style.css';
 
 function DonationDemographics() {
     const { gender, age, tags } = useContext(DonationContext);
@@ -13,11 +14,13 @@ function DonationDemographics() {
     );
     return (
         <div className="DonationDemographics">
-            <h3>{gender}</h3>
-            <h3>{age}</h3>
-            <ToyTags tag={toytags} />
-            <ClothesTags tag={clothestags} />
-            <FurnitureTags tag={furnituretags} />
+            <div className="card">
+                <h3>{gender}</h3>
+                <h3>{age}</h3>
+                <ToyTags tag={toytags} />
+                <ClothesTags tag={clothestags} />
+                <FurnitureTags tag={furnituretags} />
+            </div>
         </div>
     );
 }

@@ -1,0 +1,20 @@
+.outgoingCard{
+    border: solid 2px black;
+    border-radius: 5px;
+    border-style: ridge;
+    margin: 6px;
+    background-color: lavender;
+    box-shadow: 7px 7px 3px #2b2431;
+    max-width: 200px;
+}
+.Outgoing{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+   
+    
+
+}
