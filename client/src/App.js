@@ -9,7 +9,9 @@ import Welcome from './pages/Welcome';
 import Profile from './pages/Profile';
 import AddChild from './pages/AddChild';
 import Donations from './pages/Donations';
+
 import Navbar from './components/Navbar';
+import Chat from './components/Chat';
 import Footer from './components/Footer';
 
 import API from './utils/API';
@@ -40,6 +42,10 @@ const App = () => (
             <Route exact path="/Forgot" component={Forgot} />
             <Route exact path="/Signup" component={Signup} />
             <Route path="/" component={Welcome} />
+        </Switch>
+        <Switch>
+            <Route exact path="/" />
+            <Route component={Chat} />
         </Switch>
         <Footer />
     </React.Fragment>
