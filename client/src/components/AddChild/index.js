@@ -21,7 +21,7 @@ function AddChild() {
     const [toyTags, settoyTags] = useState([]);
     const [clothesTags, setclothesTags] = useState([]);
     const [furnitureTags, setfurnitureTags] = useState([]);
-    console.log(toyTags);
+
     const handleClick = (event) => {
         event.preventDefault();
         API.addChild({
@@ -66,7 +66,6 @@ function AddChild() {
 
     useEffect(() => {
         API.getTags(currentUser.id).then((response) => {
-            console.log(response);
             if (response !== 'Error getting tags') {
                 settoyTags(response.toyTags);
                 setclothesTags(response.clothesTags);
