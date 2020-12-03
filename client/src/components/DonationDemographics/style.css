@@ -1,0 +1,14 @@
+.DonationDemographics {
+    display: grid;
+    grid-template-columns: 60px 1fr 1fr 1fr 60px;
+    grid-auto-flow: row;
+}
+
+.card {
+    display: grid;
+    border: solid 1 black;
+    border-radius: 5px;
+    grid-column: 4;
+    background: lavender;
+    background: cover;
+}

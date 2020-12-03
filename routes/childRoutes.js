@@ -11,7 +11,6 @@ module.exports = (db) => {
             if (!answer) {
                 res.status(401).json({ message: 'invalid credentials' });
             } else {
-                console.log(req.body);
                 db.Child.create(req.body)
                     .then((response) => {
                         res.json(response);
@@ -28,11 +27,10 @@ module.exports = (db) => {
                 req.headers['x-access-token'],
                 response.accessToken
             );
-            console.log(answer);
+
             if (!answer) {
                 res.status(401).json({ message: 'invalid credentials' });
             } else {
-                console.log(req.body);
                 db.Child.destroy({ where: { id: req.body.childId } })
                     .then((response) => {
                         res.json(response);
@@ -65,7 +63,6 @@ module.exports = (db) => {
                         const tags = [];
 
                         if (child.tags) {
-                            console.log(child.tags, 'child.tags');
                             child.tags.forEach((element) => {
                                 tags.push(alltags[element - 1]);
                             });

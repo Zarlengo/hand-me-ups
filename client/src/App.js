@@ -9,10 +9,13 @@ import Welcome from './pages/Welcome';
 import Profile from './pages/Profile';
 import AddChild from './pages/AddChild';
 import Donations from './pages/Donations';
+
 import Navbar from './components/Navbar';
+import Chat from './components/Chat';
 import Footer from './components/Footer';
 
 import API from './utils/API';
+import { GlobalContextProvider } from './utils/GlobalContext';
 
 const PrivateRoute = ({ component, ...options }) => {
     if (API.getCurrentUser()) {
@@ -27,7 +30,7 @@ PrivateRoute.propTypes = {
 };
 
 const App = () => (
-    <React.Fragment>
+    <GlobalContextProvider>
         <Switch>
             <Route exact path="/" />
             <Route component={Navbar} />
@@ -41,8 +44,12 @@ const App = () => (
             <Route exact path="/Signup" component={Signup} />
             <Route path="/" component={Welcome} />
         </Switch>
+        <Switch>
+            <Route exact path="/" />
+            <Route component={Chat} />
+        </Switch>
         <Footer />
-    </React.Fragment>
+    </GlobalContextProvider>
 );
 
 export default App;

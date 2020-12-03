@@ -42,15 +42,10 @@ module.exports = (db) => {
                     ],
                 },
             ],
-        })
-            .then((response) => {
-                console.log(response);
-                res.json(response);
-            })
-            .catch((err) => {
-                console.log(err);
-                res.status(400).json(err);
-            });
+        }).catch((err) => {
+            console.log(err);
+            res.status(400).json(err);
+        });
     });
 
     router.put('/:id', isAuthenticated, (req, res) => {
