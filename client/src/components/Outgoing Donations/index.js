@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import DonationContext from '../../utils/donationContext';
 import DonationDemographics from '../DonationDemographics/domationDemographics';
 import './outgoing.css';
 import ChooseBtn from '../chooseBtn/chooseBtn';
@@ -13,7 +12,6 @@ export const Outgoing = () => {
     const [shippingLabel, setShippingLabel] = useState(false);
 
     function changeChosen(id) {
-        console.log(id, 'id');
         if (chosenState === false) {
             setChosenState(true);
         }
@@ -24,8 +22,7 @@ export const Outgoing = () => {
             .then((response) => {
                 return response.data;
             })
-            .then((data) => {
-                console.log(data, 'data');
+            .then(() => {
                 setShippingLabel(true);
             });
     }
@@ -53,24 +50,16 @@ export const Outgoing = () => {
     return (
         <div className="Outgoing">
             {results.map((childObject) => (
-                <DonationContext.Provider
-                    key={childObject.id}
-                    value={{
-                        ...childObject,
-                        ...currentUser,
-                    }}
-                >
-                    <DonationDemographics />
+                <div className="outgoingCard" key={childObject.id}>
+                    <DonationDemographics child={childObject} />
                     <ChooseBtn
                         childID={childObject.id}
                         changeChosen={changeChosen}
                     />
-                </DonationContext.Provider>
+                </div>
             ))}
             {shippingLabel ? (
                 <ShippingLabel
-                    // key={currentUser.id}
-                    //{...currentUser}
                     parentFName={currentUser.firstName}
                     parentLName={currentUser.lastName}
                     parentAddy1={currentUser.address1}

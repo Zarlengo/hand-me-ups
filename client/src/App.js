@@ -15,6 +15,7 @@ import Chat from './components/Chat';
 import Footer from './components/Footer';
 
 import API from './utils/API';
+import { GlobalContextProvider } from './utils/GlobalContext';
 
 const PrivateRoute = ({ component, ...options }) => {
     if (API.getCurrentUser()) {
@@ -29,7 +30,7 @@ PrivateRoute.propTypes = {
 };
 
 const App = () => (
-    <React.Fragment>
+    <GlobalContextProvider>
         <Switch>
             <Route exact path="/" />
             <Route component={Navbar} />
@@ -48,7 +49,7 @@ const App = () => (
             <Route component={Chat} />
         </Switch>
         <Footer />
-    </React.Fragment>
+    </GlobalContextProvider>
 );
 
 export default App;
