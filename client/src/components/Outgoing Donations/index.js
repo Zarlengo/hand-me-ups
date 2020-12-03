@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import DonationContext from '../../utils/donationContext';
 import DonationDemographics from '../DonationDemographics/domationDemographics';
 import './outgoing.css';
 import ChooseBtn from '../chooseBtn/chooseBtn';
@@ -23,8 +22,7 @@ export const Outgoing = () => {
             .then((response) => {
                 return response.data;
             })
-            // eslint-disable-next-line no-unused-vars
-            .then((data) => {
+            .then(() => {
                 setShippingLabel(true);
             });
     }
@@ -53,24 +51,15 @@ export const Outgoing = () => {
         <div className="Outgoing">
             {results.map((childObject) => (
                 <div className="outgoingCard" key={childObject.id}>
-                    <DonationContext.Provider
-                        value={{
-                            ...childObject,
-                            ...currentUser,
-                        }}
-                    >
-                        <DonationDemographics />
-                        <ChooseBtn
-                            childID={childObject.id}
-                            changeChosen={changeChosen}
-                        />
-                    </DonationContext.Provider>
+                    <DonationDemographics child={childObject} />
+                    <ChooseBtn
+                        childID={childObject.id}
+                        changeChosen={changeChosen}
+                    />
                 </div>
             ))}
             {shippingLabel ? (
                 <ShippingLabel
-                    // key={currentUser.id}
-                    //{...currentUser}
                     parentFName={currentUser.firstName}
                     parentLName={currentUser.lastName}
                     parentAddy1={currentUser.address1}

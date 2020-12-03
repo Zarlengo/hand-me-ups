@@ -5,7 +5,7 @@ import './donationStyle.css';
 
 function Donations() {
     return (
-        <div className="grid">
+        <div className="grid loggedInDiv">
             <h1>Donations</h1>
             <Outgoing />
         </div>
