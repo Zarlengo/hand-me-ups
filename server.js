@@ -34,7 +34,35 @@ db.sequelize.sync().then(() => {
         res.sendFile(path.join(__dirname, './client/build/index.html'));
     });
 
-    app.listen(PORT, () => {
-        console.log(`🌎 ==> API server now on port ${PORT}!`);
+    const server = require('http').createServer(app);
+    const io = require('socket.io')(server, {
+        cors: {
+            methods: ['GET', 'POST'],
+            allowedHeaders: ['x-access-token'],
+            credentials: true,
+        },
+    });
+
+    io.on('connection', (socket) => {
+        console.log('a user connected', socket.id);
+
+        // Send user id from client -> Current logged on members table
+
+        socket.on('disconnect', () => {
+            console.log('user disconnected', socket.id);
+        });
+
+        socket.on('typing', (data) => {
+            console.log(data);
+            socket.broadcast.emit('typing', data);
+        });
+
+        socket.on('chat', (data) => {
+            io.sockets.emit('chat', data);
+        });
+    });
+
+    server.listen(PORT, () => {
+        console.log(`Socket is listening on port ${PORT}!`);
     });
 });
