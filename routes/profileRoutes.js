@@ -52,7 +52,6 @@ module.exports = (db) => {
                         ],
                     })
                         .then((response) => {
-                            console.log(response);
                             res.json(response);
                         })
                         .catch((err) => {

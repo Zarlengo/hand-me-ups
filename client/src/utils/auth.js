@@ -7,8 +7,6 @@ export default () => {
         .update(document.location.host)
         .digest('hex');
 
-    console.log(localToken);
-
     if (user && user.accessToken && localToken) {
         return {
             'x-access-token': localToken,

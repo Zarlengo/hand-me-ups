@@ -16,7 +16,7 @@ function SignUp() {
 
     const createUser = (event) => {
         event.preventDefault();
-        console.log(address1);
+
         API.signup({
             email,
             password,

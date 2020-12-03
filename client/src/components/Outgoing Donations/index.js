@@ -13,7 +13,6 @@ export const Outgoing = () => {
     const [shippingLabel, setShippingLabel] = useState(false);
 
     function changeChosen(id) {
-        console.log(id, 'id');
         if (chosenState === false) {
             setChosenState(true);
         }
@@ -24,8 +23,8 @@ export const Outgoing = () => {
             .then((response) => {
                 return response.data;
             })
+            // eslint-disable-next-line no-unused-vars
             .then((data) => {
-                console.log(data, 'data');
                 setShippingLabel(true);
             });
     }
