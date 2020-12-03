@@ -5,9 +5,11 @@ import './donationStyle.css';
 
 function Donations() {
     return (
-        <div className="grid loggedInDiv">
-            <h1>Donations</h1>
-            <Outgoing />
+        <div className="container1">
+            <div className="grid loggedInDiv">
+                <h1>Donations</h1>
+                <Outgoing />
+            </div>
         </div>
     );
 }

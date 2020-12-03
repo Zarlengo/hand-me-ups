@@ -1,4 +1,5 @@
-body {
+.container1 {
+  display: grid;
    background:
    radial-gradient(#5a4b66 15%, transparent 15%) 0 0,
   radial-gradient(#52445c 15%, transparent 15%) 16px 16px,
