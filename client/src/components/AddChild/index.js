@@ -213,7 +213,9 @@ function AddChild() {
                     }}
                 />
                 <br />
-                <h3 className="tagList">Tell us your child&#8217;s interests:</h3>
+                <h3 className="tagList">
+                    Tell us your child&#8217;s interests:
+                </h3>
                 <div className="tagTable">
                     {toyTags.map((tag) => (
                         <TagCheckbox
