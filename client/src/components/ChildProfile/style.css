@@ -41,4 +41,8 @@
     .childProfile {
         margin-right: 2em;
     }
+
+    .editChildTitle {
+        font-size: 3em;
+    }
 }

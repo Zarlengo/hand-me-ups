@@ -213,33 +213,41 @@ function AddChild() {
                     }}
                 />
                 <br />
-                <h3>Tell us your child&#8217;s interests:</h3>
-                {toyTags.map((tag) => (
-                    <TagCheckbox
-                        key={tag.id}
-                        tag={tag.tag}
-                        id={tag.id}
-                        onClick={handleTagClick}
-                    />
-                ))}
-                <h3>Tell us what clothes you need:</h3>
-                {clothesTags.map((tag) => (
-                    <TagCheckbox
-                        key={tag.id}
-                        tag={tag.tag}
-                        id={tag.id}
-                        onClick={handleTagClick}
-                    />
-                ))}
-                <h3>Tell us your furniture needs:</h3>
-                {furnitureTags.map((tag) => (
-                    <TagCheckbox
-                        key={tag.id}
-                        tag={tag.tag}
-                        id={tag.id}
-                        onClick={handleTagClick}
-                    />
-                ))}
+                <h3 className="tagList">
+                    Tell us your child&#8217;s interests:
+                </h3>
+                <div className="tagTable">
+                    {toyTags.map((tag) => (
+                        <TagCheckbox
+                            key={tag.id}
+                            tag={tag.tag}
+                            id={tag.id}
+                            onClick={handleTagClick}
+                        />
+                    ))}
+                </div>
+                <h3 className="tagList">Tell us what clothes you need:</h3>
+                <div className="tagTable">
+                    {clothesTags.map((tag) => (
+                        <TagCheckbox
+                            key={tag.id}
+                            tag={tag.tag}
+                            id={tag.id}
+                            onClick={handleTagClick}
+                        />
+                    ))}
+                </div>
+                <h3 className="tagList">Tell us your furniture needs:</h3>
+                <div className="tagTable">
+                    {furnitureTags.map((tag) => (
+                        <TagCheckbox
+                            key={tag.id}
+                            tag={tag.tag}
+                            id={tag.id}
+                            onClick={handleTagClick}
+                        />
+                    ))}
+                </div>
                 <button onClick={handleClick} className="btn btn-default">
                     Add Child
                 </button>
