@@ -79,6 +79,7 @@ function Chat() {
                             <input
                                 id="message"
                                 type="text"
+                                className="messageInput"
                                 placeholder="Message"
                                 value={message}
                                 onChange={(event) => handleMessage(event)}

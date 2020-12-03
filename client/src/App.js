@@ -32,6 +32,8 @@ PrivateRoute.propTypes = {
 const App = () => (
     <GlobalContextProvider>
         <Switch>
+            <Route exact path="/Forgot" />
+            <Route exact path="/Signup" />
             <Route exact path="/" />
             <Route component={Navbar} />
         </Switch>
@@ -46,6 +48,8 @@ const App = () => (
         </Switch>
         <Switch>
             <Route exact path="/" />
+            <Route exact path="/Forgot" />
+            <Route exact path="/Signup" />
             <Route component={Chat} />
         </Switch>
         <Footer />
