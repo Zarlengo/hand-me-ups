@@ -1,14 +1,7 @@
-/* .container {
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 300px 250px 400px 150px ;
-} */
-
 .login-form {
     grid-column-start: 3;
-    grid-row-start: 3;
-    grid-row-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
     max-width: 384px!important;
     border: 5px solid rgb(238, 255, 0);
     padding: 10px;
@@ -23,6 +16,13 @@
     background-color:rgba(233, 245, 58, 0.8);
     font-family: 'Gamja Flower', cursive;
     font-size: 18px;
+}
+
+.child {
+
+    background-color: rgba(233, 245, 58, 0.8);
+    -webkit-background-origin: content-box;
+    background-origin: content-box;
 }
 
 #userName {
