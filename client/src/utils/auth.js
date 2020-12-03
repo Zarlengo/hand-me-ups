@@ -10,6 +10,7 @@ export default () => {
     if (user && user.accessToken && localToken) {
         return {
             'x-access-token': localToken,
+            'x-user-id': user.id,
             'content-type': 'application/json',
         };
     }

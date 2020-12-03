@@ -11,14 +11,11 @@ export const Outgoing = () => {
     const [chosenState, setChosenState] = useState(false);
     const [shippingLabel, setShippingLabel] = useState(false);
 
-    function changeChosen(id) {
+    function changeChosen() {
         if (chosenState === false) {
             setChosenState(true);
         }
-        API.addDonation({
-            sendingParentID: currentUser.id,
-            recievingChildID: id,
-        })
+        API.addDonation(userData)
             .then((response) => {
                 return response.data;
             })
@@ -34,19 +31,14 @@ export const Outgoing = () => {
 
     const currentUser = API.getCurrentUser();
     useEffect(() => {
-        API.getChildren(currentUser.id)
-            .then((response) => {
-                return response.data;
-            })
-            .then((data) => {
-                setLoading(false);
-                setResults(data);
-            });
+        API.getChildren().then((data) => {
+            setLoading(false);
+            setResults(data);
+        });
     }, []);
     if (loading) {
         return <h1>Loading...</h1>;
     }
-    console.log(shippingLabel, 'shippinglabel');
     return (
         <div className="Outgoing">
             {results.map((childObject) => (

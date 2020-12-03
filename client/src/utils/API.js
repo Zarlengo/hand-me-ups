@@ -2,11 +2,29 @@ import axios from 'axios';
 import headers from './auth';
 
 export default {
+    getCharts: () => {
+        return axios({
+            url: './api/charts',
+            method: 'GET',
+            headers: headers(),
+        }).then((response) => {
+            if (response.status === 200) {
+                return response.data;
+            }
+            return response;
+        });
+    },
+
     getUser: (id) => {
         return axios({
             url: `./api/profile/${id}`,
             method: 'GET',
             headers: headers(),
+        }).then((response) => {
+            if (response.status === 200) {
+                return response.data;
+            }
+            return response;
         });
     },
 
@@ -38,58 +56,67 @@ export default {
         return axios({
             url: `/api/profile/${userData.id}`,
             userData,
-            medthod: 'PUT',
+            method: 'PUT',
             headers: headers(),
         });
     },
 
     addChild: function (userData) {
         return axios({
-            url: `/api/child/addChild/${userData.ParentId}`,
+            url: '/api/child/addChild',
             data: userData,
             method: 'POST',
             headers: headers(),
         });
     },
 
-    getChildren: function (id) {
+    getChildren: function () {
         return axios({
-            url: `api/child/children/${id}`,
+            url: 'api/child/children',
             method: 'GET',
             headers: headers(),
+        }).then((response) => {
+            if (response.status === 200) {
+                return response.data;
+            }
+            return response;
         });
     },
 
     addDonation: function (userData) {
         return axios({
-            url: `api/donation/create/${userData.sendingParentID}`,
+            url: 'api/donation/create',
             data: userData,
             method: 'POST',
             headers: headers(),
+        }).then((response) => {
+            if (response.status === 200) {
+                return response.data;
+            }
+            return response;
         });
     },
 
-    deleteChild: function (parentId, childId) {
+    deleteChild: function (childId) {
         return axios({
-            url: `api/child/deleteChild/${parentId}`,
-            data: { childId },
+            url: `api/child/deleteChild/${childId}`,
             method: 'DELETE',
             headers: headers(),
         });
     },
 
-    editChild: function (userData, parentId) {
+    editChild: function (userData) {
         return axios({
-            url: `api/child/editChild/${parentId}`,
+            url: `api/child/editChild/${userData.id}`,
             data: userData,
             method: 'PUT',
             headers: headers(),
         });
     },
 
-    getTags: function (parentId) {
+    getTags: function () {
         return axios({
-            url: `api/tags/${parentId}`,
+            url: 'api/tags',
             method: 'GET',
             headers: headers(),
         }).then((response) => {
