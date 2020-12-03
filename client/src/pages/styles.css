@@ -1,5 +1,4 @@
 .container {
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 300px 25px 250px 400px 150px ;
@@ -46,6 +45,10 @@
 
 }
 
+.loggedInDiv {
+    margin-top: var(--nav-height);
+    padding-top: 20px;
+}
 
 
 
