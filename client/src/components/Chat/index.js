@@ -28,13 +28,6 @@ function Chat() {
     };
 
     const handleSend = () => {
-        //     const temp = `<div class="out-msg">
-        // <span class="my-msg">${message}</span>
-        // <img src="person.png" class="avatar">
-        // </div>`;
-
-        // chatArea.insertAdjacentHTML('beforeend', temp);
-
         socket.emit('chat', {
             author: currentUser.firstName,
             message: message,
@@ -60,61 +53,71 @@ function Chat() {
     return (
         <section className="chat-section">
             {showPopup ? (
-                <div className="chat-popup">
-                    <div className="chat-area">
-                        <div className="income-msg">
-                            <div className="feedback">
-                                <em>
-                                    {showFeedback
-                                        ? `${feedback} is typing a message...`
-                                        : ''}
-                                </em>
-                            </div>
-                            <div className="output">
-                                {output.map((line, index) => (
-                                    <MessageLine
-                                        key={index}
-                                        line={line}
-                                        author={currentUser.firstName}
-                                    />
-                                ))}
+                <div>
+                    <div className="chat-popup">
+                        <div className="chat-area">
+                            <div className="income-msg">
+                                <div className="feedback">
+                                    <em>
+                                        {showFeedback
+                                            ? `${feedback} is typing a message...`
+                                            : ''}
+                                    </em>
+                                </div>
+                                <div className="output">
+                                    {output.map((line, index) => (
+                                        <MessageLine
+                                            key={index}
+                                            line={line}
+                                            author={currentUser.firstName}
+                                        />
+                                    ))}
+                                </div>
                             </div>
                         </div>
+                        <div className="input-area">
+                            <input
+                                id="message"
+                                type="text"
+                                placeholder="Message"
+                                value={message}
+                                onChange={(event) => handleMessage(event)}
+                            />
+                            <button
+                                className="submit"
+                                id="send"
+                                onClick={() => handleSend()}
+                            >
+                                <FontAwesomeIcon icon={faPaperPlane} />
+                            </button>
+                        </div>
                     </div>
-                    <div className="input-area">
-                        <input
-                            id="message"
-                            type="text"
-                            placeholder="Message"
-                            value={message}
-                            onChange={(event) => handleMessage(event)}
-                        />
-                        <button
-                            className="submit"
-                            id="send"
-                            onClick={() => handleSend()}
-                        >
-                            <FontAwesomeIcon icon={faPaperPlane} />
-                        </button>
+                    <div
+                        className="notification chat-btn"
+                        onClick={() => {
+                            setShowPopup(!showPopup);
+                            setNotificationCount(0);
+                        }}
+                    >
+                        <FontAwesomeIcon icon={faUser} />
                     </div>
                 </div>
             ) : (
-                <></>
+                <div
+                    className="notification chat-btn"
+                    onClick={() => {
+                        setShowPopup(!showPopup);
+                        setNotificationCount(0);
+                    }}
+                >
+                    <FontAwesomeIcon icon={faUser} />
+                    {notificationCount > 0 ? (
+                        <span className="badge">{notificationCount}</span>
+                    ) : (
+                        ''
+                    )}
+                </div>
             )}
-            <div
-                className="notification chat-btn"
-                onClick={() => {
-                    setShowPopup(!showPopup);
-                    setNotificationCount(0);
-                }}
-            >
-                <FontAwesomeIcon icon={faUser} />
-                {notificationCount > 0 ? (
-                    <span className="badge">{notificationCount}</span>
-                ) : (
-                    ''
-                )}
-            </div>
         </section>
     );
 }
