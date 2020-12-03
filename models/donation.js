@@ -3,7 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     const Donation = sequelize.define('Donation', {
         sendingParentID: {
             type: DataTypes.INTEGER,
-            allowNull: false,
+            allowNull: true,
         },
         receivingChildID: {
             type: DataTypes.INTEGER,
