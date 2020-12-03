@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-function EditTagCheckbox({ tag, tags, id, onClick, icon, Icon, edit }) {
+function EditTagCheckbox({ tag, tags, id, icon, Icon, edit, onClick }) {
     const [isChecked, setisChecked] = useState(false);
     const [match, setMatch] = useState(false);
 
@@ -11,6 +11,12 @@ function EditTagCheckbox({ tag, tags, id, onClick, icon, Icon, edit }) {
             setisChecked(true);
         }
     }, []);
+
+    const handleClick = (event) => {
+        setisChecked(event.target.checked);
+        onClick(id);
+    };
+
     return (
         <tr>
             <td>
@@ -20,14 +26,13 @@ function EditTagCheckbox({ tag, tags, id, onClick, icon, Icon, edit }) {
 
             <td>
                 {edit ? (
-                    <input
-                        type="checkbox"
-                        checked={isChecked}
-                        onChange={(event) => {
-                            setisChecked(event.target.checked);
-                            onClick(event, id);
-                        }}
-                    />
+                    <form>
+                        <input
+                            type="checkbox"
+                            checked={isChecked}
+                            onChange={(event) => handleClick(event)}
+                        />
+                    </form>
                 ) : (
                     ''
                 )}
@@ -40,7 +45,7 @@ EditTagCheckbox.propTypes = {
     tags: PropTypes.array,
     id: PropTypes.number,
     icon: PropTypes.object,
-    Icon: PropTypes.object,
+    Icon: PropTypes.func,
     edit: PropTypes.bool,
     onClick: PropTypes.func,
 };

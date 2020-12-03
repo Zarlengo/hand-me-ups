@@ -16,8 +16,9 @@ module.exports = (db, passport) => {
 
     const router = require('express').Router();
     const tokens = require('../config/tokens');
-    const cryptographic = require('./cryptographic');
+    const isAuthenticated = require('../config/middleware/isAuthenticated')(db);
 
+    // api/auth/login
     router.post('/login', passport.authenticate('local'), (req, res) => {
         // Sending back a password, even a hashed password, isn't a good idea
         const accessToken = tokens.create({
@@ -75,13 +76,14 @@ module.exports = (db, passport) => {
         });
     });
 
+    // api/auth/logout
     router.get('/logout', (req, res) => {
         req.logout();
         res.redirect('/');
     });
 
+    // api/auth/signup
     router.post('/signup', (req, res) => {
-        console.log(req.body);
         db.User.create({
             email: req.body.email,
             password: req.body.password,
@@ -95,7 +97,7 @@ module.exports = (db, passport) => {
                     city: req.body.city,
                     state: req.body.state,
                     zipCode: req.body.zipCode,
-                    UserId: newUser.dataValues.id,
+                    UserId: newUser.id,
                 })
                     .then(() => {
                         res.redirect(307, '/Login');
@@ -111,71 +113,37 @@ module.exports = (db, passport) => {
             });
     });
 
-    router.put('/user/:id', (req, res) => {
-        db.User.findByPk(req.params.id).then((response) => {
-            const answer = cryptographic(
-                req.headers['x-access-token'],
-                response.accessToken
-            );
-            if (!answer) {
-                res.status(401).json({ message: 'invalid credentials' });
-            } else {
-                // Need to find if there's a duplicate email in db
-                db.Parent.update(req.body, {
-                    where: {
-                        id: req.params.id,
-                    },
-                }).then((dbPost) => {
-                    res.json(dbPost);
-                });
-            }
+    // api/auth/user/:id
+    router.put('/user/:id', isAuthenticated, (req, res) => {
+        // Need to find if there's a duplicate email in db
+        db.Parent.update(req.body, {
+            where: {
+                id: req.params.id,
+            },
+        }).then((dbPost) => {
+            res.json(dbPost);
         });
     });
 
-    router.delete('/user/:id', (req, res) => {
-        db.User.findByPk(req.params.id).then((response) => {
-            const answer = cryptographic(
-                req.headers['x-access-token'],
-                response.accessToken
-            );
-            if (!answer) {
-                res.status(401).json({ message: 'invalid credentials' });
-            } else {
-                db.Parent.destroy({
-                    where: {
-                        id: req.params.id,
-                    },
-                }).then(() => {
-                    req.logout();
-                    res.redirect('/');
-                });
-            }
+    // api/auth/user/:id
+    router.delete('/user/:id', isAuthenticated, (req, res) => {
+        db.Parent.destroy({
+            where: {
+                id: req.params.id,
+            },
+        }).then(() => {
+            req.logout();
+            res.redirect('/');
         });
     });
 
-    router.get('/user_data', (req, res) => {
-        db.User.findByPk(req.params.id).then((response) => {
-            const answer = cryptographic(
-                req.headers['x-access-token'],
-                response.accessToken
-            );
-            if (!answer) {
-                res.status(401).json({ message: 'invalid credentials' });
-            } else {
-                if (!req.user) {
-                    // The user is not logged in, send back an empty object
-                    res.json({});
-                } else {
-                    // Otherwise send back the user's email and id
-                    // Sending back a password, even a hashed password, isn't a good idea
-                    res.json({
-                        id: req.user.id,
-                        firstName: req.user.firstName,
-                        email: req.user.email,
-                        emailOptIn: req.user.emailOptIn,
-                    });
-                }
-            }
+    // api/auth/user_data
+    router.get('/user_data', isAuthenticated, (req, res) => {
+        res.json({
+            id: req.user.id,
+            firstName: req.user.firstName,
+            email: req.user.email,
+            emailOptIn: req.user.emailOptIn,
         });
     });
 

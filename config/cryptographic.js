@@ -17,6 +17,5 @@ module.exports = (hash, accessToken) => {
         .update(herokuHost)
         .digest('hex');
 
-    console.log(hash);
     return hash === localToken || hash === herokuToken;
 };

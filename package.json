@@ -21,6 +21,7 @@
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "concurrently": "^4.1.0",
+    "dotenv": "^8.2.0",
     "eslint": "^7.13.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-prettier": "^3.1.4",
@@ -37,6 +38,7 @@
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "express": "^4.16.3",
+    "express-session": "^1.17.1",
     "if-env": "^1.0.4",
     "jsbarcode": "^3.11.3",
     "passport": "^0.4.1",
@@ -44,6 +46,7 @@
     "pg": "^8.4.2",
     "pg-hstore": "^2.3.3",
     "recharts": "^1.8.5",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "socket.io": "^3.0.3"
   }
 }

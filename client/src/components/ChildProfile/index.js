@@ -96,8 +96,7 @@ function ChildProfile(child) {
         });
     };
 
-    const handlecheckboxClick = (event, id) => {
-        event.preventDefault();
+    const handlecheckboxClick = (id) => {
         if (tags.includes(id)) {
             setTags(tags.filter((tag) => tag !== id));
         } else {
@@ -123,7 +122,7 @@ function ChildProfile(child) {
         if (child.tags) {
             setTags(child.tags);
         }
-        API.getTags(currentUser.id).then((response) => {
+        API.getTags().then((response) => {
             console.log(response);
             if (response !== 'Error getting tags') {
                 settoyTags(response.toyTags);

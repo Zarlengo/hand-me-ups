@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import DonationContext from '../../utils/donationContext';
 import DonationDemographics from '../DonationDemographics/domationDemographics';
 import './outgoing.css';
 import ChooseBtn from '../chooseBtn/chooseBtn';
@@ -12,20 +11,15 @@ export const Outgoing = () => {
     const [chosenState, setChosenState] = useState(false);
     const [shippingLabel, setShippingLabel] = useState(false);
 
-    function changeChosen(id) {
-        console.log(id, 'id');
+    function changeChosen() {
         if (chosenState === false) {
             setChosenState(true);
         }
-        API.addDonation({
-            sendingParentID: currentUser.id,
-            recievingChildID: id,
-        })
+        API.addDonation(userData)
             .then((response) => {
                 return response.data;
             })
-            .then((data) => {
-                console.log(data, 'data');
+            .then(() => {
                 setShippingLabel(true);
             });
     }
@@ -37,40 +31,27 @@ export const Outgoing = () => {
 
     const currentUser = API.getCurrentUser();
     useEffect(() => {
-        API.getChildren(currentUser.id)
-            .then((response) => {
-                return response.data;
-            })
-            .then((data) => {
-                setLoading(false);
-                setResults(data);
-            });
+        API.getChildren().then((data) => {
+            setLoading(false);
+            setResults(data);
+        });
     }, []);
     if (loading) {
         return <h1>Loading...</h1>;
     }
-    console.log(shippingLabel, 'shippinglabel');
     return (
         <div className="Outgoing">
             {results.map((childObject) => (
-                <DonationContext.Provider
-                    key={childObject.id}
-                    value={{
-                        ...childObject,
-                        ...currentUser,
-                    }}
-                >
-                    <DonationDemographics />
+                <div className="outgoingCard" key={childObject.id}>
+                    <DonationDemographics child={childObject} />
                     <ChooseBtn
                         childID={childObject.id}
                         changeChosen={changeChosen}
                     />
-                </DonationContext.Provider>
+                </div>
             ))}
             {shippingLabel ? (
                 <ShippingLabel
-                    // key={currentUser.id}
-                    //{...currentUser}
                     parentFName={currentUser.firstName}
                     parentLName={currentUser.lastName}
                     parentAddy1={currentUser.address1}

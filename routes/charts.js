@@ -1,8 +1,9 @@
 const router = require('express').Router();
 
 module.exports = (db) => {
+    const isAuthenticated = require('../config/middleware/isAuthenticated')(db);
     //  api/charts
-    router.get('/', (req, res) => {
+    router.get('/', isAuthenticated, (req, res) => {
         db.Child.findAll({
             attributes: [
                 [

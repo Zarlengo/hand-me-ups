@@ -8,6 +8,7 @@ import {
     Tooltip,
     Legend,
 } from 'recharts';
+import API from '../../utils/API';
 
 function Charts() {
     const [toysTotal, setToys] = useState();
@@ -15,8 +16,7 @@ function Charts() {
     const [furnitureTotal, setFurniture] = useState();
 
     const getDonations = () => {
-        fetch('api/charts')
-            .then((response) => response.json())
+        API.getCharts()
             .then((result) => {
                 setToys(result[0].toysDonated);
                 setClothes(result[0].clothesDonated);
