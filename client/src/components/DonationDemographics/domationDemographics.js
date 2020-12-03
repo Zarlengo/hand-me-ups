@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import ToyTags from '../toyTags/toyTags';
 import ClothesTags from '../clothesTags/clothesTags';
 import FurnitureTags from '../furnitureTags/furnitureTags';
 import './style.css';
 
-function DonationDemographics(child) {
+function DonationDemographics({ child }) {
     const toytags = child.tags.filter((element) => element.type === 'toy');
     const clothestags = child.tags.filter(
         (element) => element.type === 'clothes'
