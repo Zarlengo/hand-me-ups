@@ -44,7 +44,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
         },
         tags: {
-            type: DataTypes.ARRAY(DataTypes.JSON),
+            type: DataTypes.ARRAY(DataTypes.INTEGER),
         },
         chosen: {
             type: DataTypes.BOOLEAN,
