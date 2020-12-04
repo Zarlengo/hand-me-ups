@@ -1,12 +1,16 @@
 .notification {
     color: white;
     text-decoration: none;
-    padding: 15px 26px;
+    padding: 26px;
+    height: var(--nav-height);
     position: relative;
-    display: inline-block;
+    display: flex;
     border-radius: 2px;
     width: 75px;
     cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    
   }
   
   .notification:hover {

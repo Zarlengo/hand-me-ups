@@ -1,14 +1,14 @@
-.signupDiv {
+.signUpDiv {
     font-family: 'Gamja Flower', cursive;
 }
-.signupTitle {
+.signUpTitle {
     padding-left: .5em;
 }
-.signupTable {
+.signUpTable {
     margin-left: 1em;
 }
 
-.signupInput {
+.signUpInput {
     box-sizing: border-box;
     border: none;
     border-bottom: .3em solid purple;
@@ -18,7 +18,7 @@
     text-align: center;
 }
 
-.signupLabel {
+.signUpLabel {
     font-size: 1.5em;
 }
 
@@ -26,14 +26,19 @@
     width: 100%
 }
 
+.validation {
+    color: red;
+    padding-left: 20px;
+}
+
 @media screen and (min-width: 600px) {
-    .signupTitle {
+    .signUpTitle {
         font-size: 3em;
     }
-    .signupLabel {
+    .signUpLabel {
         font-size: 2em;
     }
-    .signupInput {
+    .signUpInput {
         height: 2.5em;
         margin: .5em;
     }
