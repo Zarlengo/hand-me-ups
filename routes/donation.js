@@ -7,6 +7,12 @@ module.exports = (db) => {
         db.Donation.create(req.body).then((dbPost) => {
             res.json(dbPost);
         });
+        db.Child.update(
+            { chosen: true },
+            { where: { id: req.body.receivingChildID } }
+        ).then((dbDonation) => {
+            res.json(dbDonation);
+        });
     });
     return router;
 };

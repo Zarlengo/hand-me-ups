@@ -53,7 +53,7 @@ module.exports = (db) => {
     });
     router.get('/children', isAuthenticated, (req, res) => {
         db.Tag.findAll({}).then((alltags) => {
-            db.Child.findAll({}).then((r) => {
+            db.Child.findAll({ where: { chosen: false } }).then((r) => {
                 res.json(
                     r.map((child) => {
                         const age = Math.floor(

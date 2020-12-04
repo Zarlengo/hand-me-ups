@@ -1,0 +1,40 @@
+.signupDiv {
+    font-family: 'Gamja Flower', cursive;
+}
+.signupTitle {
+    padding-left: .5em;
+}
+.signupTable {
+    margin-left: 1em;
+}
+
+.signupInput {
+    box-sizing: border-box;
+    border: none;
+    border-bottom: .3em solid purple;
+    height: 2em;
+    margin: .5em;
+    width: 100%;
+    text-align: center;
+}
+
+.signupLabel {
+    font-size: 1.5em;
+}
+
+#createBtn {
+    width: 100%
+}
+
+@media screen and (min-width: 600px) {
+    .signupTitle {
+        font-size: 3em;
+    }
+    .signupLabel {
+        font-size: 2em;
+    }
+    .signupInput {
+        height: 2.5em;
+        margin: .5em;
+    }
+}

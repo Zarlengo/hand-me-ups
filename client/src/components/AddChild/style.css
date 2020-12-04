@@ -1,4 +1,5 @@
 .addChild {
+    font-family: 'Gamja Flower', cursive;
     margin: auto;
     padding: 1em;
     text-align: center;
@@ -14,12 +15,11 @@
     border: none;
     border-bottom: .3em solid lightblue;
     margin-bottom: 1em;
-    width: 80%;
     text-align: center;
 }
 
 .addChildLabel {
-    line-height: 2em;
+    line-height: 3em;
     text-align: center;
 }
 
@@ -27,13 +27,23 @@
     margin: .5em;
 }
 
+.tagList {
+    margin: 1em;
+}
+
 @media screen and (min-width: 600px){
     .addChildTitle {
-     font-size: 3rem;
+     font-size: 5rem;
      text-align: center;
     }
 
     .addChildInput {
         width: 100%;
+    }
+
+    .tagTable {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
  }
