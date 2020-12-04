@@ -23,22 +23,22 @@ function Welcome() {
 
                 <p id="p1">
                     Join local families and help your child learn about
-                    responsibility, genorosity and giving. Donate or recieve
+                    responsibility, generosity and giving. Donate or receive
                     toys, clothing and furniture from a family in your community
                     and give these items a second life.
                 </p>
             </div>
             <div id="grid-three">
-                <h1>Donate and Recieve</h1>
+                <h1>Donate and Receive</h1>
 
                 <p id="p1">
-                    Create an account and sign up to recieve and donate toys,
-                    furniture or clothing. Based on your childrens age, gender
-                    preference and items to be donated or recieved you can
-                    connect with families in your community that fit the needs
-                    of your child. Let the toys, clothing and furniture that
-                    your child no longer uses have a second chance to bring joy
-                    to a child or recieve items that your child will love.
+                    Create an account and sign up to receive and donate toys,
+                    furniture or clothing. Based on your children&apos;s age,
+                    gender preference and items to be donated or received you
+                    can connect with families in your community that fit the
+                    needs of your child. Let the toys, clothing and furniture
+                    that your child no longer uses have a second chance to bring
+                    joy to a child or receive items that your child will love.
                 </p>
             </div>
             <Login />
