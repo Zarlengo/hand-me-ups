@@ -12,7 +12,6 @@ function GoogleMaps() {
 
         API.getLocations()
             .then((response) => {
-                console.log(response);
                 response.forEach((marker) => {
                     new google.maps.Marker({
                         position: marker.latLng,

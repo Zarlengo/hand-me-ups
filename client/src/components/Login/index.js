@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import API from '../../utils/API';
 import './style.css';
@@ -8,6 +8,7 @@ function Login() {
     const [isError, setIsError] = useState(false);
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
+    const [rememberMe, setRememberMe] = useState(false);
 
     function postLogin(event) {
         event.preventDefault();
@@ -15,6 +16,12 @@ function Login() {
             .then((result) => {
                 if (result.status === 200) {
                     setLoggedIn(true);
+                    if (rememberMe) {
+                        localStorage.setItem(
+                            'rememberID',
+                            JSON.stringify(userName)
+                        );
+                    }
                 } else {
                     setIsError(true);
                 }
@@ -23,6 +30,23 @@ function Login() {
                 setIsError(true);
             });
     }
+
+    const handleRememberClick = (event) => {
+        if (rememberMe) {
+            localStorage.removeItem('rememberID');
+            setUserName('');
+            setPassword('');
+        }
+        setRememberMe(event.target.checked);
+    };
+
+    useEffect(() => {
+        const rememberStorage = JSON.parse(localStorage.getItem('rememberID'));
+        if (rememberStorage) {
+            setRememberMe(true);
+            setUserName(rememberStorage);
+        }
+    }, []);
 
     if (isLoggedIn) {
         return <Redirect to="/Members" />;
@@ -44,9 +68,7 @@ function Login() {
                     name="userName"
                     placeholder=""
                     value={userName}
-                    onChange={(event) => {
-                        setUserName(event.target.value);
-                    }}
+                    onChange={(event) => setUserName(event.target.value)}
                 />
             </div>
             <br></br>
@@ -62,9 +84,7 @@ function Login() {
                     name="password"
                     placeholder=""
                     value={password}
-                    onChange={(event) => {
-                        setPassword(event.target.value);
-                    }}
+                    onChange={(event) => setPassword(event.target.value)}
                 />
             </div>
             <br></br>
@@ -73,7 +93,8 @@ function Login() {
                     type="checkbox"
                     id="remember-me"
                     name="remember-me"
-                    value="false"
+                    checked={rememberMe}
+                    onChange={(event) => handleRememberClick(event)}
                 />
                 <label type="text" htmlFor="remember-me">
                     &nbsp;Remember Me

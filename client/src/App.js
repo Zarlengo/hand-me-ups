@@ -17,6 +17,8 @@ import Footer from './components/Footer';
 import API from './utils/API';
 import { GlobalContextProvider } from './utils/GlobalContext';
 
+import './App.css';
+
 const PrivateRoute = ({ component, ...options }) => {
     if (API.getCurrentUser()) {
         return <Route {...options} component={component} />;

@@ -13,7 +13,11 @@ module.exports = (db) => {
                 // When a user tries to sign in this code runs
                 db.User.findOne({
                     where: {
-                        email,
+                        email: db.sequelize.where(
+                            db.sequelize.fn('LOWER', db.sequelize.col('email')),
+                            'LIKE',
+                            '%' + email.toLowerCase() + '%'
+                        ),
                     },
                     include: [{ model: db.Parent, include: [db.Child] }],
                 }).then((dbUser) => {
