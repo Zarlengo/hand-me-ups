@@ -1,15 +1,12 @@
 .outgoingCard{
     padding-top: 25px;
-    /* border: solid 2px black; */
     border-radius: 5px;
-    /* border-style: ridge; */
     margin: 20px;
     box-sizing: inherit;
     background-color: white;
     max-width: 200px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-size: 1.5rem;
-    /* letter-spacing: .1rem; */
     line-height: 1.5;
     margin-bottom: 2.5rem;
     

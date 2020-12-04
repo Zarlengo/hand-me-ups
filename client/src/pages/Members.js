@@ -1,6 +1,5 @@
 import React from 'react';
 import Charts from '../components/Charts';
-import './memberStyle.css';
 import GoogleMaps from '../components/googleMaps';
 
 import API from '../utils/API';

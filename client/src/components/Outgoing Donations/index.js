@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import DonationDemographics from '../DonationDemographics/domationDemographics';
-import './outgoing.css';
-import ChooseBtn from '../chooseBtn/chooseBtn';
+import DonationDemographics from '../DonationDemographics';
+import './style.css';
+import ChooseBtn from '../chooseBtn';
 import API from '../../utils/API';
 import ShippingLabel from '../ShippingLabel';
 

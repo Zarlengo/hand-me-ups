@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Outgoing from '../components/Outgoing Donations';
-import './donationStyle.css';
 
 function Donations() {
     return (

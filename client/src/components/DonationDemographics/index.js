@@ -1,16 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import ToyTags from '../toyTags/toyTags';
-import ClothesTags from '../clothesTags/clothesTags';
-import FurnitureTags from '../furnitureTags/furnitureTags';
+import Tags from '../Tags';
 import './style.css';
 
 function DonationDemographics({ child }) {
-    const toytags = child.tags.filter((element) => element.type === 'toy');
-    const clothestags = child.tags.filter(
+    const toyTags = child.tags.filter((element) => element.type === 'toy');
+    const clothesTags = child.tags.filter(
         (element) => element.type === 'clothes'
     );
-    const furnituretags = child.tags.filter(
+    const furnitureTags = child.tags.filter(
         (element) => element.type === 'furniture'
     );
     return (
@@ -19,9 +17,9 @@ function DonationDemographics({ child }) {
                 <div className="card">
                     <h3>{child.gender}</h3>
                     <h3>{child.age}</h3>
-                    <ToyTags tag={toytags} />
-                    <ClothesTags tag={clothestags} />
-                    <FurnitureTags tag={furnituretags} />
+                    <Tags tag={toyTags} className="toyTags" />
+                    <Tags tag={clothesTags} className="clothesTags" />
+                    <Tags tag={furnitureTags} className="furnitureTags" />
                 </div>
             </div>
         </div>

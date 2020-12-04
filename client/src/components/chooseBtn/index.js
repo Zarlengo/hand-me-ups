@@ -1,5 +1,5 @@
 import React from 'react';
-import './chooseBtn.css';
+import './style.css';
 import PropTypes from 'prop-types';
 function ChooseBtn({ changeChosen, childID }) {
     return (

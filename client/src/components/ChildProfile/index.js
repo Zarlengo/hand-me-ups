@@ -123,7 +123,6 @@ function ChildProfile(child) {
             setTags(child.tags);
         }
         API.getTags().then((response) => {
-            console.log(response);
             if (response !== 'Error getting tags') {
                 settoyTags(response.toyTags);
                 setclothesTags(response.clothesTags);
