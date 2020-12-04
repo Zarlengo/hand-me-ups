@@ -28,6 +28,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: true,
         },
+        latLng: {
+            type: DataTypes.JSON,
+        },
     });
 
     Parent.associate = function (models) {

@@ -1,6 +1,7 @@
 import React from 'react';
 import Charts from '../components/Charts';
 import './memberStyle.css';
+import GoogleMaps from '../components/googleMaps';
 
 import API from '../utils/API';
 import { Link } from 'react-router-dom';
@@ -17,7 +18,7 @@ const members = () => {
                 <Link className="donateBtn" to="/Donations">
                     I&apos;m ready to DONATE!
                 </Link>
-            </div>
+            <GoogleMaps />
         </div>
     );
 };

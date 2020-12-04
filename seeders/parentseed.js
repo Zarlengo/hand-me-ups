@@ -7,6 +7,7 @@ module.exports = [
         city: 'Auburn',
         state: 'WA',
         zipCode: '98001',
+        latLng: { lat: 47.3395, lng: -122.2668 },
     },
     {
         firstName: 'Bill',
@@ -16,6 +17,7 @@ module.exports = [
         city: 'Bellevue',
         state: 'WA',
         zipCode: '98004',
+        latLng: { lat: 47.6101, lng: -122.2015 },
     },
     {
         firstName: 'Cynthia',
@@ -25,6 +27,7 @@ module.exports = [
         city: 'Carnation',
         state: 'WA',
         zipCode: '98014',
+        latLng: { lat: 47.6479, lng: -121.914 },
     },
     {
         firstName: 'Douglas',
@@ -34,6 +37,7 @@ module.exports = [
         city: 'Duvall',
         state: 'WA',
         zipCode: '98019',
+        latLng: { lat: 47.7193, lng: -121.7834 },
     },
     {
         firstName: 'Edwin',
@@ -43,6 +47,7 @@ module.exports = [
         city: 'Enumclaw',
         state: 'WA',
         zipCode: '98022',
+        latLng: { lat: 47.1233, lng: -121.5306 },
     },
     {
         firstName: 'Fredrique',
@@ -52,6 +57,7 @@ module.exports = [
         city: 'Fall City',
         state: 'WA',
         zipCode: '98024',
+        latLng: { lat: 47.5696, lng: -121.8789 },
     },
     {
         firstName: 'Gerdie',
@@ -61,6 +67,7 @@ module.exports = [
         city: 'Gold Bar',
         state: 'WA',
         zipCode: '98251',
+        latLng: { lat: 47.8908, lng: -121.5816 },
     },
     {
         firstName: 'Harriette',
@@ -70,6 +77,7 @@ module.exports = [
         city: 'Hazel Dell',
         state: 'WA',
         zipCode: '98665',
+        latLng: { lat: 45.6257, lng: -122.6761 },
     },
     {
         firstName: 'Ingrid',
@@ -79,6 +87,7 @@ module.exports = [
         city: 'Index',
         state: 'WA',
         zipCode: '98256',
+        latLng: { lat: 47.8362, lng: -121.4016 },
     },
     {
         firstName: 'Janet',
@@ -88,6 +97,7 @@ module.exports = [
         city: 'Jamestown',
         state: 'WA',
         zipCode: '98382',
+        latLng: { lat: 48.0218, lng: -123.1274 },
     },
     {
         firstName: 'Kelly',
@@ -97,6 +107,7 @@ module.exports = [
         city: 'Klickitat',
         state: 'WA',
         zipCode: '98628',
+        latLng: { lat: 45.8283, lng: -121.12 },
     },
     {
         firstName: 'Lenny',
@@ -106,5 +117,6 @@ module.exports = [
         city: 'Lebam',
         state: 'WA',
         zipCode: '98554',
+        latLng: { lat: 46.5618, lng: -123.5594 },
     },
 ];

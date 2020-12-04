@@ -135,4 +135,17 @@ export default {
             return 'Error getting tags';
         });
     },
+
+    getLocations: function () {
+        return axios({
+            url: './api/google/locations',
+            method: 'GET',
+            headers: headers(),
+        }).then((response) => {
+            if (response.status === 200) {
+                return response.data;
+            }
+            return response;
+        });
+    },
 };
