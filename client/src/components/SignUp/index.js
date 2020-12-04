@@ -15,8 +15,160 @@ function SignUp() {
     const [zipCode, setZipCode] = useState('');
     const [redirect, setRedirect] = useState('');
 
+    const [emailValidation, setEmailValidation] = useState('');
+    const [passwordValidation, setPasswordValidation] = useState('');
+    const [firstNameValidation, setFirstNameValidation] = useState('');
+    const [lastNameValidation, setLastNameValidation] = useState('');
+    const [address1Validation, setAddress1Validation] = useState('');
+    const [cityValidation, setCityValidation] = useState('');
+    const [stateValidation, setStateValidation] = useState('');
+    const [zipCodeValidation, setZipCodeValidation] = useState('');
+
+    const validateEmail = () => {
+        // setEmailValidation('Email format is incorrect.');
+        return true;
+    };
+
+    const validatePassword = () => {
+        const check = {
+            length: false,
+            uppercase: false,
+            lowercase: false,
+            number: false,
+            symbol: false,
+        };
+        const invalidSymbol = [];
+        if (password.length >= 8) {
+            check.length = true;
+        }
+        for (let i = 0; i < password.length; i++) {
+            const letterCode = password.charCodeAt(i);
+            if (letterCode >= 65 && letterCode <= 89) {
+                check.uppercase = true;
+                continue;
+            }
+
+            if (letterCode >= 97 && letterCode <= 122) {
+                check.lowercase = true;
+                continue;
+            }
+
+            if (letterCode >= 48 && letterCode <= 57) {
+                check.number = true;
+                continue;
+            }
+
+            if (letterCode >= 32 && letterCode <= 47) {
+                check.symbol = true;
+                continue;
+            }
+
+            if (letterCode >= 58 && letterCode <= 64) {
+                check.symbol = true;
+                continue;
+            }
+
+            if (letterCode >= 91 && letterCode <= 96) {
+                check.symbol = true;
+                continue;
+            }
+
+            if (letterCode >= 123 && letterCode <= 126) {
+                check.symbol = true;
+                continue;
+            }
+            invalidSymbol.push(password.charAt(i));
+        }
+        let passwordString =
+            'Password needs to contain at least 8 characters, uppercase, lowercase, a number, and a symbol.';
+        if (invalidSymbol.length > 0) {
+            passwordString += `\nInvalid character: ${invalidSymbol.join(' ')}`;
+        }
+        if (
+            !check.length ||
+            check.uppercase ||
+            check.lowercase ||
+            check.number ||
+            check.symbol
+        ) {
+            setPasswordValidation(passwordString);
+            return false;
+        }
+        return true;
+    };
+
+    const validateFirstName = () => {
+        if (firstName === '') {
+            setFirstNameValidation('Please enter a first name');
+            return false;
+        }
+        return true;
+    };
+
+    const validateLastName = () => {
+        if (lastName === '') {
+            setLastNameValidation('Please enter a last name');
+            return false;
+        }
+        return true;
+    };
+
+    const validateAddress1 = () => {
+        if (address1 === '') {
+            setAddress1Validation('Please enter an address');
+            return false;
+        }
+        return true;
+    };
+
+    const validateCity = () => {
+        if (city === '') {
+            setCityValidation('Please enter a city');
+            return false;
+        }
+        return true;
+    };
+
+    const validateState = () => {
+        if (state === '') {
+            setStateValidation('Please enter a state');
+            return false;
+        }
+        return true;
+    };
+
+    const validateZipCode = () => {
+        const zipCodeExp = new RegExp('^[0-9]{5}(?:-[0-9]{4})?$');
+        if (zipCode === '' || !zipCodeExp.test(zipCode)) {
+            setZipCodeValidation('Please enter a zip code');
+            return false;
+        }
+        return true;
+    };
+
     const createUser = (event) => {
         event.preventDefault();
+        setEmailValidation('');
+        setPasswordValidation('');
+        setFirstNameValidation('');
+        setLastNameValidation('');
+        setAddress1Validation('');
+        setCityValidation('');
+        setStateValidation('');
+        setZipCodeValidation('');
+
+        if (
+            !validateEmail() ||
+            !validatePassword() ||
+            !validateFirstName() ||
+            !validateLastName() ||
+            !validateAddress1() ||
+            !validateCity() ||
+            !validateState() ||
+            !validateZipCode()
+        ) {
+            return;
+        }
 
         API.signup({
             email,
@@ -30,24 +182,13 @@ function SignUp() {
             zipCode,
         }).then((response) => {
             if (response.status === 200) {
-                localStorage.setItem(
-                    'user',
-                    JSON.stringify({
-                        id: id,
-                        email: email,
-                        address1: address1,
-                        city: city,
-                        state: state,
-                        zipCode: zipCode,
-                    })
-                );
-                setRedirect(true);
+                API.login(email, password).then(() => setRedirect(true));
             }
         });
     };
 
     if (redirect) {
-        return <Redirect to="/" />;
+        return <Redirect to="/Members" />;
     }
 
     return (
@@ -73,6 +214,7 @@ function SignUp() {
                                 }}
                             />
                         </td>
+                        <td className="validation">{emailValidation}</td>
                     </tr>
                     <tr>
                         <td>
@@ -92,6 +234,7 @@ function SignUp() {
                                 }}
                             />
                         </td>
+                        <td className="validation">{passwordValidation}</td>
                     </tr>
                     <tr>
                         <td>
@@ -111,6 +254,7 @@ function SignUp() {
                                 }}
                             />
                         </td>
+                        <td className="validation">{firstNameValidation}</td>
                     </tr>
                     <tr>
                         <td>
@@ -130,6 +274,7 @@ function SignUp() {
                                 }}
                             />
                         </td>
+                        <td className="validation">{lastNameValidation}</td>
                     </tr>
                     <tr>
                         <td>
@@ -149,6 +294,7 @@ function SignUp() {
                                 }}
                             />
                         </td>
+                        <td className="validation">{address1Validation}</td>
                     </tr>
                     <tr>
                         <td>
@@ -168,6 +314,7 @@ function SignUp() {
                                 }}
                             />
                         </td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td>
@@ -187,6 +334,7 @@ function SignUp() {
                                 }}
                             />
                         </td>
+                        <td className="validation">{cityValidation}</td>
                     </tr>
                     <tr>
                         <td>
@@ -206,6 +354,7 @@ function SignUp() {
                                 }}
                             />
                         </td>
+                        <td className="validation">{stateValidation}</td>
                     </tr>
                     <tr>
                         <td>
@@ -225,6 +374,7 @@ function SignUp() {
                                 }}
                             />
                         </td>
+                        <td className="validation">{zipCodeValidation}</td>
                     </tr>
                     <tr rowSpan="2">
                         <td>

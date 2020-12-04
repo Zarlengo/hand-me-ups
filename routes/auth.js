@@ -14,6 +14,7 @@ module.exports = (db, passport) => {
     // Limit the number of requests/IP/hour. Allow spikes, but not sustained heavy traffic from a single IP.
     // Thirdly, as you're likely already doing: encrypt the traffic. Sure, the NSA will see it; but Hacker Hank is less likely to.
 
+    const fetch = require('node-fetch');
     const router = require('express').Router();
     const tokens = require('../config/tokens');
     const isAuthenticated = require('../config/middleware/isAuthenticated')(db);
@@ -88,32 +89,44 @@ module.exports = (db, passport) => {
 
     // api/auth/signup
     router.post('/signup', (req, res) => {
-        db.User.create({
-            email: req.body.email,
-            password: req.body.password,
-        })
-            .then((newUser) => {
-                db.Parent.create({
-                    firstName: req.body.firstName,
-                    lastName: req.body.lastName,
-                    address1: req.body.address1,
-                    address2: req.body.address2,
-                    city: req.body.city,
-                    state: req.body.state,
-                    zipCode: req.body.zipCode,
-                    UserId: newUser.id,
+        fetch(
+            `https://maps.googleapis.com/maps/api/geocode/json?key=${process.env.GOOGLE_KEY}&components=postal_code:${req.body.zipCode}`
+        )
+            .then((response) => response.json())
+            .then((result) => {
+                const latLng = result.results[0].geometry.location;
+                db.User.create({
+                    email: req.body.email,
+                    password: req.body.password,
                 })
-                    .then(() => {
-                        res.redirect(307, '/Login');
+                    .then((newUser) => {
+                        db.Parent.create({
+                            firstName: req.body.firstName,
+                            lastName: req.body.lastName,
+                            address1: req.body.address1,
+                            address2: req.body.address2,
+                            city: req.body.city,
+                            state: req.body.state,
+                            zipCode: req.body.zipCode,
+                            latLng: latLng,
+                            UserId: newUser.id,
+                        })
+                            .then((response) => {
+                                res.status(200).json(response);
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                                res.status(401).json(err);
+                            });
                     })
                     .catch((err) => {
                         console.log(err);
-                        res.status(401).json(err);
+                        res.status(400).json(err);
                     });
             })
             .catch((err) => {
                 console.log(err);
-                res.status(401).json(err);
+                res.status(400).json(err);
             });
     });
 
