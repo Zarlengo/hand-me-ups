@@ -36,7 +36,7 @@ function Navbar() {
                         </NavLink>
                     </li>
                     <li className="nav-spacer">|</li>
-                    <li className="nav-item" activeClassName="active">
+                    <li className="nav-item">
                         <NavLink
                             to="/Profile"
                             className="nav-link"
