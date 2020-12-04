@@ -18,7 +18,8 @@ const members = () => {
                 <Link className="donateBtn" to="/Donations">
                     I&apos;m ready to DONATE!
                 </Link>
-            <GoogleMaps />
+                <GoogleMaps />
+            </div>
         </div>
     );
 };
