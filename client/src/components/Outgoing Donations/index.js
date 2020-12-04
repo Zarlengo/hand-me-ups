@@ -64,7 +64,6 @@ export const Outgoing = () => {
             ) : (
                 <> </>
             )}
-            ;
         </div>
     );
 };

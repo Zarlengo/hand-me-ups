@@ -3,7 +3,8 @@ import './chooseBtn.css';
 import PropTypes from 'prop-types';
 function ChooseBtn({ changeChosen, childID }) {
     return (
-        <button onClick={() => changeChosen(childID)} className={'card-btn'}>
+        <button onClick={() => changeChosen(childID)} className={'square_btn'}>
+            <i className="fa fa-chevron-right"></i>
             Choose this Donation
         </button>
     );
