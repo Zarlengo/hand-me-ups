@@ -1,7 +1,7 @@
 .navbar {
-  background-color: #222;
+  background-color: rgb(85, 202, 157);
   height: var(--nav-height);
-  color: white;
+  color: rgb(15, 15, 15);
   position: fixed;
   z-index: 100;
   width: 100%;
@@ -15,7 +15,7 @@
 .navbar-branding {
   text-decoration: none;
   background-color: var(--primary-color);
-  color: white;
+  color: rgb(7, 7, 7);
   font-size: x-large;
   height: 100%;
   width: 270px;
@@ -26,16 +26,20 @@
 
 .navbar-brand {
   display: flex;
+  font-family: 'Gamja Flower', cursive;
   justify-content: flex-start;
   text-decoration: none;
-  color: white;
+  color: rgb(5, 5, 5);
+  background-image: cover;
   font-size: x-large;
   margin: auto;
 }
 
 .nav-list {
   list-style-type:none;
+  font-family: 'Gamja Flower', cursive;
   align-items: center;
+  font-size: 25px;
   display: flex;
   justify-content: flex-end;
   height: 100%;
@@ -52,12 +56,12 @@
 
 .nav-link:not(.active):hover {
   background-color: var(--primary-color);
-  color: white;
+  color: rgb(7, 7, 7);
 }
 
 .nav-link {
   text-decoration: none;
-  color: white;
+  color: rgb(12, 12, 12);
   padding: .5rem 1rem;
   cursor: pointer;
 }

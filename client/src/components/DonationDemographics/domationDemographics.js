@@ -14,13 +14,15 @@ function DonationDemographics({ child }) {
         (element) => element.type === 'furniture'
     );
     return (
-        <div className="DonationDemographics">
-            <div className="card">
-                <h3>{child.gender}</h3>
-                <h3>{child.age}</h3>
-                <ToyTags tag={toytags} />
-                <ClothesTags tag={clothestags} />
-                <FurnitureTags tag={furnituretags} />
+        <div className="container2">
+            <div className="DonationDemographics">
+                <div className="card">
+                    <h3>{child.gender}</h3>
+                    <h3>{child.age}</h3>
+                    <ToyTags tag={toytags} />
+                    <ClothesTags tag={clothestags} />
+                    <FurnitureTags tag={furnituretags} />
+                </div>
             </div>
         </div>
     );

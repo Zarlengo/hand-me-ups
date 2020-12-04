@@ -75,7 +75,6 @@ export const Outgoing = () => {
             ) : (
                 <> </>
             )}
-            ;
         </div>
     );
 };

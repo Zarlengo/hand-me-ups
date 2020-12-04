@@ -31,8 +31,8 @@ function Charts() {
 
     return (
         <BarChart
-            width={300}
-            height={300}
+            width={400}
+            height={400}
             data={[
                 {
                     name: 'Clothes',
@@ -48,10 +48,10 @@ function Charts() {
                 },
             ]}
             margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
+                top: 15,
+                right: 40,
+                left: 30,
+                bottom: 15,
             }}
         >
             <CartesianGrid strokeDasharray="3 3" />

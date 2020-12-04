@@ -1,31 +1,14 @@
-.card-btn {
-    border-top: 1px solid #96d1f8;
-   background: #8a3f3f;
-   background: -webkit-gradient(linear, left top, left bottom, from(#d6a11a), to(#8a3f3f));
-   background: -webkit-linear-gradient(top, #d6a11a, #8a3f3f);
-   background: -moz-linear-gradient(top, #d6a11a, #8a3f3f);
-   background: -ms-linear-gradient(top, #d6a11a, #8a3f3f);
-   background: -o-linear-gradient(top, #d6a11a, #8a3f3f);
-   padding: 5px 10px;
-   -webkit-border-radius: 8px;
-   -moz-border-radius: 8px;
-   border-radius: 8px;
-   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
-   box-shadow: rgba(0,0,0,1) 0 1px 0;
-   text-shadow: rgba(0,0,0,.4) 0 1px 0;
-   color: white;
-   font-size: 14px;
-   font-family: Georgia, serif;
-   text-decoration: none;
-   vertical-align: middle;
-}
-.card-btn:hover {
-    border-top-color: #bf6724;
-   background: #bf6724;
-   color: #ccc;
-}
-.card-btn:active {
-    border-top-color: #a82f2f;
-   background: #a82f2f;
+.square_btn {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.25em 0.5em;
+    text-decoration: none;
+    color: #FFF;
+    background: #00bcd4;
+    transition: .4s;
+  }
+
+.square_btn:hover {
+    background: #1ec7bb;
 }
