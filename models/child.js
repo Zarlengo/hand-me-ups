@@ -46,6 +46,10 @@ module.exports = (sequelize, DataTypes) => {
         tags: {
             type: DataTypes.ARRAY(DataTypes.INTEGER),
         },
+        chosen: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false,
+        },
     });
 
     Child.associate = function (models) {

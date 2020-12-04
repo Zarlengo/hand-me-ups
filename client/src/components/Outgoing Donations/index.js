@@ -11,10 +11,11 @@ export const Outgoing = () => {
     const [chosenState, setChosenState] = useState(false);
     const [shippingLabel, setShippingLabel] = useState(false);
 
-    function changeChosen() {
+    function changeChosen(receivingChildID) {
         if (chosenState === false) {
             setChosenState(true);
         }
+        const userData = { receivingChildID, sendingParentID: currentUser.id };
         API.addDonation(userData)
             .then((response) => {
                 return response.data;
@@ -28,6 +29,16 @@ export const Outgoing = () => {
         event.stopPropagation();
         setShippingLabel(!shippingLabel);
     };
+    useEffect(() => {
+        if (shippingLabel === true) {
+            const confirm = window.confirm('Press ok to print');
+            if (confirm) {
+                window.print();
+            } else {
+                window.location.reload();
+            }
+        }
+    }, [shippingLabel]);
 
     const currentUser = API.getCurrentUser();
     useEffect(() => {

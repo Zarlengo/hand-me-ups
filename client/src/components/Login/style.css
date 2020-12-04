@@ -1,14 +1,7 @@
-/* .container {
-
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 300px 250px 400px 150px ;
-} */
-
 .login-form {
     grid-column-start: 3;
-    grid-row-start: 3;
-    grid-row-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
     max-width: 384px!important;
     border: 5px solid rgb(238, 255, 0);
     padding: 10px;
@@ -25,13 +18,18 @@
     font-size: 18px;
 }
 
-#userName {
+.child {
 
+    background-color: rgba(233, 245, 58, 0.8);
+    -webkit-background-origin: content-box;
+    background-origin: content-box;
+}
+
+#userName {
     background-color:rgba(228, 245, 79, 0.7);
 }
 
 #password {
-
     background-color:rgba(242, 245, 79, 0.7);
 }
 
@@ -58,8 +56,17 @@
     color: black;
     background-color: rgb(255, 72, 0);
     font-family: 'Gamja Flower', cursive;
+    border: .2em solid rgb(231 240 254);
+    color: rgb(231 240 254);
+    font-size: 1rem;
+    width: 10em;
+}
+.sign-in-btn:hover {
+    background-color: transparent;
+    color: rgb(168 186 227);
 }
 
 .error {
-    background-color: red;
+    margin: .5em;
+    color:rgb(255, 72, 0);;
 }
