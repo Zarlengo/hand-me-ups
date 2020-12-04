@@ -14,7 +14,7 @@ function DonationDemographics({ child }) {
         (element) => element.type === 'furniture'
     );
     return (
-        <div className="container">
+        <div className="container2">
             <div className="DonationDemographics">
                 <div className="card">
                     <h3>{child.gender}</h3>
