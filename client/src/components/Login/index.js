@@ -5,7 +5,7 @@ import './style.css';
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Login() {
     const [isLoggedIn, setLoggedIn] = useState(false);
-    const [isError, setIsError] = useState(false); 
+    const [isError, setIsError] = useState(false);
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
