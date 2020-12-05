@@ -3,7 +3,7 @@ import Profiles from '../components/Profiles';
 
 function Profile() {
     return (
-        <div className="loggedInDiv">
+        <div className="loggedInDiv prof">
             <Profiles />
         </div>
     );

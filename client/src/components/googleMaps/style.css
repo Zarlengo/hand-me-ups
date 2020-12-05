@@ -1,10 +1,11 @@
 .mapWrapper {
-    height: 500px;
+    height: 400px;
     width: 100%;
 }
 
 #map {
-    margin: auto;
-    height: 100%;
-    width: 90%;
+    margin: auto ;
+    height: 350px;
+    width: 70%;
+   
   }
