@@ -20,7 +20,7 @@ function Navbar() {
                     <h1>Hand Me Ups</h1>
                 </div>
             </div>
-            <div>
+            <div className="nav-Links">
                 <ul className="nav-list">
                     <li>
                         <Notification />

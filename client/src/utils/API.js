@@ -30,6 +30,20 @@ export default {
         });
     },
 
+    getLoggedOn: () => {
+        return axios({
+            url: './api/profile/loggedOn',
+            method: 'GET',
+            baseURL: '/',
+            headers: headers(),
+        }).then((response) => {
+            if (response.status === 200) {
+                return response.data;
+            }
+            return response;
+        });
+    },
+
     login: (email, password) => {
         return axios({
             url: './api/auth/login',
