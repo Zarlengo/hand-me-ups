@@ -59,7 +59,11 @@ function Charts() {
             <YAxis type="number" domain={[0, 500]} />
             <Tooltip />
             <Legend />
-            <Bar name="Amount donated" dataKey="amt" fill="#8884d8" />
+            <Bar
+                name="Totals donated by Hand-Me-Up members"
+                dataKey="amt"
+                fill="#8884d8"
+            />
             {/* <Bar name="Families Connected" dataKey="fam" fill="#82ca9d" /> */}
         </BarChart>
     );
