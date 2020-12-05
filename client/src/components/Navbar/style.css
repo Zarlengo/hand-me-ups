@@ -1,6 +1,5 @@
 .navbar {
   background-color: rgb(85, 202, 157);
-  height: var(--nav-height);
   color: rgb(15, 15, 15);
   position: fixed;
   z-index: 100;
@@ -10,6 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .navbar-branding {
@@ -17,8 +17,8 @@
   /* background-color: var(--primary-color); */
   color: rgb(7, 7, 7);
   font-size: x-large;
-  height: 100%;
-  width: 270px;
+  height: 50%;
+  width: 100%;
   margin: 0 30px;
   display: flex;
   justify-content: flex-start;
@@ -30,7 +30,6 @@
   justify-content: flex-start;
   text-decoration: none;
   color: rgb(5, 5, 5);
-  background-image: cover;
   font-size: x-large;
   margin: auto;
 }
@@ -41,7 +40,7 @@
   align-items: center;
   font-size: 25px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   height: 100%;
 }
 
@@ -73,4 +72,27 @@
 
 .nav-space {
   opacity: 0.5;
+}
+
+.nav-Links {
+  width: 100%;
+  height: 50%; 
+}
+
+@media screen and (min-width: 680px){
+  .navbar-branding {
+    width: 270px;
+    height: 100%;
+  }
+  .navbar {  
+    flex-wrap: nowrap;
+  }
+  
+.nav-Links {
+  height: 100%; 
+}
+
+.nav-list {
+  justify-content: flex-end;
+}
 }

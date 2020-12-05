@@ -1,5 +1,5 @@
 :root {
-  --nav-height: 50px;
+  --nav-height: 100px;
   --primary-color: rgb(53, 137, 216);
   --secondary-color: rgb(32, 178, 170);
 }
@@ -31,4 +31,13 @@ a:link {
 
 a:visited {
   text-decoration: none;
+}
+
+
+
+
+@media screen and (min-width: 680px){
+  :root {
+    --nav-height: 50px;
+ }
 }

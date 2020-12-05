@@ -1,0 +1,65 @@
+@media screen and (min-width: 680px){
+        
+    .bubble{
+        position:absolute;
+        width:10em;
+        height:10em;
+        border:1px solid rgba(255,255,255,0.1);
+        border-radius:50%;
+        background: radial-gradient(ellipse at center,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 70%);
+        box-shadow: inset 0 20px 30px rgba(255, 255, 255, 0.4), inset 1em 1em 1em rgba(255, 255, 255, 0.6), 0 1em 2em rgba(0, 0, 0, 0.25);
+    }
+    .bubble:hover{
+        display:none;
+    }
+
+    .b1{
+        animation: floatup 10s linear infinite, sideways 5s ease-in-out infinite alternate;
+        left: 10%;
+        top:100%; 
+    }
+    .b2{
+        animation: floatup 5s linear infinite, sideways 4s ease-in-out 1s infinite alternate;
+        left: 15%;
+        top: 30%;
+        transform: scale(.7);
+    }
+    .b3{
+        animation: floatup 4s linear infinite, sideways 6s ease-in-out 6s infinite alternate;
+        left: 20%;
+        transform: scale(1.2);
+    }
+    .b4{
+        animation: floatup 6s linear infinite, sideways 5s ease-in-out 3s infinite alternate;
+        left: 25%;
+        top:90%;
+        transform: scale(.5);
+    }
+    .b5{
+        animation: floatup 8s linear infinite, sideways 6s ease-in-out 3s infinite alternate;
+        left: 30%;
+        top:30%;
+        transform: scale(1.1);
+    }
+    .b6{
+        animation: floatup 7s linear infinite, sideways 4s ease-in-out 3.5s infinite alternate;
+        left:40%;
+        top:50%;
+        transform: scale(.7);
+    }
+    .b7{
+        animation: floatup 6s linear infinite, sideways 5s ease-in-out 4s infinite alternate;
+        left: 50%;
+        top:90%;
+        transform: scale(.6);
+    }
+    @keyframes floatup{
+      0% {margin-top: 50%;}
+      100% {margin-top: -50%;}
+    }
+    @keyframes sideways{
+      0% {margin-left: -30px;}
+      100%{margin-left: 30px;}
+      
+    }
+}

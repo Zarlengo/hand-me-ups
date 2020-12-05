@@ -5,11 +5,11 @@ module.exports = (db) => {
     // api/profile/loggedOn
     router.get('/loggedOn', isAuthenticated, (req, res) => {
         const users = [];
-        for (let i = 1; i < db.loggedOnUsers.length; i++) {
-            if (db.loggedOnUsers[i] !== null) {
-                users.push(i);
-            }
-        }
+        db.loggedOnUsers.forEach((user, index) => {
+            console.log(user, index);
+            users.push(index);
+        });
+        console.log(users);
         if (users !== []) {
             db.User.findAll({
                 attributes: ['id'],

@@ -1,0 +1,82 @@
+
+.members {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Gamja Flower', cursive;
+    text-align: center;
+    font-size: 25px;
+    }
+    .flexRow {
+        display: flex;
+
+    }
+
+    .flexAround {
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+    }
+    
+    .donateBtn {
+      
+      color: #0e2944;
+      cursor: pointer;
+      display: flex;
+      position: relative;
+      border: 2px solid #ebd376;
+      transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+      width: 200px;
+      align-items: center;
+      background:#f0d878;
+      margin: 0 0 50px 50px;
+    
+    }
+    
+    .donateBtn:hover {
+      color: #000 !important;
+      background-color: transparent;
+      text-shadow: nthree;
+    }
+    .donateBtn:hover:before{
+      left: 0%;
+      right: auto;
+      width:100%;
+    }
+    
+    .donateBtn::before {
+      display: block;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      height: 100%;
+      width: 0px;
+      z-index: -1;
+      content: '';
+      color: #000 !important;
+      background: #1E90FF;
+      transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1);
+    
+    }
+    
+
+    
+.recharts-wrapper {
+    display:flex;
+    align-items: flex-end;
+  }
+
+  .bubbles{
+    background: rgb(150,108,179);
+    background-image: linear-gradient(0deg, rgba(150,108,179,1) 0%, rgba(127,217,246,1) 50%, rgba(156,255,207,1) 100%);
+    background-attachment: scroll;
+    font-family: 'Lilita One';
+    height:100%;
+    width:100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    font-size: 1em;
+    color:#FFF3E0;
+    text-align:center;
+  
+  }
