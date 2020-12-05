@@ -5,8 +5,15 @@
     top: 50%;
     transform: translate(-50%, -50%);
     color: black;
-    
+}
 
+.shippingContainer {
+    padding: 25px;
+    margin-top: 30px;
+}
+
+.print {
+    margin-top: 0;
 }
 
 #container {
@@ -19,4 +26,10 @@
     background-color: rgba(39, 5, 83, 0.75);
 }
 
-
+.fa-window-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.5rem;
+    color: rgb(137, 106, 209);
+}

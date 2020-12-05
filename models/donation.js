@@ -9,6 +9,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: true,
         },
+        receivingParentID: {
+            type: DataTypes.INTEGER,
+            allowNull: true,
+        },
         tag: {
             type: DataTypes.STRING,
             allowNull: true,

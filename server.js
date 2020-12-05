@@ -55,17 +55,32 @@ db.sequelize.sync().then(() => {
         },
     });
 
+    db.loggedOnUsers = [];
     io.on('connection', (socket) => {
-        console.log('a user connected', socket.id);
+        if (socket.handshake.headers['x-current-user']) {
+            db.loggedOnUsers[socket.handshake.headers['x-current-user']] =
+                socket.id;
+        }
+
+        console.log('a user connected', {
+            socket: socket.id,
+            userId: socket.handshake.headers['x-current-user'],
+        });
+        console.log({ users: db.loggedOnUsers });
 
         // Send user id from client -> Current logged on members table
 
         socket.on('disconnect', () => {
             console.log('user disconnected', socket.id);
+            db.loggedOnUsers[socket.handshake.headers['x-current-user']] = null;
+            console.log({ users: db.loggedOnUsers });
+        });
+
+        socket.on('package', (data) => {
+            io.to(db.loggedOnUsers[data.to]).emit('package', data);
         });
 
         socket.on('typing', (data) => {
-            console.log(data);
             socket.broadcast.emit('typing', data);
         });
 

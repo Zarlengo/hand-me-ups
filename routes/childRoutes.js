@@ -73,6 +73,7 @@ module.exports = (db) => {
                             age,
                             id: child.id,
                             tags,
+                            ParentId: child.ParentId,
                         };
                     })
                 );

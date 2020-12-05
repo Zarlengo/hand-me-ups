@@ -28,6 +28,7 @@ function Navbar() {
                     <li className="nav-spacer">|</li>
                     <li className="nav-item">
                         <NavLink
+                            exact
                             to="/Members"
                             className="nav-link"
                             activeClassName="active"
@@ -38,7 +39,8 @@ function Navbar() {
                     <li className="nav-spacer">|</li>
                     <li className="nav-item">
                         <NavLink
-                            to="/Profile"
+                            exact
+                            to="/Members/Profile"
                             className="nav-link"
                             activeClassName="active"
                         >

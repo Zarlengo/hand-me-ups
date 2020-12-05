@@ -12,7 +12,7 @@ const Tags = ({ tag, className }) => {
 };
 
 Tags.propTypes = {
-    tag: PropTypes.object,
+    tag: PropTypes.array,
     className: PropTypes.string,
 };
 
