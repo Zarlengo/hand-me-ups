@@ -78,7 +78,7 @@ export default {
 
     editUser: function (userData) {
         return axios({
-            url: `/api/profile/${userData.id}`,
+            url: `./api/profile/${userData.id}`,
             data: userData,
             method: 'PUT',
             baseURL: '/',
@@ -88,7 +88,7 @@ export default {
 
     addChild: function (userData) {
         return axios({
-            url: '/api/child/addChild',
+            url: './api/child/addChild',
             data: userData,
             method: 'POST',
             baseURL: '/',
@@ -98,7 +98,7 @@ export default {
 
     getChildren: function () {
         return axios({
-            url: 'api/child/children',
+            url: './api/child/children',
             method: 'GET',
             baseURL: '/',
             headers: headers(),
@@ -112,7 +112,7 @@ export default {
 
     addDonation: function (userData) {
         return axios({
-            url: 'api/donation/create',
+            url: './api/donation/create',
             data: userData,
             method: 'POST',
             baseURL: '/',
@@ -127,7 +127,7 @@ export default {
 
     deleteChild: function (childId) {
         return axios({
-            url: `api/child/deleteChild/${childId}`,
+            url: `./api/child/deleteChild/${childId}`,
             method: 'DELETE',
             baseURL: '/',
             headers: headers(),
@@ -136,7 +136,7 @@ export default {
 
     editChild: function (userData) {
         return axios({
-            url: `api/child/editChild/${userData.id}`,
+            url: `./api/child/editChild/${userData.id}`,
             data: userData,
             method: 'PUT',
             baseURL: '/',

@@ -2,44 +2,24 @@ module.exports = (db) => {
     const router = require('express').Router();
     const isAuthenticated = require('../config/middleware/isAuthenticated')(db);
 
-    router.post('/addChild/:id', isAuthenticated, (req, res) => {
-        db.User.findByPk(req.params.id).then((response) => {
-            const answer = cryptographic(
-                req.headers['x-access-token'],
-                response.accessToken
-            );
-            if (!answer) {
-                res.status(401).json({ message: 'invalid credentials' });
-            } else {
-                db.Child.create(req.body)
-                    .then((response) => {
-                        res.json(response);
-                    })
-                    .catch((err) => {
-                        res.status(400).json(err);
-                    });
-            }
-        });
+    router.post('/addChild', isAuthenticated, (req, res) => {
+        db.Child.create(req.body)
+            .then((response) => {
+                res.json(response);
+            })
+            .catch((err) => {
+                res.status(400).json(err);
+            });
     });
-    router.delete('/deleteChild/:id', isAuthenticated, (req, res) => {
-        db.User.findByPk(req.params.id).then((response) => {
-            const answer = cryptographic(
-                req.headers['x-access-token'],
-                response.accessToken
-            );
 
-            if (!answer) {
-                res.status(401).json({ message: 'invalid credentials' });
-            } else {
-                db.Child.destroy({ where: { id: req.body.childId } })
-                    .then((response) => {
-                        res.json(response);
-                    })
-                    .catch((err) => {
-                        res.status(400).json(err);
-                    });
-            }
-        });
+    router.delete('/deleteChild/:id', isAuthenticated, (req, res) => {
+        db.Child.destroy({ where: { id: req.body.childId } })
+            .then((response) => {
+                res.json(response);
+            })
+            .catch((err) => {
+                res.status(400).json(err);
+            });
     });
 
     router.put('/editChild/:id', isAuthenticated, (req, res) => {
