@@ -18,7 +18,7 @@ const Members = () => {
             <div className="flexRow flexAround">
                 <Charts />
                 <div className="donateBtn">
-                    <Link to="/Members/Donations">
+                    <Link to="/Members/Donations" className="donateLink">
                         I&apos;m ready to DONATE!
                     </Link>
                 </div>
