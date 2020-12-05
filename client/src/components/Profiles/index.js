@@ -68,12 +68,12 @@ function Profiles() {
     };
 
     if (redirect) {
-        return <Redirect to="/AddChild" />;
+        return <Redirect to="/Members/AddChild" />;
     }
 
     if (refresh) {
         setRefresh(false);
-        return <Redirect to="/Profile" />;
+        return <Redirect to="/Members/Profile" />;
     }
 
     return (
