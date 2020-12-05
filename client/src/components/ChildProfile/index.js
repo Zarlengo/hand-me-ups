@@ -132,7 +132,7 @@ function ChildProfile(child) {
     }, []);
 
     if (redirect) {
-        return <Redirect to="/Profile" />;
+        return <Redirect to="/Members/Profile" />;
     }
     return (
         <div className="childProfile">
