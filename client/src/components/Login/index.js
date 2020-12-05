@@ -15,13 +15,13 @@ function Login() {
         API.login(userName, password)
             .then((result) => {
                 if (result.status === 200) {
-                    setLoggedIn(true);
                     if (rememberMe) {
                         localStorage.setItem(
                             'rememberID',
                             JSON.stringify(userName)
                         );
                     }
+                    setLoggedIn(true);
                 } else {
                     setIsError(true);
                 }
@@ -49,7 +49,8 @@ function Login() {
     }, []);
 
     if (isLoggedIn) {
-        return <Redirect to="/Members" />;
+        window.location.reload();
+        return <Redirect to="/" />;
     }
 
     return (

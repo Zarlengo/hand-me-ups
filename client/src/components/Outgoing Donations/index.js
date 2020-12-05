@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import Modal from 'react-modal';
 import DonationDemographics from '../DonationDemographics';
+import GlobalContext from '../../utils/GlobalContext';
 import './style.css';
 import ChooseBtn from '../chooseBtn';
 import API from '../../utils/API';
@@ -10,38 +12,44 @@ export const Outgoing = () => {
     const [results, setResults] = useState([]);
     const [chosenState, setChosenState] = useState(false);
     const [shippingLabel, setShippingLabel] = useState(false);
+    const { socket } = useContext(GlobalContext);
 
-    function changeChosen(receivingChildID) {
+    function changeChosen(receivingChildID, receivingParentID) {
         if (chosenState === false) {
             setChosenState(true);
         }
-        const userData = { receivingChildID, sendingParentID: currentUser.id };
-        API.addDonation(userData)
-            .then((response) => {
-                return response.data;
-            })
-            .then(() => {
-                setShippingLabel(true);
+        const userData = {
+            receivingChildID,
+            receivingParentID,
+            sendingParentID: currentUser.id,
+        };
+        API.addDonation(userData).then(() => {
+            setShippingLabel(true);
+            socket.emit('package', {
+                author: currentUser.firstName,
+                to: receivingParentID,
             });
+        });
     }
-    const toggleModal = (event) => {
+
+    const closeModal = (event) => {
         event.preventDefault();
         event.stopPropagation();
-        setShippingLabel(!shippingLabel);
+        window.location.reload();
     };
-    useEffect(() => {
-        if (shippingLabel === true) {
-            const confirm = window.confirm('Press ok to print');
-            if (confirm) {
-                window.print();
-            } else {
-                window.location.reload();
-            }
-        }
-    }, [shippingLabel]);
+
+    const customStyles = {
+        content: {
+            top: '200px',
+            left: 'auto',
+            right: 'auto',
+            bottom: 'auto',
+        },
+    };
 
     const currentUser = API.getCurrentUser();
     useEffect(() => {
+        Modal.setAppElement('body');
         API.getChildren().then((data) => {
             setLoading(false);
             setResults(data);
@@ -57,21 +65,30 @@ export const Outgoing = () => {
                     <DonationDemographics child={childObject} />
                     <ChooseBtn
                         childID={childObject.id}
+                        ParentId={childObject.ParentId}
                         changeChosen={changeChosen}
                     />
                 </div>
             ))}
             {shippingLabel ? (
-                <ShippingLabel
-                    parentFName={currentUser.firstName}
-                    parentLName={currentUser.lastName}
-                    parentAddy1={currentUser.address1}
-                    parentCity={currentUser.city}
-                    parentState={currentUser.state}
-                    parentZip={currentUser.zipCode}
-                    parentID={currentUser.id}
-                    toggleModal={toggleModal}
-                />
+                <Modal
+                    style={customStyles}
+                    isOpen={shippingLabel}
+                    onRequestClose={closeModal}
+                    contentLabel="Filter"
+                    id="filterModal"
+                >
+                    <ShippingLabel
+                        parentFName={currentUser.firstName}
+                        parentLName={currentUser.lastName}
+                        parentAddy1={currentUser.address1}
+                        parentCity={currentUser.city}
+                        parentState={currentUser.state}
+                        parentZip={currentUser.zipCode}
+                        parentID={currentUser.id}
+                        closeModal={closeModal}
+                    />
+                </Modal>
             ) : (
                 <> </>
             )}

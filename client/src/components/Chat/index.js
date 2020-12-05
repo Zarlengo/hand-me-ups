@@ -1,17 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import './style.css';
 import API from '../../utils/API';
+import GlobalContext from '../../utils/GlobalContext';
 import MessageLine from '../MessageLine';
-
-const io = require('socket.io-client');
-const socket = io({
-    withCredentials: true,
-    extraHeaders: {
-        'hand-me-ups': 'header-content',
-    },
-});
 
 function Chat() {
     const [message, setMessage] = useState('');
@@ -21,6 +14,8 @@ function Chat() {
     const [output, setOutput] = useState([]);
     const currentUser = API.getCurrentUser({});
     const [notificationCount, setNotificationCount] = useState(0);
+
+    const { socket } = useContext(GlobalContext);
 
     const handleMessage = (event) => {
         setMessage(event.target.value);

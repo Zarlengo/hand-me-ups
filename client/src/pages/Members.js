@@ -14,7 +14,7 @@ const members = () => {
                 <h1>Members Page</h1>
                 <p>Welcome {currentUser.firstName}</p>
                 <Charts />
-                <Link className="donateBtn" to="/Donations">
+                <Link className="donateBtn" to="/Members/Donations">
                     I&apos;m ready to DONATE!
                 </Link>
                 <GoogleMaps />

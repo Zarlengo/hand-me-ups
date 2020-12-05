@@ -6,6 +6,7 @@ export default {
         return axios({
             url: './api/charts',
             method: 'GET',
+            baseURL: '/',
             headers: headers(),
         }).then((response) => {
             if (response.status === 200) {
@@ -19,6 +20,7 @@ export default {
         return axios({
             url: `./api/profile/${id}`,
             method: 'GET',
+            baseURL: '/',
             headers: headers(),
         }).then((response) => {
             if (response.status === 200) {
@@ -29,17 +31,20 @@ export default {
     },
 
     login: (email, password) => {
-        return axios
-            .post('./api/auth/login', {
+        return axios({
+            url: './api/auth/login',
+            method: 'POST',
+            baseURL: '/',
+            data: {
                 email,
                 password,
-            })
-            .then((response) => {
-                if (response.data.accessToken) {
-                    localStorage.setItem('user', JSON.stringify(response.data));
-                }
-                return response;
-            });
+            },
+        }).then((response) => {
+            if (response.data.accessToken) {
+                localStorage.setItem('user', JSON.stringify(response.data));
+            }
+            return response;
+        });
     },
 
     logout: () => {
@@ -49,14 +54,20 @@ export default {
     getCurrentUser: () => JSON.parse(localStorage.getItem('user')),
 
     signup: (userData) => {
-        return axios.post('./api/auth/signup', userData);
+        return axios({
+            url: './api/auth/signup',
+            method: 'POST',
+            baseURL: '/',
+            data: userData,
+        });
     },
 
     editUser: function (userData) {
         return axios({
             url: `/api/profile/${userData.id}`,
-            userData,
+            data: userData,
             method: 'PUT',
+            baseURL: '/',
             headers: headers(),
         });
     },
@@ -66,6 +77,7 @@ export default {
             url: '/api/child/addChild',
             data: userData,
             method: 'POST',
+            baseURL: '/',
             headers: headers(),
         });
     },
@@ -74,6 +86,7 @@ export default {
         return axios({
             url: 'api/child/children',
             method: 'GET',
+            baseURL: '/',
             headers: headers(),
         }).then((response) => {
             if (response.status === 200) {
@@ -88,6 +101,7 @@ export default {
             url: 'api/donation/create',
             data: userData,
             method: 'POST',
+            baseURL: '/',
             headers: headers(),
         }).then((response) => {
             if (response.status === 200) {
@@ -101,6 +115,7 @@ export default {
         return axios({
             url: `api/child/deleteChild/${childId}`,
             method: 'DELETE',
+            baseURL: '/',
             headers: headers(),
         });
     },
@@ -110,14 +125,16 @@ export default {
             url: `api/child/editChild/${userData.id}`,
             data: userData,
             method: 'PUT',
+            baseURL: '/',
             headers: headers(),
         });
     },
 
     getTags: function () {
         return axios({
-            url: 'api/tags',
+            url: './api/tags',
             method: 'GET',
+            baseURL: '/',
             headers: headers(),
         }).then((response) => {
             if (response.status === 200) {
@@ -140,6 +157,21 @@ export default {
         return axios({
             url: './api/google/locations',
             method: 'GET',
+            baseURL: '/',
+            headers: headers(),
+        }).then((response) => {
+            if (response.status === 200) {
+                return response.data;
+            }
+            return response;
+        });
+    },
+
+    getShipments: function () {
+        return axios({
+            url: './api/donation/shipment',
+            method: 'GET',
+            baseURL: '/',
             headers: headers(),
         }).then((response) => {
             if (response.status === 200) {

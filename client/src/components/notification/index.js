@@ -1,28 +1,14 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import GlobalContext from '../../utils/GlobalContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMailBulk } from '@fortawesome/free-solid-svg-icons';
+import API from '../../utils/API';
 
 import './style.css';
 
-const io = require('socket.io-client');
-const socket = io({
-    withCredentials: true,
-    extraHeaders: {
-        'hand-me-ups-header': 'header-content',
-    },
-});
-
 function Notification() {
-    const { shipNotifications, setShipNotifications } = useContext(
-        GlobalContext
-    );
-
-    useEffect(() => {
-        socket.on('package', () => {
-            setShipNotifications(shipNotifications + 1);
-        });
-    });
+    const [shipNotifications, setShipNotifications] = useState(0);
+    const { socket } = useContext(GlobalContext);
 
     useEffect(() => {
         document.title = `${shipNotifications} new package coming`;
@@ -32,6 +18,18 @@ function Notification() {
         event.preventDefault();
         setShipNotifications(0);
     };
+
+    useEffect(() => {
+        API.getShipments().then((response) => {
+            setShipNotifications(response.length);
+        });
+    }, []);
+
+    useEffect(() => {
+        socket.on('package', () => {
+            setShipNotifications(shipNotifications + 1);
+        });
+    });
 
     return (
         <React.Fragment>
@@ -49,12 +47,5 @@ function Notification() {
         </React.Fragment>
     );
 }
-
-export const handleNewMessage = (method, book) => {
-    socket.emit('package', {
-        method,
-        book,
-    });
-};
 
 export default Notification;
