@@ -5,6 +5,11 @@
     bottom: 0;
     text-align: center;
     padding: 0 1rem;
+    z-index: 10;
+}
+
+.chat-section > * {
+    z-index: inherit;
 }
 
 .chat-btn{
@@ -32,6 +37,7 @@
 }
 
 .chat-popup{
+    z-index:10;
     position: fixed;
     bottom:80px;
     right:120px;
