@@ -24,7 +24,9 @@ const members = () => {
                 </div>
                 <Charts />
                 <div className="donateBtn">
-                    <Link to="/Members/Donations">I&apos;m ready to DONATE!</Link>
+                    <Link to="/Members/Donations">
+                        I&apos;m ready to DONATE!
+                    </Link>
                 </div>
                 <div className="seeWhere">
                     <p>See where other Hand-Me-Ups members are from</p>
