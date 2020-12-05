@@ -40,7 +40,7 @@ function ChildProfile(child) {
 
     const deleteChild = (event) => {
         event.preventDefault();
-        API.deleteChild(child.ParentId, child.childId).then((response) => {
+        API.deleteChild(child.childId).then((response) => {
             if (response.status === 200) {
                 const childArray = currentUser.children;
                 currentUser.children = childArray.filter((childObject) => {

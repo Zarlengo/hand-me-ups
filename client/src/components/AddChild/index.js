@@ -75,7 +75,7 @@ function AddChild() {
     }, []);
 
     if (redirect) {
-        return <Redirect to="/Profile" />;
+        return <Redirect to="/Members/Profile" />;
     }
 
     return (

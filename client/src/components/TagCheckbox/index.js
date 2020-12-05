@@ -10,9 +10,9 @@ function TagCheckbox({ tag, id, onClick }) {
             <input
                 type="checkbox"
                 className="tagInput"
-                value={isChecked}
+                checked={isChecked}
                 onChange={(event) => {
-                    setisChecked(event.target.value);
+                    setisChecked(event.target.checked);
                     onClick(event, id);
                 }}
             />
