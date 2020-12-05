@@ -3,7 +3,7 @@ import AddChild from '../components/AddChild';
 
 function addChild() {
     return (
-        <div className="loggedInDiv">
+        <div className="loggedInDiv addCh">
             <AddChild />
         </div>
     );
