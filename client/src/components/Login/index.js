@@ -5,7 +5,7 @@ import './style.css';
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
 function Login() {
     const [isLoggedIn, setLoggedIn] = useState(false);
-    const [isError, setIsError] = useState(false);
+    const [isError, setIsError] = useState(false); 
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [rememberMe, setRememberMe] = useState(false);
@@ -108,12 +108,6 @@ function Login() {
                 </button>
             </div>
             <br></br>
-            <div className="login-row">
-                <Link className="forgot" to="/forgot">
-                    Forgot password?&nbsp;
-                    <i className="fas fa-angle-right" aria-hidden="true"></i>
-                </Link>
-            </div>
             <div className="login-row">
                 <Link className="forgot" to="/signup">
                     Not a member? Sign up now.&nbsp;
