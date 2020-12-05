@@ -262,3 +262,10 @@ background: radial-gradient(circle, rgba(131,58,180,1) 0%, rgba(29,199,253,1) 50
     background-image: cover;
  
 }
+
+.addCh {
+  height: 100%;
+    background: rgb(150,108,179);
+    background-image: linear-gradient(0deg, rgba(150,108,179,1) 0%, rgba(127,217,246,1) 50%, rgba(156,255,207,1) 100%);
+    background-image: cover;
+}
