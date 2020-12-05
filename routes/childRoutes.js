@@ -13,7 +13,7 @@ module.exports = (db) => {
     });
 
     router.delete('/deleteChild/:id', isAuthenticated, (req, res) => {
-        db.Child.destroy({ where: { id: req.body.childId } })
+        db.Child.destroy({ where: { id: req.params.id } })
             .then((response) => {
                 res.json(response);
             })

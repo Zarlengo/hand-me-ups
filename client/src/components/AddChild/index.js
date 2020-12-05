@@ -60,7 +60,6 @@ function AddChild() {
     };
 
     const handleTagClick = (event, id) => {
-        event.preventDefault();
         setTags([...tags, id]);
     };
 
