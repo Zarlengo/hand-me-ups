@@ -15,9 +15,10 @@ if (env === 'production') {
 const sequelize = new Sequelize(
     config,
     {
-        ssl = true,
-        dialectOptions = {
-            ssl: true,
+        dialectOptions: {
+            ssl: {
+                rejectUnauthorized: false
+            }
         },
     },
 );
