@@ -12,7 +12,15 @@ if (env === 'production') {
     config = require('../config/config.json')[env];
 }
 
-const sequelize = new Sequelize(config);
+const sequelize = new Sequelize(
+    config,
+    {
+        ssl = true,
+        dialectOptions = {
+            ssl: true,
+        },
+    },
+);
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
